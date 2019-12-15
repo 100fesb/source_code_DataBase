@@ -1,0 +1,9 @@
+//int BrisiPredmet();
+//int BrisiSvePredmete();
+//int PromjeniImePredmeta();
+//int DodajPredmet();
+//int DodajProfesoraPredmetu();
+StabloP CitaPredmeteIzFile(PozicijaPredmet_P);
+int IspisiSvePredmete(PozicijaPredmet_P);
+//int IspisiTrazeniPredmet();
+int StvoriNovoStablo();
