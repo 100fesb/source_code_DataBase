@@ -9,6 +9,7 @@
 #include "Profesori.h"
 #include "Predmeti.h"
 #include "Ocjene.h"
+#include "Constants.h"
 
 #include "Studenti.c"
 #include "Profesori.c"
@@ -17,44 +18,47 @@
 
 int main()
 {
+	PozicijaS root = NULL;
 
-	int Odabir=0;
+	//int Odabir=0;
 
-	printf("\n\n\t\t\tDOBRODOSLI U BAZU PODATAKA TIMA 100 POSTO");
-	printf("\n\n\t\t\tUnesite svoj izbor:");
-	//Izbornik();
+	//printf("\n\n\t\t\tDOBRODOSLI U BAZU PODATAKA TIMA 100 POSTO");
+	//printf("\n\n\t\t\tUnesite svoj izbor:");
+	////Izbornik();
 
-	scanf("%d",&Odabir);
+	//scanf("%d",&Odabir);
 
-	if(Odabir != 100)		//100 moze biti broj za izlaz iz izbornika
-	{
+	//if(Odabir != 100)		//100 moze biti broj za izlaz iz izbornika
+	//{
 
-		switch(Odabir)
-		{  
+	//	switch(Odabir)
+	//	{  
 
-			case 1:
-				IspisiSvePredmete(PozicijaPredmet_P->Next);
-				break;
-			case 2:
-				//ime funkcije
-				break;
-			case 3:
-				//ime funkcije
-				break;
-			case 4:
-				//ime funkcije
-				break;
-			case 5:
-				//ime funkcije
-				break;
+	//		case 1:
+	//			IspisiSvePredmete(PozicijaPredmet_P->Next);
+	//			break;
+	//		case 2:
+	//			//ime funkcije
+	//			break;
+	//		case 3:
+	//			//ime funkcije
+	//			break;
+	//		case 4:
+	//			//ime funkcije
+	//			break;
+	//		case 5:
+	//			//ime funkcije
+	//			break;
 
-		}
-	}
-	else printf("\n\n\t\t\tUGODAN DAN ZELI TIM 100 POSTO\n");
+	//	}
+	//}
+	//else printf("\n\n\t\t\tUGODAN DAN ZELI TIM 100 POSTO\n");
 
-	printf("\n\n\n\n\n");
+	//printf("\n\n\n\n\n");
+
+	generateAVL_S(root);
+
 	system("pause");
-
 	return 0;
 }
 

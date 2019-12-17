@@ -10,3 +10,7 @@
 //int DodajPredmetStudentu();
 //int IspisiTrazenogStudenta();
 //int IspisiSveStudente();
+
+// AVL stablo za studenta - vraca pokazivac na prvi element (root), prima root (do upsisa ce bit NULL) 
+PozicijaS generateAVL_S(PozicijaS);
+PozicijaS findById(int id);

@@ -67,6 +67,7 @@
     <ClCompile Include="Studenti.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="Ocjene.h" />
     <ClInclude Include="Predmeti.h" />
     <ClInclude Include="Profesori.h" />
