@@ -32,3 +32,6 @@ struct cvorAVLStudenti{	//1
 };
 
 PozicijaAVL nadiPoID(int, PozicijaAVL);
+int ispisStudenta(PozicijaAVL);
+int ispisSvihStudenata(PozicijaAVL);
+FILE* ispisZaglavljaStudenti()

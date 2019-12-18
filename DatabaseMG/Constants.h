@@ -7,3 +7,4 @@
 #define MAX_PROFESORA 999
 
 #define ERROR -1
+#define SUCCESS 0

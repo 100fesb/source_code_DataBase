@@ -3,9 +3,6 @@
 #include "Studenti.h"
 
 
-
-
-
 PozicijaAVL nadiPoID(int id, PozicijaAVL Root)
 {
 	if (!Root) return NULL;
@@ -14,6 +11,48 @@ PozicijaAVL nadiPoID(int id, PozicijaAVL Root)
 	else if (id < Root->ID) nadiPoID(id, Root->L);
 	else return Root;
 }
+
+int ispisStudenta(PozicijaAVL S)
+{
+	if (!S)
+	{
+		printf("Nismo nasli studenta!");
+		return ERROR;
+	}
+	printf("Nadjeni student: %d %s", S->ID, S->PrezimeIme);
+	return SUCCESS;
+}
+
+FILE* ispisZaglavljaStudenti()
+{
+	int brRedaka = 2;
+	FILE* fp = NULL;
+	char red[BUFFER_LENGTH];
+	fp = OtvoriDatoteku();
+
+	while (fgets(red, BUFFER_LENGTH, fp) != NULL && brRedaka != 0)
+	{
+		//fscanf(fp, "%[^\n]", red);
+		printf("%s", red);
+		brRedaka--;
+	}
+	return fp;
+}
+
+//int ispisSvihStudenata(PozicijaAVL Root)
+//{
+//	char red[BUFFER_LENGTH];
+//	FILE* fp = NULL;
+//	fp = ispisZaglavljaStudenti();
+//
+//	printf("Ispis nakon prve:\n");
+//
+//	while (fgets(red, BUFFER_LENGTH, fp) != NULL)
+//	{
+//		//fscanf(fp, "%[^\n]", red);
+//		printf("%s", red);
+//	}
+//}
 
 StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
 {
@@ -26,7 +65,8 @@ StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
 		strcpy(S->PrezimeIme, PI);
 		S->L = S->D = NULL;
 	}
-	else{
+	else
+	{
 		if (ID < S->ID){
 			S->L = DodajAVL(ID, PI, S->L);
 			n = Visina(S->L) - Visina(S->D);
@@ -35,10 +75,12 @@ StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
 				else S = DvostrukaRL(S);
 			}
 		}
-		else if (ID > S->ID){
+		else if (ID > S->ID)
+		{
 			S->D = DodajAVL(ID, PI, S->D);
 			n = Visina(S->D) - Visina(S->L);
-			if (n == 2){
+			if (n == 2)
+			{
 				if (ID > S->D->ID) S = JednostrukaRD(S);
 				else S = DvostrukaRD(S);
 			}

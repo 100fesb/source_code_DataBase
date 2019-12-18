@@ -12,11 +12,11 @@ FILE* OtvoriDatoteku()
 	memset(fileName, '\0', BUFFER_LENGTH);
 
 	/*
-	printf("\r\n\tEnter file name : ");
+	printf("\r\n\tUnesite ime datoteke : ");
 	scanf(" %s", fileName);
 	*/
 
-	strcpy(fileName, "testnaDatoteka"); // ZA TEST SAMO, ODKOMENTIRAT IZNAT U PRODUKCIJI
+	strcpy(fileName, "StudentiPotpunaTablica"); // ZA TEST SAMO, ODKOMENTIRAT IZNAT U PRODUKCIJI
 
 	if (strchr(fileName, '.') == NULL)
 		strcat(fileName, ".txt");
@@ -24,7 +24,7 @@ FILE* OtvoriDatoteku()
 	fp = fopen(fileName, "r");
 	if (fp == NULL)
 	{
-		printf("\r\n\tError!\r\n\t%s The file couldn't be opened.", fileName);
+		printf("\r\n\tError!\r\n\t%s Nije moguce citanje datoteke, molimo pokusajte ponovno.", fileName);
 		return NULL;
 	}
 
