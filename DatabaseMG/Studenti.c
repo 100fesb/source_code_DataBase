@@ -39,20 +39,20 @@ FILE* ispisZaglavljaStudenti()
 	return fp;
 }
 
-//int ispisSvihStudenata(PozicijaAVL Root)
-//{
-//	char red[BUFFER_LENGTH];
-//	FILE* fp = NULL;
-//	fp = ispisZaglavljaStudenti();
-//
-//	printf("Ispis nakon prve:\n");
-//
-//	while (fgets(red, BUFFER_LENGTH, fp) != NULL)
-//	{
-//		//fscanf(fp, "%[^\n]", red);
-//		printf("%s", red);
-//	}
-//}
+int ispisSvihStudenata(PozicijaAVL Root)
+{
+	char red[BUFFER_LENGTH];
+	FILE* fp = NULL;
+	fp = ispisZaglavljaStudenti();
+
+	printf("Ispis nakon prve:\n");
+
+	while (fgets(red, BUFFER_LENGTH, fp) != NULL)
+	{
+		//fscanf(fp, "%[^\n]", red);
+		printf("%s", red);
+	}
+}
 
 StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
 {

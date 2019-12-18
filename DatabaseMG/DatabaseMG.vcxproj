@@ -68,7 +68,6 @@
     <ClCompile Include="TEMP.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Assets.h" />
     <ClInclude Include="AVL.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Studenti.h" />

@@ -1,7 +1,7 @@
-﻿Build started 12/18/2019 9:19:43 PM.
+﻿Build started 12/18/2019 9:23:58 PM.
      1>Project "C:\Users\UserPC\Documents\Faks - 2. god\Strukture Podataka\Database - Seminarski Rad\source_code_DataBase\DatabaseMG\DatabaseMG.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt Main.c Studenti.c TEMP.c
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt Assets.c Main.c Studenti.c TEMP.c
          TEMP.c
      1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(37): error C2143: syntax error : missing '{' before '*'
      1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\temp.c(3): error C2085: '_print_t' : not in formal parameter list
@@ -85,9 +85,17 @@
          Main.c
      1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(13): error C2085: 'main' : not in formal parameter list
      1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(13): error C2143: syntax error : missing ';' before '{'
+         Assets.c
+     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\assets.c(12): warning C4013: 'memset' undefined; assuming extern returning int
+     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\assets.c(19): warning C4013: 'strcpy' undefined; assuming extern returning int
+     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\assets.c(21): warning C4013: 'strchr' undefined; assuming extern returning int
+     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\assets.c(21): warning C4047: '==' : 'int' differs in levels of indirection from 'void *'
+     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\assets.c(22): warning C4013: 'strcat' undefined; assuming extern returning int
+     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\assets.c(24): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
          Generating Code...
      1>Done Building Project "C:\Users\UserPC\Documents\Faks - 2. god\Strukture Podataka\Database - Seminarski Rad\source_code_DataBase\DatabaseMG\DatabaseMG.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.39
+Time Elapsed 00:00:00.26
