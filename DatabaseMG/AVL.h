@@ -1,4 +1,3 @@
-
 struct cvorStablaAVL;
 typedef struct cvorStablaAVL CvorAVL; 
 typedef struct cvorStablaAVL* StabloAVL; 
@@ -20,10 +19,7 @@ struct cvorStablaAVL{
 };
 
 
-int Max(int a, int b)
-{
-	return a > b ? a : b;
-}
+
 
 int Visina(StabloAVL S)
 {
@@ -43,6 +39,8 @@ int Visina(StabloAVL S)
 		return Max(Visina(S->L), Visina(S->D)) + 1;
 	}
 }
+
+/*
 
 StabloAVL DodajAVL(int ID, StabloAVL S)
 {
@@ -76,6 +74,9 @@ StabloAVL DodajAVL(int ID, StabloAVL S)
 	S->visina = Max(Visina(S->L), Visina(S->D))+1;
 	return S;
 }
+
+
+*/
 
 PozicijaAVL JednostrukaRL(PozicijaAVL K2)
 {

@@ -5,25 +5,39 @@
 #include <math.h>
 #include <time.h>
 
-#include "AVL.h"
-#include "Studenti.h"
-#include "Profesori.h"
-#include "Predmeti.h"
-#include "Ocjene.h"
 #include "Constants.h"
-#include "TEMP.h"
+#include "Studenti.h"
 
 
 int main()
 {
-	PozicijaS rootS = NULL;
-	PozicijaAVL rootAVL = NULL;
+	StabloAVL rootS = NULL, nadjeni = NULL;
 
-	
+	int res, id;
 
-	rootAVL = generirajAVL_Student(rootS);
+	/*rootS = (PozicijaS)malloc(sizeof(struct Studenti));
+	rootS->Next = NULL;
+	*/
 
-	print_t(rootAVL);
+	rootS = generirajAVL_Student(rootS);
+
+	print_t(rootS);
+
+
+	do{
+		printf("unesite ID za pretragu (0 za izlaz): ");
+		scanf(" %d", &id);
+
+		nadjeni = nadiPoID(id, rootS);
+
+		if (!nadjeni){
+			printf("Nismo nasli studenta!");
+			continue;
+		}
+		printf("Nadjeni student: %d %s", nadjeni->ID, nadjeni->PrezimeIme);
+	} while (id != 0);
+
+	printf("Res of strcmp: %d\n", strcmp("aaaa", "aaa"));
 
 	system("pause");
 	return 0;

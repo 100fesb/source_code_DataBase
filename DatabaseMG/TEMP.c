@@ -1,3 +1,5 @@
+#include "Studenti.h"
+
 int _print_t(StabloAVL tree, int is_left, int offset, int depth, char s[20][255]);
 void print_t(StabloAVL tree);
 

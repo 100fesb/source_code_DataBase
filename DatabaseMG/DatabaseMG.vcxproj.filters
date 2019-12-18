@@ -18,27 +18,24 @@
     <ClCompile Include="Main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Assets.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Studenti.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TEMP.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Studenti.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Predmeti.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Profesori.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ocjene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AVL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TEMP.h">
+    <ClInclude Include="Studenti.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
