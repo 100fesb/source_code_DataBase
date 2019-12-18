@@ -3,4 +3,4 @@ Maticni br.     Ime i prezime           Imena predmeta
 1047            Goran Trajanovic        4               4           5
 1045            Mario Marasovic         2               2           4
 1055            Luka Davidovic          3               4           2
-1055            Ivan Mrsic              2               4           5
+1025            Ivan Mrsic              2               4           5

@@ -3,7 +3,7 @@
 //int PromjeniImePredmeta();
 //int DodajPredmet();
 //int DodajProfesoraPredmetu();
-StabloP CitaPredmeteIzFile(PozicijaPredmet_P);
-int IspisiSvePredmete(PozicijaPredmet_P);
+//StabloP CitaPredmeteIzFile(PozicijaPredmet_P);
+//int IspisiSvePredmete(PozicijaPredmet_P);
 //int IspisiTrazeniPredmet();
-int StvoriNovoStablo();
+//int StvoriNovoStablo();

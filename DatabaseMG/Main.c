@@ -1,25 +1,36 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<ctype.h>
-#include<math.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
+#include <time.h>
 
+#include "AVL.h"
 #include "Studenti.h"
 #include "Profesori.h"
 #include "Predmeti.h"
 #include "Ocjene.h"
 #include "Constants.h"
+#include "TEMP.h"
 
-#include "Studenti.c"
-#include "Profesori.c"
-#include "Predmeti.c"
-#include "Ocjene.c"
 
 int main()
 {
-	PozicijaS root = NULL;
+	PozicijaS rootS = NULL;
+	PozicijaAVL rootAVL = NULL;
 
+	
+
+	rootAVL = generirajAVL_Student(rootS);
+
+	print_t(rootAVL);
+
+	system("pause");
+	return 0;
+}
+
+void Izbornik()
+{
 	//int Odabir=0;
 
 	//printf("\n\n\t\t\tDOBRODOSLI U BAZU PODATAKA TIMA 100 POSTO");
@@ -55,10 +66,4 @@ int main()
 	//else printf("\n\n\t\t\tUGODAN DAN ZELI TIM 100 POSTO\n");
 
 	//printf("\n\n\n\n\n");
-
-	generateAVL_S(root);
-
-	system("pause");
-	return 0;
 }
-
