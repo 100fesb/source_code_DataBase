@@ -31,4 +31,4 @@ struct cvorAVLStudenti{	//1
 	int visina;
 };
 
-// new line
+PozicijaAVL nadiPoID(int, PozicijaAVL);

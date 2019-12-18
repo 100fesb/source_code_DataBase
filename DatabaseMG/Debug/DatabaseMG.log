@@ -1,50 +1,14 @@
-<<<<<<< HEAD
-﻿Build started 12/18/2019 7:55:14 PM.
-=======
-﻿Build started 12/18/2019 7:12:27 PM.
->>>>>>> 657985a592cb5b98ca06daeab3fc6b3c62ceebf5
+﻿Build started 12/18/2019 8:15:34 PM.
      1>Project "C:\Users\UserPC\Documents\Faks - 2. god\Strukture Podataka\Database - Seminarski Rad\source_code_DataBase\DatabaseMG\DatabaseMG.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt Main.c
          Main.c
-<<<<<<< HEAD
      1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(22): warning C4013: 'generirajAVL_Student' undefined; assuming extern returning int
      1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(22): warning C4047: '=' : 'StabloAVL' differs in levels of indirection from 'int'
      1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(24): warning C4013: 'print_t' undefined; assuming extern returning int
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(29): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(28): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : see declaration of 'scanf'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(31): warning C4013: 'nadiPoID' undefined; assuming extern returning int
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(31): warning C4047: '=' : 'StabloAVL' differs in levels of indirection from 'int'
      1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(16): warning C4101: 'res' : unreferenced local variable
-=======
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\assets.h(15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\assets.h(18): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\assets.h(20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(40): warning C4047: '>' : 'int' differs in levels of indirection from 'StabloAVL'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(41): warning C4047: '<' : 'int' differs in levels of indirection from 'StabloAVL'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(52): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(86): warning C4047: 'initializing' : 'int' differs in levels of indirection from 'void *'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(90): warning C4047: 'return' : 'StabloAVL' differs in levels of indirection from 'int'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(99): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : see declaration of 'fscanf'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(102): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(103): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\temp.h(11): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\temp.h(65): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(33): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : see declaration of 'scanf'
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\main.c(22): warning C4101: 'res' : unreferenced local variable
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(42): warning C4715: 'nadiPoID' : not all control paths return a value
-     1>c:\users\userpc\documents\faks - 2. god\strukture podataka\database - seminarski rad\source_code_database\databasemg\studenti.h(121): warning C4716: 'findById' : must return a value
->>>>>>> 657985a592cb5b98ca06daeab3fc6b3c62ceebf5
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\UserPC\Documents\Faks - 2. god\Strukture Podataka\Database - Seminarski Rad\source_code_DataBase\Debug\DatabaseMG.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\UserPC\Documents\Faks - 2. god\Strukture Podataka\Database - Seminarski Rad\source_code_DataBase\Debug\DatabaseMG.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\UserPC\Documents\Faks - 2. god\Strukture Podataka\Database - Seminarski Rad\source_code_DataBase\Debug\DatabaseMG.lib" /MACHINE:X86 Debug\Assets.obj
          Debug\Main.obj
@@ -55,8 +19,4 @@
 
 Build succeeded.
 
-<<<<<<< HEAD
-Time Elapsed 00:00:00.43
-=======
-Time Elapsed 00:00:01.31
->>>>>>> 657985a592cb5b98ca06daeab3fc6b3c62ceebf5
+Time Elapsed 00:00:00.65

@@ -3,13 +3,16 @@
 #include "Studenti.h"
 
 
+
+
+
 PozicijaAVL nadiPoID(int id, PozicijaAVL Root)
 {
 	if (!Root) return NULL;
-	if (id == Root->ID) return Root;
 
-	if (id > Root->L) nadiPoID(id, Root->D);
-	else if (id < Root->L) nadiPoID(id, Root->L);
+	if (id > Root->ID) nadiPoID(id, Root->D);
+	else if (id < Root->ID) nadiPoID(id, Root->L);
+	else return Root;
 }
 
 StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
@@ -83,31 +86,6 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	// treba vratiti root
 	return P;
 }
-
-
-
-PozicijaAVL findById(int id)
-{
-
-}
-
-//int Izbornik()
-//{
-//	//ovjde cemo unijeti listu potrebnik izbora za nase potrebe
-//	printf("\n\n\t\t\t");
-//	printf("1-");
-//	printf("");
-//	printf("");
-//	printf("");
-//	printf("");
-//	printf("");
-//	printf("");
-//	printf("");
-//
-//	return 0;
-//
-//}
-
 
 int Visina(StabloAVL S)
 {
