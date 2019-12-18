@@ -1,7 +1,7 @@
-1098    GT
-5513    MM
-6666    MS
-1000    PP
-9872    CC
-8888    II
-2222    PP
+1098    Trajanovic Goran
+5513    Marasovic Mario
+6666    Skocic Marko
+1000    Puu Pii
+9872    Deee Ceee
+8888    Ivic Ivo
+2222    Puzanin Petra
