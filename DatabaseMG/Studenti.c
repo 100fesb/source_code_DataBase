@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "Constants.h"
 #include "Studenti.h"
 
 
@@ -45,13 +46,9 @@ int ispisSvihStudenata(PozicijaAVL Root)
 	FILE* fp = NULL;
 	fp = ispisZaglavljaStudenti();
 
-	printf("Ispis nakon prve:\n");
+	// ovde ide ispis iz AVL stabla - svi cvorovi
 
-	while (fgets(red, BUFFER_LENGTH, fp) != NULL)
-	{
-		//fscanf(fp, "%[^\n]", red);
-		printf("%s", red);
-	}
+	
 }
 
 StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
@@ -97,20 +94,46 @@ StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
 StabloAVL generirajAVL_Student(StabloAVL P)
 {
 	FILE* fp = NULL;
+	char red[BUFFER_LENGTH];
+	int i = 0;
 
-	//temp variable
 	int id = NULL;
 	char str1[NAME_LENGTH / 2];
 	char str2[NAME_LENGTH / 2];
 	char prezimeIme[NAME_LENGTH];
-	if (!str1 || !str2 || !prezimeIme) return ERROR;
+	char predmeti[BUFFER_LENGTH][NAME_LENGTH];
 
 	fp = OtvoriDatoteku();
 
 	if (!fp) return NULL;
 
+	//while (fgets(red, BUFFER_LENGTH, fp) != NULL
+
+	fgets(red, BUFFER_LENGTH, fp); // preskocimo prvi red zaglavlja)
+	
+
+	// citamo sve predmete kolko god ih ima
+	//fgets(red, BUFFER_LENGTH, fp); // drugi red, uzimamo imena predmeta
+	//while (sscanf(red, "%s", predmeti[i]) == 1)
+	//{
+	//	i++;
+	//}
+
+	for (int i = 0; strlen(predmeti[i])-1 != '\n'; i++)
+	{
+		fscanf(fp, " %s", predmeti[i]);
+
+		// brise broj (zadnji item)
+		if (predmeti[i][0] >= '0' && predmeti[i][0] <= '9')
+		{
+			*predmeti[i] = NULL;
+			break;
+		}
+	}
+
 	while (!feof(fp))
 	{
+
 
 		fscanf(fp, " %d %s %s", &id, str1, str2);
 		/*printf("ID: %d Name Acronim: %s\n", id, str);*/
@@ -120,6 +143,9 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 
 		P = DodajAVL(id, str1, P);
 
+		fprintf(fp, " A:%d B:%d C:%d");
+
+		fgets(red, BUFFER_LENGTH, fp); // testno, da procita do kraja reda
 	}
 
 

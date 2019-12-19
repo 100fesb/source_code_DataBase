@@ -16,7 +16,7 @@ FILE* OtvoriDatoteku()
 	scanf(" %s", fileName);
 	*/
 
-	strcpy(fileName, "StudentiPotpunaTablica"); // ZA TEST SAMO, ODKOMENTIRAT IZNAT U PRODUKCIJI
+	strcpy(fileName, "Predmeti"); // ZA TEST SAMO, ODKOMENTIRAT IZNAT U PRODUKCIJI
 
 	if (strchr(fileName, '.') == NULL)
 		strcat(fileName, ".txt");

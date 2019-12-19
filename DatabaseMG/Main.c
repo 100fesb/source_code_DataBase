@@ -7,20 +7,24 @@
 
 #include "Constants.h"
 #include "Studenti.h"
+#include "Predmeti.h"
 
 
 int main()
 {
 	StabloAVL rootS = NULL, nadjeni = NULL;
+	StabloAVLPre rootP = NULL;
 
 	int id;
 
 
 	//rootS = generirajAVL_Student(rootS);
 
-	//print_t(rootS);
+	rootP = generirajAVL_Predmeti(rootP);
 
-	ispisSvihStudenata(rootS);
+	print_t(rootS);
+
+	//ispisSvihStudenata(rootS);
 
 
 	system("pause");

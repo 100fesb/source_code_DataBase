@@ -7,4 +7,4 @@
 3051   Engleski jezik 1
 3052   Strukture podataka
 3053   Komunikacijske vještine
-3054  Elektrotehnika
+3054   Elektrotehnika

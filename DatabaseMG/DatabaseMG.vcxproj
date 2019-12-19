@@ -64,12 +64,14 @@
   <ItemGroup>
     <ClCompile Include="Assets.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="Predmeti.c" />
     <ClCompile Include="Studenti.c" />
     <ClCompile Include="TEMP.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AVL.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Predmeti.h" />
     <ClInclude Include="Studenti.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,3 @@
-//#include "Studenti.h"
 #include "Constants.h"
 
 
@@ -10,7 +9,7 @@ typedef struct cvorAVLStudenti* StabloAVL;
 typedef struct cvorAVLStudenti* PozicijaAVL;
 
 int Visina(StabloAVL);
-StabloAVL dodajAVL(int, StabloAVL);
+StabloAVL DodajAVL(int, StabloAVL);
 int Max(int, int);
 PozicijaAVL JednostrukaRL(PozicijaAVL);
 PozicijaAVL DvostrukaRL(PozicijaAVL);
@@ -31,7 +30,7 @@ struct cvorAVLStudenti{	//1
 	int visina;
 };
 
-PozicijaAVL nadiPoID(int, PozicijaAVL);
-int ispisStudenta(PozicijaAVL);
-int ispisSvihStudenata(PozicijaAVL);
-FILE* ispisZaglavljaStudenti()
+PozicijaAVL nadiPoID(int id, PozicijaAVL Root);
+int ispisStudenta(PozicijaAVL S);
+int ispisSvihStudenata(PozicijaAVL Root);
+//FILE* ispisZaglavljaStudenti(); // daje error ako je otkomentiran

@@ -27,6 +27,9 @@
     <ClCompile Include="TEMP.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Predmeti.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Studenti.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Predmeti.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
