@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "Constants.h"
 
 FILE* OtvoriDatoteku()
@@ -11,12 +12,12 @@ FILE* OtvoriDatoteku()
 	if (fileName == NULL) return NULL;
 	memset(fileName, '\0', BUFFER_LENGTH);
 
-	/*
+	
 	printf("\r\n\tUnesite ime datoteke : ");
 	scanf(" %s", fileName);
-	*/
+	
 
-	strcpy(fileName, "Predmeti"); // ZA TEST SAMO, ODKOMENTIRAT IZNAT U PRODUKCIJI
+	//strcpy(fileName, "StudentiPotpunaTablica"); // ZA TEST SAMO, ODKOMENTIRAT IZNAT U PRODUKCIJI
 
 	if (strchr(fileName, '.') == NULL)
 		strcat(fileName, ".txt");

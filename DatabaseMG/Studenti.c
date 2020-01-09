@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "Constants.h"
 #include "Studenti.h"
 
@@ -93,15 +94,21 @@ StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
 // funkcije za AVL stabla moraju biti napisane posebno za svako AVLS jer moramo znati koji root vracamo (mogli smo sredit koji primamo preko druge funkcije)
 StabloAVL generirajAVL_Student(StabloAVL P)
 {
+	PozicijaP NextPredmet = NULL;
 	FILE* fp = NULL;
+	char* buff = NULL;
 	char red[BUFFER_LENGTH];
 	int i = 0;
+	int readBytes = 0;
+	int tempOC = 0;
 
 	int id = NULL;
 	char str1[NAME_LENGTH / 2];
 	char str2[NAME_LENGTH / 2];
 	char prezimeIme[NAME_LENGTH];
 	char predmeti[BUFFER_LENGTH][NAME_LENGTH];
+	int brPredmeta = 0;
+	char* ocjene;
 
 	fp = OtvoriDatoteku();
 
@@ -111,6 +118,8 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 
 	fgets(red, BUFFER_LENGTH, fp); // preskocimo prvi red zaglavlja)
 	
+	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+	ocjene = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
 
 	// citamo sve predmete kolko god ih ima
 	//fgets(red, BUFFER_LENGTH, fp); // drugi red, uzimamo imena predmeta
@@ -119,6 +128,7 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	//	i++;
 	//}
 
+	/*
 	for (int i = 0; strlen(predmeti[i])-1 != '\n'; i++)
 	{
 		fscanf(fp, " %s", predmeti[i]);
@@ -129,23 +139,46 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 			*predmeti[i] = NULL;
 			break;
 		}
+		brPredmeta++;
+	}*/
+
+	fgets(buff, BUFFER_LENGTH, fp);
+
+	for (i = 0; sscanf(buff, " %s %n", predmeti[i], &readBytes) > 0; i++){
+		buff += readBytes;
+		brPredmeta++;
+		if (predmeti[i][strlen(predmeti[i])+1] == '\n') break;
 	}
 
 	while (!feof(fp))
 	{
 
-
-		fscanf(fp, " %d %s %s", &id, str1, str2);
+		fgets(buff, BUFFER_LENGTH, fp);
+		//fscanf(fp, " %d %s %s", &id, str1, str2);
 		/*printf("ID: %d Name Acronim: %s\n", id, str);*/
+		
+		sscanf(buff, "%d %s %s %[^\n]", &id, str1, str2, ocjene);
 
 		strcat(str1, " ");
 		strcat(str1, str2);
 
 		P = DodajAVL(id, str1, P);
 
-		fprintf(fp, " A:%d B:%d C:%d");
+		//NextPredmet = (PozicijaP)malloc(sizeof(struct Predmet));
+		P->NextP = NULL;
+		//NextPredmet->NextP = NULL;
+		for (i = 0; i < brPredmeta; i++)
+		{
+			//if (!NextPredmet->NextP) 
+			NextPredmet = (PozicijaP)malloc(sizeof(struct Predmet));
+			NextPredmet->ID = dohvatiIDPredmeta(predmeti[i]);
+			sscanf(ocjene, "%d %n", &tempOC, &readBytes);
+			ocjene += readBytes;
+			NextPredmet->OC = tempOC;
+			NextPredmet->NextP = P->NextP;
+			P->NextP = NextPredmet;
+		}
 
-		fgets(red, BUFFER_LENGTH, fp); // testno, da procita do kraja reda
 	}
 
 
@@ -153,6 +186,28 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 
 	// treba vratiti root
 	return P;
+}
+
+
+int dohvatiIDPredmeta(char* imeP)
+{
+	FILE* fp = NULL;
+	char* buff = NULL;
+	int id = 0;
+	char* imePredmeta = NULL;
+
+	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+	imePredmeta = (char*)malloc(sizeof(char)*NAME_LENGTH);
+
+	printf("Citamo predmete za dohvat ID-a. ");
+	fp = OtvoriDatoteku();
+
+	while (strcmp(imePredmeta, imeP)){
+		fgets(buff, BUFFER_LEN, fp);
+		sscanf(buff, "%d %[^\n]", &id, imePredmeta);
+	}
+
+	return id;
 }
 
 int Visina(StabloAVL S)

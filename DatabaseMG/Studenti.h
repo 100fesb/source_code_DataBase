@@ -17,6 +17,8 @@ PozicijaAVL JednostrukaRD(PozicijaAVL);
 PozicijaAVL DvostrukaRD(PozicijaAVL);
 
 
+typedef struct Predmet* PozicijaP;
+
 
 struct cvorAVLStudenti{	//1
 
@@ -25,12 +27,19 @@ struct cvorAVLStudenti{	//1
 	char PrezimeIme[NAME_LENGTH];
 	StabloAVL L; // lijevi student
 	StabloAVL D; // desni student
-	//PozicijaP NextP; // iduci predmet
+	PozicijaP NextP; // iduci predmet
 
 	int visina;
+};
+
+struct Predmet{
+	int ID;
+	int OC;
+	PozicijaP NextP;
 };
 
 PozicijaAVL nadiPoID(int id, PozicijaAVL Root);
 int ispisStudenta(PozicijaAVL S);
 int ispisSvihStudenata(PozicijaAVL Root);
+int dohvatiIDPredmeta(char* imeP);
 //FILE* ispisZaglavljaStudenti(); // daje error ako je otkomentiran

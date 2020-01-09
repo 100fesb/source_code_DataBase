@@ -75,10 +75,11 @@
     <ClInclude Include="Studenti.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Ocjene.txt" />
-    <None Include="..\Predmeti.txt" />
-    <None Include="..\Profesori.txt" />
-    <None Include="..\Studenti.txt" />
+    <Text Include="Predmeti.txt" />
+    <Text Include="Profesori.txt" />
+    <Text Include="Studenti.txt" />
+    <Text Include="StudentiPotpunaTablica.txt" />
+    <Text Include="testnaDatoteka.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

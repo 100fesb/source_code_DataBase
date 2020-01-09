@@ -46,17 +46,20 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Studenti.txt">
+    <Text Include="Predmeti.txt">
       <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Profesori.txt">
+    </Text>
+    <Text Include="Profesori.txt">
       <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Predmeti.txt">
+    </Text>
+    <Text Include="Studenti.txt">
       <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\Ocjene.txt">
+    </Text>
+    <Text Include="StudentiPotpunaTablica.txt">
       <Filter>Resource Files</Filter>
-    </None>
+    </Text>
+    <Text Include="testnaDatoteka.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

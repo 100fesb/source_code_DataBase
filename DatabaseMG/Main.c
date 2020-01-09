@@ -18,12 +18,13 @@ int main()
 	int id;
 
 
-	//rootS = generirajAVL_Student(rootS);
+	rootS = generirajAVL_Student(rootS);
 
-	rootP = generirajAVL_Predmeti(rootP);
+	//rootP = generirajAVL_Predmeti(rootP);
 
 	print_t(rootS);
 
+	/* ovde fali cijela implementacija funkcije ispisSvihStud */
 	//ispisSvihStudenata(rootS);
 
 

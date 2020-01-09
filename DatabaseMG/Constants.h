@@ -5,6 +5,7 @@
 #define MAX_STUDENATA 9999
 #define MAX_PREDMETA 999
 #define MAX_PROFESORA 999
+#define BUFFER_LEN 1024
 
 #define ERROR -1
 #define SUCCESS 0

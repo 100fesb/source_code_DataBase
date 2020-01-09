@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "Constants.h"
 #include "Predmeti.h"
 
@@ -58,10 +59,9 @@ StabloAVLPre generirajAVL_Predmeti(StabloAVLPre P)
 	int i = 0;
 
 	int id = NULL;
-	char str1[NAME_LENGTH / 2];
-	char str2[NAME_LENGTH / 2];
-	char prezimeIme[NAME_LENGTH];
-	char predmeti[BUFFER_LENGTH][NAME_LENGTH];
+	char imePredmeta[NAME_LENGTH];
+	char* buff = NULL;
+	buff = (char*)malloc(sizeof(char)* BUFFER_LEN);
 
 	fp = OtvoriDatoteku();
 
@@ -71,9 +71,10 @@ StabloAVLPre generirajAVL_Predmeti(StabloAVLPre P)
 	{
 
 
-		fscanf(fp, " %d %s", &id, str1);
+		fgets(buff, BUFFER_LEN, fp);
+		sscanf(buff, "%d %[^\n]", &id, imePredmeta);
 
-		P = DodajAVLPre(id, str1, P);
+		P = DodajAVLPre(id, imePredmeta, P);
 	}
 
 
