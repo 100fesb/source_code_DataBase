@@ -4,3 +4,7 @@ tako da na kraju svi pokazivaci nisu lijepo poslozeni
 --> kreirati AVL stablo za profesore
 
 --> povezati predmete i profesore
+
+--> za kraj svakako treba pocistit sve pokazivace 
+i prekontrolirat da nam samo AVL stabla stoje u memoriji, 
+a ostalo da je takodjer pobrisano

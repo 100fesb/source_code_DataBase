@@ -3,22 +3,25 @@
 #include <string.h>
 #include "Constants.h"
 
-FILE* OtvoriDatoteku()
+FILE* OtvoriDatoteku(char* fileName)
 {
-	char *fileName = NULL;
 	FILE *fp = NULL;
 
+	/*
 	fileName = (char*)malloc(sizeof(char)* BUFFER_LENGTH);
 	if (fileName == NULL) return NULL;
 	memset(fileName, '\0', BUFFER_LENGTH);
-
-	/*
-	printf("\r\n\tUnesite ime datoteke : ");
-	scanf(" %s", fileName);
 	*/
+
+	if (NULL == fileName){
+		printf("\r\n\tUnesite ime datoteke : ");
+		scanf(" %s", fileName);
+	}
+	
+	
 	
 
-	strcpy(fileName, "StudentiPotpunaTablica"); // ZA TEST SAMO, ODKOMENTIRAT IZNAT U PRODUKCIJI
+	//strcpy(fileName, "StudentiPotpunaTablica"); // ZA TEST SAMO, ODKOMENTIRAT IZNAT U PRODUKCIJI
 
 	if (strchr(fileName, '.') == NULL)
 		strcat(fileName, ".txt");
@@ -37,3 +40,4 @@ int Max(int a, int b)
 {
 	return a > b ? a : b;
 }
+

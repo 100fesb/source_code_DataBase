@@ -2,62 +2,59 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+
 #include "Constants.h"
 #include "Studenti.h"
+#include "Predmeti.h"
 
-
-
-
-PozicijaAVL nadiPoID(int id, PozicijaAVL Root)
+PozicijaAVL nadiPoID(int tempID, PozicijaAVL Root)
 {
 	if (!Root) return NULL;
 
-	if (id > Root->ID) nadiPoID(id, Root->D);
-	else if (id < Root->ID) nadiPoID(id, Root->L);
+	if (tempID > Root->ID) nadiPoID(tempID, Root->D);
+	else if (tempID < Root->ID) nadiPoID(tempID, Root->L);
 	else return Root;
 }
 
-int ispisStudenta(PozicijaAVL S)
+int ispisSvihOcjenaStudenta(PozicijaAVL RootS, PozicijaAVLPre RootPre)
 {
-	if (!S)
-	{
-		printf("Nismo nasli studenta!");
-		return ERROR;
+	StabloAVL NadjeniS = NULL;
+	PozicijaP Predmet = NULL;
+	PozicijaAVLPre NadjeniPre = NULL;
+	int ID = 0;
+
+	printf("Unesite ID trazenog studenta: ");
+	scanf(" %d", &ID);
+	NadjeniS = nadiPoID(ID, RootS);
+	Predmet = NadjeniS->NextP;
+
+	printf("Ocjene studenta/ice: \n\t---->%s<----", NadjeniS->PrezimeIme);
+
+	while (NULL != Predmet){
+		NadjeniPre = nadiPoIDPre(Predmet->ID, RootPre);
+		
+		if (Predmet->OC > 0){
+			printf("\n\t%s: %d", NadjeniPre->ImePre, Predmet->OC);
+		}
+		if (Predmet->OC == 0){
+			printf("\n\t%s: ", NadjeniPre->ImePre);
+			printf("Nije upisana ocjena.");
+		}
+
+		Predmet = Predmet->NextP;
 	}
-	printf("Nadjeni student: %d %s", S->ID, S->PrezimeIme);
+
 	return SUCCESS;
 }
 
-FILE* ispisZaglavljaStudenti()
+
+StabloAVL DodajAVL(int ID, char* PI, StabloAVL S, int IDeviPredmeta[BUFFER_LENGTH], char* ocjene, int brPredmeta)
 {
-	int brRedaka = 2;
-	FILE* fp = NULL;
-	char red[BUFFER_LENGTH];
-	fp = OtvoriDatoteku();
-
-	while (fgets(red, BUFFER_LENGTH, fp) != NULL && brRedaka != 0)
-	{
-		//fscanf(fp, "%[^\n]", red);
-		printf("%s", red);
-		brRedaka--;
-	}
-	return fp;
-}
-
-int ispisSvihStudenata(PozicijaAVL Root)
-{
-	char red[BUFFER_LENGTH];
-	FILE* fp = NULL;
-	fp = ispisZaglavljaStudenti();
-
-	// ovde ide ispis iz AVL stabla - svi cvorovi
-
-	
-}
-
-StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
-{
+	PozicijaP NextPredmet = NULL;
 	int n = 0;
+	int i = 0;
+	int readBytes = 0;
+	int tempOC = 0;
 	
 	if (NULL == S)
 	{
@@ -66,11 +63,24 @@ StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
 		S->visina = 0;
 		strcpy(S->PrezimeIme, PI);
 		S->L = S->D = NULL;
+
+		S->NextP = NULL;
+
+		for (i = 0; i < brPredmeta; i++)
+		{
+			NextPredmet = (PozicijaP)malloc(sizeof(struct Predmet));
+			NextPredmet->ID = IDeviPredmeta[i];
+			sscanf(ocjene, "%d %n", &tempOC, &readBytes);
+			ocjene += readBytes;
+			NextPredmet->OC = tempOC;
+			NextPredmet->NextP = S->NextP;
+			S->NextP = NextPredmet;
+		}
 	}
 	else
 	{
 		if (ID < S->ID){
-			S->L = DodajAVL(ID, PI, S->L);
+			S->L = DodajAVL(ID, PI, S->L, IDeviPredmeta, ocjene, brPredmeta);
 			n = Visina(S->L) - Visina(S->D);
 			if (n == 2){
 				if (ID < S->L->ID) S = JednostrukaRL(S);
@@ -79,7 +89,7 @@ StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
 		}
 		else if (ID > S->ID)
 		{
-			S->D = DodajAVL(ID, PI, S->D);
+			S->D = DodajAVL(ID, PI, S->D, IDeviPredmeta, ocjene, brPredmeta);
 			n = Visina(S->D) - Visina(S->L);
 			if (n == 2)
 			{
@@ -99,13 +109,11 @@ StabloAVL DodajAVL(int ID, char* PI, StabloAVL S)
 // funkcije za AVL stabla moraju biti napisane posebno za svako AVLS jer moramo znati koji root vracamo (mogli smo sredit koji primamo preko druge funkcije)
 StabloAVL generirajAVL_Student(StabloAVL P)
 {
-	PozicijaP NextPredmet = NULL;
 	FILE* fp = NULL;
 	char* buff = NULL;
 	char red[BUFFER_LENGTH];
 	int i = 0;
 	int readBytes = 0;
-	int tempOC = 0;
 
 	int id = NULL;
 	char str1[NAME_LENGTH / 2];
@@ -115,9 +123,8 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	int IDeviPredmeta[BUFFER_LENGTH];
 	int brPredmeta = 0;
 	char* ocjene;
-	bool firstTime = true;
 
-	fp = OtvoriDatoteku();
+	fp = OtvoriDatoteku("StudentiPotpunaTablica.txt");
 
 	if (!fp) return NULL;
 
@@ -133,51 +140,19 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	for (i = 0; sscanf(buff, " %d %s %n", &IDeviPredmeta[i], imenaPredmeta[i], &readBytes) > 0; i++){
 		buff += readBytes;
 		brPredmeta++;
-		//if (predmeti[i][strlen(predmeti[i])+1] == '\n') break;
 	}
 
 	while (!feof(fp))
 	{
-
 		fgets(buff, BUFFER_LENGTH, fp);
-		//fscanf(fp, " %d %s %s", &id, str1, str2);
-		/*printf("ID: %d Name Acronim: %s\n", id, str);*/
 		
 		sscanf(buff, "%d %s %s %[^\n]", &id, str1, str2, ocjene);
-
 		strcat(str1, " ");
 		strcat(str1, str2);
 
-		
-		
-		
-
-		//NextPredmet = (PozicijaP)malloc(sizeof(struct Predmet));
-		//NextPredmet->NextP = NULL;
-
-		P = DodajAVL(id, str1, P);
-		P->NextP = NULL;
-		
-		for (i = 0; i < brPredmeta; i++)
-		{
-			//if (!NextPredmet->NextP) 
-			NextPredmet = (PozicijaP)malloc(sizeof(struct Predmet));
-			NextPredmet->ID = IDeviPredmeta[i];
-			sscanf(ocjene, "%d %n", &tempOC, &readBytes);
-			ocjene += readBytes;
-			NextPredmet->OC = tempOC;
-			NextPredmet->NextP = P->NextP;
-			P->NextP = NextPredmet;
-		}
-		
-		
-
+		P = DodajAVL(id, str1, P, IDeviPredmeta, ocjene, brPredmeta);
 	}
-	
-
 	fclose(fp);
-
-	// treba vratiti root
 	return P;
 }
 

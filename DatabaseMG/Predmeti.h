@@ -1,7 +1,8 @@
 #include "Constants.h"
 
+#ifndef PREDMETI
+#define PREDMETI
 
-struct cvorAVLPredmeti;
 //deklarirali pokazivace
 //typedef struct cvorAVLPredmeti* PozicijaS;					//pokazivac na sljedeceg studenta
 typedef struct cvorAVLPredmeti CvorAVLPre;
@@ -30,7 +31,7 @@ struct cvorAVLPredmeti{	//1
 	int visina;
 };
 
-PozicijaAVLPre nadiPoIDPre(int id, PozicijaAVLPre Root);
-StabloAVLPre generirajAVL_Predmeti(StabloAVLPre P);
-//int ispisStudenta(PozicijaAVLPre S);
-//int ispisSvihStudenata(PozicijaAVLPre Root);
+PozicijaAVLPre nadiPoIDPre(int tempID, PozicijaAVLPre Root);
+
+
+#endif

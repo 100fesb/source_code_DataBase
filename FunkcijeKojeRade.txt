@@ -1,0 +1,7 @@
+Osim funkcija povezanih sa AVL stablima - generiranje i dodavanje;
+U ovoj datoteci pisemo sve ostale funkcije koje rade, a treba dodati u izbornik (u main-u)
+
+Studenti:
+--> nadiPoID
+--> nadiPoIDPre
+--> ispisSvihOcjenaStudenta

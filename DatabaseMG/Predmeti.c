@@ -1,16 +1,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
 #include "Constants.h"
 #include "Predmeti.h"
 
 
-PozicijaAVLPre nadiPoIDPre(int id, PozicijaAVLPre Root)
+PozicijaAVLPre nadiPoIDPre(int tempID, PozicijaAVLPre Root)
 {
 	if (!Root) return NULL;
 
-	if (id > Root->ID) nadiPoID(id, Root->D);
-	else if (id < Root->ID) nadiPoID(id, Root->L);
+	if (tempID > Root->ID) nadiPoIDPre(tempID, Root->D);
+	else if (tempID < Root->ID) nadiPoIDPre(tempID, Root->L);
 	else return Root;
 }
 
@@ -38,7 +39,7 @@ StabloAVLPre DodajAVLPre(int ID, char* PI, StabloAVLPre S)
 		}
 		else if (ID > S->ID)
 		{
-			S->D = DodajAVL(ID, PI, S->D);
+			S->D = DodajAVLPre(ID, PI, S->D);
 			n = Visina(S->D) - Visina(S->L);
 			if (n == 2)
 			{
@@ -63,7 +64,7 @@ StabloAVLPre generirajAVL_Predmeti(StabloAVLPre P)
 	char* buff = NULL;
 	buff = (char*)malloc(sizeof(char)* BUFFER_LEN);
 
-	fp = OtvoriDatoteku();
+	fp = OtvoriDatoteku("Predmeti.txt");
 
 	if (!fp) return NULL;
 

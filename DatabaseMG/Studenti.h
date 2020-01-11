@@ -1,6 +1,9 @@
 #include <stdbool.h>
 #include "Constants.h"
+#include "Predmeti.h"
 
+#ifndef STUDENTI
+#define STUDENTI
 
 struct cvorAVLStudenti;
 //deklarirali pokazivace
@@ -10,7 +13,7 @@ typedef struct cvorAVLStudenti* StabloAVL;
 typedef struct cvorAVLStudenti* PozicijaAVL;
 
 int Visina(StabloAVL);
-StabloAVL DodajAVL(int, char*, StabloAVL);
+StabloAVL DodajAVL(int, char*, StabloAVL, int[BUFFER_LENGTH], char*, int);
 int Max(int, int);
 PozicijaAVL JednostrukaRL(PozicijaAVL);
 PozicijaAVL DvostrukaRL(PozicijaAVL);
@@ -39,7 +42,8 @@ struct Predmet{
 	PozicijaP NextP;
 };
 
-PozicijaAVL nadiPoID(int id, PozicijaAVL Root);
-int ispisStudenta(PozicijaAVL S);
-int ispisSvihStudenata(PozicijaAVL Root);
-//FILE* ispisZaglavljaStudenti(); // daje error ako je otkomentiran
+PozicijaAVL nadiPoID(int tempID, PozicijaAVL Root);
+int ispisSvihOcjenaStudenta(PozicijaAVL RootS, PozicijaAVLPre RootPre);
+
+
+#endif
