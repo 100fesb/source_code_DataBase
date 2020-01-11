@@ -1,0 +1,21 @@
+(za profesore, Profesori.c i .h i pripadne AVL funkcije - 
+kao za PRedmete)
+
+Unesi
+Unesi listu (ceka unos 'kraj')
+
+
+Ispis svih (datoteke Studenti, Profesori...)
+Ispis svih po imenu/prezimenu itd...
+
+
+Poredaj po abecedi (uzlazno, silazno npr.)
+
+Provjeri jeli postoji (po ID, i imenu/prezimenu)
+
+Brisi po ID-u
+Brisi sve u datoteci
+
+ZA KRAJ, treba napraviti funkcije koje ciste, 
+kao garbage collector svega sta smo generirali a ne treba,
+-> tu ne brisemo AVL stabla
