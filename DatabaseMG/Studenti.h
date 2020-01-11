@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include "Constants.h"
 
 
@@ -9,7 +10,7 @@ typedef struct cvorAVLStudenti* StabloAVL;
 typedef struct cvorAVLStudenti* PozicijaAVL;
 
 int Visina(StabloAVL);
-StabloAVL DodajAVL(int, StabloAVL);
+StabloAVL DodajAVL(int, char*, StabloAVL);
 int Max(int, int);
 PozicijaAVL JednostrukaRL(PozicijaAVL);
 PozicijaAVL DvostrukaRL(PozicijaAVL);
@@ -41,5 +42,4 @@ struct Predmet{
 PozicijaAVL nadiPoID(int id, PozicijaAVL Root);
 int ispisStudenta(PozicijaAVL S);
 int ispisSvihStudenata(PozicijaAVL Root);
-int dohvatiIDPredmeta(char* imeP);
 //FILE* ispisZaglavljaStudenti(); // daje error ako je otkomentiran

@@ -1,0 +1,6 @@
+--> dosli smo do problema da nam u funkciji generirajAVL_Student u P biva pohranjen Root iz 'DodajAVL' -> 
+tako da na kraju svi pokazivaci nisu lijepo poslozeni
+
+--> kreirati AVL stablo za profesore
+
+--> povezati predmete i profesore
