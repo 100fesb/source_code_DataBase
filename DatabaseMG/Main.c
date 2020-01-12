@@ -55,7 +55,6 @@ int main()
 
 	ispisSvihOcjenaStudenta(rootS, rootP);
 
-
 	system("pause");
 	return 0;
 }

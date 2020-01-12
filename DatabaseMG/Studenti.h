@@ -22,7 +22,7 @@ PozicijaAVL DvostrukaRD(PozicijaAVL);
 
 
 typedef struct Predmet* PozicijaP;
-
+typedef struct Profesor* PozicijaPr;
 
 struct cvorAVLStudenti{	//1
 
@@ -40,6 +40,12 @@ struct Predmet{
 	int ID;
 	int OC;
 	PozicijaP NextP;
+};
+
+struct Profesor {
+	int ID;
+	PozicijaPr NextPr;		//sljedeci profesor
+	PozicijaP NextP;		//pokazivac na predmete profesora
 };
 
 PozicijaAVL nadiPoID(int tempID, PozicijaAVL Root);

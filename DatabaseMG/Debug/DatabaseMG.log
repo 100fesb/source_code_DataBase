@@ -7,4 +7,34 @@ C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\Databas
 C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Main.c(30,41): warning C4047: '=': 'StabloAVLPro' differs in levels of indirection from 'int'
 C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Main.c(32,9): warning C4013: 'print_t' undefined; assuming extern returning int
 C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Main.c(25,6): warning C4101: 'id': unreferenced local variable
+  Studenti.c
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(27,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(65,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(74,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(130,21): warning C4013: 'OtvoriDatoteku' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(130,51): warning C4047: '=': 'FILE *' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(119,1): warning C4047: 'initializing': 'int' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(144,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(148,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(149,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(150,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(170,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(171,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(172,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(122,7): warning C4101: 'prezimeIme': unreferenced local variable
+  TEMP.c
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\TEMP.c(14,9): warning C4013: 'sprintf' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\TEMP.c(73,9): warning C4013: 'printf' undefined; assuming extern returning int
+  Generating Code...
+C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\DatabaseMG\Studenti.c(17): warning C4715: 'nadiPoID': not all control paths return a value
   DatabaseMG.vcxproj -> C:\Users\Korisnik\Desktop\FESB\source_code_DataBase\source_code_DataBase\Debug\DatabaseMG.exe
