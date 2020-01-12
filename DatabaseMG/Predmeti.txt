@@ -1,6 +1,6 @@
 3045   Objektno orijentirano programiranje
 3046   Matematika
-3047   Fizika
+3047   Fizika 1
 3048   Fizika 2
 3049   DSS
 3050   Praktikum
