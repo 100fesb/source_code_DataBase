@@ -44,6 +44,7 @@ int ispisSvihOcjenaStudenta(PozicijaAVL RootS, PozicijaAVLPre RootPre)
 		Predmet = Predmet->NextP;
 	}
 
+	printf("\n");
 	return SUCCESS;
 }
 
@@ -123,6 +124,8 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	int IDeviPredmeta[BUFFER_LENGTH];
 	int brPredmeta = 0;
 	char* ocjene;
+	int tempNastavakPredmeta= 0;
+	char tempNastavakPredmetaC[sizeof(int)];
 
 	fp = OtvoriDatoteku("StudentiPotpunaTablica.txt");
 
@@ -137,7 +140,25 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 
 	fgets(buff, BUFFER_LENGTH, fp);
 
-	for (i = 0; sscanf(buff, " %d %s %n", &IDeviPredmeta[i], imenaPredmeta[i], &readBytes) > 0; i++){
+	// mozda cemo koristit polje imenaPredmeta, mozda ne, ali ovjde svakako kontroliramo ako predmet ima broj, npr. 'Fizika 2'
+	for (i = 0; sscanf(buff, " %d %s %d %n", &IDeviPredmeta[i], imenaPredmeta[i], &tempNastavakPredmeta, &readBytes) > 0; i++){
+		
+		if (tempNastavakPredmeta <= 9 && tempNastavakPredmeta >= 1)
+		{
+			sprintf(tempNastavakPredmetaC, "%d", tempNastavakPredmeta);
+			strcat(imenaPredmeta[i], " ");
+			strcat(imenaPredmeta[i], tempNastavakPredmetaC);
+			//printf("\nDoslo je do spajanja za: %s", imenaPredmeta[i]);
+			tempNastavakPredmeta = 0; // jer iz nekog razloga ako ne resetamo - on zapamti do kraja reda
+		}
+		else
+		{
+			buff += readBytes;
+			buff -= sizeof(tempNastavakPredmeta)+1;
+			brPredmeta++;
+			continue;
+		}
+		
 		buff += readBytes;
 		brPredmeta++;
 	}

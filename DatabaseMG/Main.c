@@ -16,25 +16,31 @@ int main()
 	StabloAVL rootS = NULL, nadjeni = NULL;
 	StabloAVLPre rootP = NULL;
 	int tempID = 0;
-	StabloAVL Nadjeni = NULL;
+	StabloAVL NadjeniS = NULL;
+	PozicijaAVLPre NadjeniPre = NULL;
 
 	int id;
 
 
 	rootS = generirajAVL_Student(rootS);
-
 	rootP = generirajAVL_Predmeti(rootP);
 
-	//print_t(rootS);
+	print_t(rootS);
 
 	
 	/*
 	printf("Unesite ID trazenog studenta:");
-	scanf(" d", &tempID");
-	Nadjeni = nadiPoID(tempID, rootS);
-	printf("Nasli smo ga! To je %d %s", Nadjeni->ID, Nadjeni->PrezimeIme);
+	scanf(" %d", &tempID);
+	NadjeniS = nadiPoID(tempID, rootS);
+	printf("Nasli smo ga! To je %d %s", NadjeniS->ID, NadjeniS->PrezimeIme);
 	*/
 
+	/*
+	printf("Unesite ID trazenog predmeta:");
+	scanf(" %d", &tempID);
+	NadjeniPre = nadiPoIDPre(tempID, rootP);
+	printf("Nasli smo ga! To je %d %s", NadjeniPre->ID, NadjeniPre->ImePre);
+	*/
 
 	ispisSvihOcjenaStudenta(rootS, rootP);
 

@@ -1,5 +1,5 @@
 Maticni br.     Ime i prezime                   Imena i ID predmeta
-                                        3046 Matematika      3047 Fizika      3049 DSS
+                                        3046 Matematika      3048 Fizika 2      3049 DSS
 1047            Goran Trajanovic        4               5           0
 1045            Mario Marasovic         2               2           4
 1055            Luka Davidovic          3              -1           2
