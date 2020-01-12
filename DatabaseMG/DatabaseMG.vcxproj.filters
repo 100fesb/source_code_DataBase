@@ -30,6 +30,9 @@
     <ClCompile Include="Predmeti.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Profesori.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Predmeti.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Profesori.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

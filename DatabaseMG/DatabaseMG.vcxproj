@@ -19,14 +19,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -65,6 +65,7 @@
     <ClCompile Include="Assets.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="Predmeti.c" />
+    <ClCompile Include="Profesori.c" />
     <ClCompile Include="Studenti.c" />
     <ClCompile Include="TEMP.c" />
   </ItemGroup>
@@ -72,6 +73,7 @@
     <ClInclude Include="AVL.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Predmeti.h" />
+    <ClInclude Include="Profesori.h" />
     <ClInclude Include="Studenti.h" />
   </ItemGroup>
   <ItemGroup>
