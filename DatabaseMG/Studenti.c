@@ -146,13 +146,14 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	// mozda cemo koristit polje imenaPredmeta, mozda ne, ali smo ih spojili imena u polje
 	for (i = 0; sscanf(buff, "%d %s %d %n", &IDeviPredmeta[i], imenaPredmeta[i], &tempNastavakPredmeta, &readBytes) > 0; i++){
 		
-		// podrzavanje vise imena predmeta
+		// podrzavanje vise rijeci za ime predmeta
 		if (!readBytes)
 		{
 			sscanf(buff, "%d %n", &tempID, &readBytes);
 			buff += readBytes;
 			buff += strlen(imenaPredmeta[i]);
 
+			memset(tempNastavakPredmetaS, '\0', 1);
 			while (1)
 			{
 				sscanf(buff, "%s %d %n", tempNastavakPredmetaS, &stringIsRead, &readBytes);
