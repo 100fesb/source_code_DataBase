@@ -8,26 +8,29 @@
 #include "Constants.h"
 #include "Predmeti.h"
 #include "Studenti.h"
+#include "Profesori.h"
 
 
 
 int main()
 {
 	StabloAVL rootS = NULL, nadjeni = NULL;
-	StabloAVLPre rootP = NULL;
+	StabloAVLPre rootP = NULL;		//predmet
+	StabloAVLPro rootPr = NULL;		//profesor 
 	int tempID = 0;
 	StabloAVL NadjeniS = NULL;
 	PozicijaAVLPre NadjeniPre = NULL;
+	PozicijaAVLPro NadjeniPro = NULL;
 
 	int id;
 
 
 	rootS = generirajAVL_Student(rootS);
 	rootP = generirajAVL_Predmeti(rootP);
+	rootPr = generirajAVL_Profesori(rootPr);
 
-	print_t(rootS);
+	print_t(rootPr);
 
-	
 	/*
 	printf("Unesite ID trazenog studenta:");
 	scanf(" %d", &tempID);
@@ -48,4 +51,6 @@ int main()
 	system("pause");
 	return 0;
 }
+
+
 
