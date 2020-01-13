@@ -126,6 +126,9 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	char* ocjene;
 	int tempNastavakPredmeta= 0;
 	char tempNastavakPredmetaC[sizeof(int)];
+	char tempNastavakPredmetaS[NAME_LENGTH];
+	int tempID = 0;
+	int stringIsRead = 0; // 0 za ne, bilo sta drugo je da
 
 	fp = OtvoriDatoteku("StudentiPotpunaTablica.txt");
 
@@ -140,10 +143,30 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 
 	fgets(buff, BUFFER_LENGTH, fp);
 
-	// mozda cemo koristit polje imenaPredmeta, mozda ne, ali ovjde svakako kontroliramo ako predmet ima broj, npr. 'Fizika 2'
-	for (i = 0; sscanf(buff, " %d %s %d %n", &IDeviPredmeta[i], imenaPredmeta[i], &tempNastavakPredmeta, &readBytes) > 0; i++){
+	// mozda cemo koristit polje imenaPredmeta, mozda ne, ali smo ih spojili imena u polje
+	for (i = 0; sscanf(buff, "%d %s %d %n", &IDeviPredmeta[i], imenaPredmeta[i], &tempNastavakPredmeta, &readBytes) > 0; i++){
 		
-		if (tempNastavakPredmeta <= 9 && tempNastavakPredmeta >= 1)
+		// podrzavanje vise imena predmeta
+		if (!readBytes)
+		{
+			sscanf(buff, "%d %n", &tempID, &readBytes);
+			buff += readBytes;
+			buff += strlen(imenaPredmeta[i]);
+
+			while (1)
+			{
+				sscanf(buff, "%s %d %n", tempNastavakPredmetaS, &stringIsRead, &readBytes);
+				strcat(imenaPredmeta[i], " ");
+				strcat(imenaPredmeta[i], tempNastavakPredmetaS);
+				buff += readBytes;
+				buff -= sizeof(stringIsRead)+1;
+				readBytes = 0;
+				if (stringIsRead) break;
+			}
+		}
+
+		// podrzavanje broja kao nastavka predmeta, npr. 'Fizika 2'
+		else if (tempNastavakPredmeta <= 9 && tempNastavakPredmeta >= 1)
 		{
 			sprintf(tempNastavakPredmetaC, "%d", tempNastavakPredmeta);
 			strcat(imenaPredmeta[i], " ");
@@ -156,6 +179,7 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 			buff += readBytes;
 			buff -= sizeof(tempNastavakPredmeta)+1;
 			brPredmeta++;
+			readBytes = 0;
 			continue;
 		}
 		

@@ -1,21 +1,24 @@
 (za profesore, Profesori.c i .h i pripadne AVL funkcije - 
 kao za PRedmete)
 
-Unesi
-Unesi listu (ceka unos 'kraj')
+Unesi ( koristi DodajAVL funkciju, petlju za unos ocjena...)
+Unesi listu ( u petlji: koristi DodajAVL funkcije, petlje za unos ocjena; ceka unos 'kraj')
 
 
-Ispis svih (datoteke Studenti, Profesori...)
-Ispis svih po imenu/prezimenu itd...
+Ispis svih (datoteke Studenti, Profesori...) -> lagano
+Ispis svih po imenu/prezimenu itd... -> trazilica - strcmp
 
 
-Poredaj po abecedi (uzlazno, silazno npr.)
+Poredaj po abecedi (uzlazno, silazno npr.) -> mozda i ne moramo ako je tesko
 
-Provjeri jeli postoji (po ID, i imenu/prezimenu)
+Provjeri jeli postoji (po ID, i imenu/prezimenu) -> lagano
 
-Brisi po ID-u
-Brisi sve u datoteci
+Brisi po ID-u (treba brisati i u datoteci i u AVL stablu)
+Brisi sve u datoteci -> lagano
 
 ZA KRAJ, treba napraviti funkcije koje ciste, 
 kao garbage collector svega sta smo generirali a ne treba,
--> tu ne brisemo AVL stabla
+-> tu ne brisemo AVL stabla (cini mi se da tu brisemo samo AVL stabla za sam kraj programa,
+    kada korisnik unese 'kraj' u izborniku, jer ostale varijable zavrsavaju s funkcijama)
+    
+    
