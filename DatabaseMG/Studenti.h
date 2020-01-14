@@ -44,6 +44,6 @@ struct Predmet{
 
 PozicijaAVL nadiPoID(int tempID, PozicijaAVL Root);
 int ispisSvihOcjenaStudenta(PozicijaAVL RootS, PozicijaAVLPre RootPre);
-
+int unesiStudenta(StabloAVL rootS);
 
 #endif

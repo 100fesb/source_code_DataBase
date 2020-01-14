@@ -5,12 +5,11 @@
 #include <math.h>
 #include <time.h>
 
+#include "Assets.h"
 #include "Constants.h"
 #include "Predmeti.h"
 #include "Studenti.h"
 #include "Profesori.h"
-
-
 
 int main()
 {
@@ -23,13 +22,17 @@ int main()
 	PozicijaAVLPro NadjeniPro = NULL;
 
 	int id;
+	
+	srand(time(0));
 
-
+	// generirajAVLStabla
 	rootS = generirajAVL_Student(rootS);
 	rootP = generirajAVL_Predmeti(rootP);
 	rootPr = generirajAVL_Profesori(rootPr);
 
-	print_t(rootPr);
+	ispisIzbornika(rootS, rootP, rootPr);
+	
+	print_t(rootS);
 
 	/*
 	printf("Unesite ID trazenog studenta:");
@@ -45,7 +48,16 @@ int main()
 	printf("Nasli smo ga! To je %d %s", NadjeniPre->ID, NadjeniPre->ImePre);
 	*/
 
+	/*
+	printf("Unesite ID trazenog profesora:");
+	scanf(" %d", &tempID);
+	NadjeniPro = nadiPoIDPro(tempID, rootPr);
+	printf("Nasli smo ga! To je %d %s", NadjeniPro->ID, NadjeniPro->ImePro);
+	*/
+
+	/*
 	ispisSvihOcjenaStudenta(rootS, rootP);
+	*/
 
 
 	system("pause");

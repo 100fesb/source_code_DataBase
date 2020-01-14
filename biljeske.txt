@@ -1,0 +1,8 @@
+Kreiranje unosa za studente:
+--> funkcija unesiStudenta 
+    - koristi funkciju DodajAVL
+    - treba dodati studenta u datoteku 'Studenti.txt'
+    - treba dodati studenta u datoteku 'StudentiPotpunaTablica.txt'
+    
+    - kako srediti ID; kako proslijediti root AVL stabla
+    

@@ -6,6 +6,103 @@
 #include "Constants.h"
 #include "Studenti.h"
 #include "Predmeti.h"
+#include "Assets.h"
+
+int unesiStudenta(StabloAVL rootS)
+{
+	FILE* fp = NULL;
+	int tempIDstud = 0;
+	char imePrezime[BUFFER_LENGTH] = "";
+	char tempStr[BUFFER_LENGTH] = "";
+	char ocjene[BUFFER_LENGTH] = "";
+	char izborImePredmeta[BUFFER_LENGTH] = "";
+	int IDeviPredmeta[BUFFER_LENGTH];
+	int brPredmeta = 0;
+	int tempOcjena = 0;
+	int tempIDpredmet = 0;
+
+	tempIDstud = generirajID(1000, 1999);
+	/*
+	imePrezime = (char*)malloc(sizeof(char)*NAME_LENGTH);
+	tempStr = (char*)malloc(sizeof(char)*NAME_LENGTH);
+	if (!imePrezime || !tempStr) return ERROR;
+
+	ocjene = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+	if (!ocjene) return ERROR;
+	*/
+
+	printf("\n\tUnos podataka studenta:\n\t\t--  Ime:");
+	scanf("%s", imePrezime);
+	strcat(imePrezime, " ");
+	printf("\t\t-- Prezime:");
+	scanf("%s", tempStr);
+	strcat(imePrezime, tempStr);
+
+	// unos ocjena za predmete
+	
+
+	/*
+	// unos svih ocjena za sve predmete - glupo, bolje da korisnik sam unese koje predmete dodaje
+
+	fp = OtvoriDatoteku("Predmeti.txt");
+	while (!feof(fp))
+	{
+		fscanf(fp, "%d %[^\n]", &IDeviPredmeta[brPredmeta], tempStr);
+		brPredmeta++;
+
+		do{
+			printf("\t\t\t--%s: ", tempStr);
+			scanf(" %d", &tempOcjena);
+		} while (tempOcjena > 5 || tempOcjena < -1);
+
+		
+		sprintf(tempStr, "%d", tempOcjena);
+		strcat(ocjene, tempStr);
+		strcat(ocjene, " ");
+	}
+	*/
+
+	printf("\t~~~Unos ocjena studenta (0 ako nije upisana ocjena, -1 za kraj unosa)~~~\n");
+
+	fp = OtvoriDatoteku("Predmeti.txt");
+	do{
+		printf("\t\t-- Ime predmeta: ");
+		fflush(stdin);
+		fgets(izborImePredmeta, sizeof(izborImePredmeta), stdin);
+		if (izborImePredmeta[strlen(izborImePredmeta) - 1] == '\n') izborImePredmeta[strlen(izborImePredmeta) - 1] = NULL;
+		//scanf("%1023[^\n]", izborImePredmeta);
+		if (!strcmp(izborImePredmeta, "kraj")) break;
+
+		tempIDpredmet = nadjiIdPoImenu(fp, izborImePredmeta);
+		if (tempIDpredmet == -1){
+			printf("\t\tNe postoji taj predmet. \n\t\tPrvo unesite taj predmet u bazu podataka, pa pokusajte ponovno.\n");
+			continue;
+		}
+
+		IDeviPredmeta[brPredmeta] = tempIDpredmet;
+		brPredmeta++;
+
+		do{
+			printf("\t\tOcjena: ");
+			scanf(" %d", &tempOcjena);
+		} while (tempOcjena > 5 || tempOcjena < 0);
+
+		sprintf(tempStr, "%d", tempOcjena);
+		strcat(ocjene, tempStr);
+		strcat(ocjene, " ");
+
+
+		rewind(fp);
+	} while (strcmp(izborImePredmeta, "kraj"));
+
+	
+
+	DodajAVL(tempIDstud, imePrezime, rootS, IDeviPredmeta, ocjene, brPredmeta);
+
+	fclose(fp);
+
+	return SUCCESS;
+}
 
 PozicijaAVL nadiPoID(int tempID, PozicijaAVL Root)
 {
@@ -15,6 +112,7 @@ PozicijaAVL nadiPoID(int tempID, PozicijaAVL Root)
 	else if (tempID < Root->ID) nadiPoID(tempID, Root->L);
 	else return Root;
 }
+
 
 int ispisSvihOcjenaStudenta(PozicijaAVL RootS, PozicijaAVLPre RootPre)
 {
@@ -123,7 +221,7 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	char imenaPredmeta[LONG_BUFFER_LENGTH][NAME_LENGTH];
 	int IDeviPredmeta[BUFFER_LENGTH];
 	int brPredmeta = 0;
-	char* ocjene;
+	char* ocjene = NULL;
 	int tempNastavakPredmeta= 0;
 	char tempNastavakPredmetaC[sizeof(int)];
 	char tempNastavakPredmetaS[NAME_LENGTH];
