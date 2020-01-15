@@ -10,11 +10,11 @@
 
 
 
-FILE* OtvoriDatoteku(char* fileName);
+FILE* OtvoriDatoteku(char mode, char* fileName);
 int Max(int a, int b);
 int generirajID(int MIN, int MAX);
 int nadjiIdPoImenu(char* buff, char* ime);
-
+int getNthItemFromString(int INDEX, char* STR);
 
 int ispisIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPro);
 int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPro, int izbor, char* TEMP_NAME_HOLDER);

@@ -5,6 +5,37 @@
 #include "Constants.h"
 #include "Predmeti.h"
 
+int unesiPredmet(StabloAVLPre rootPre)
+{
+	FILE* fa = NULL;
+	FILE* fr = NULL;
+	int tempIDpredmeta = 0;
+	char imePredmeta[NAME_LENGTH] = "";
+	char imeProfesora[NAME_LENGTH] = "";
+	char* tempStr = NULL;
+
+	tempStr = (char*)malloc(sizeof(char)*NAME_LENGTH);
+
+
+	tempIDpredmeta = generirajID(3000, 3999);
+	// dodati u 'Predmeti.txt', upit koji profesor predaje, dodati u studPotpTab taj novi stupac
+
+	fa = OtvoriDatoteku('a', "Predmeti.txt");
+
+	printf("\n\t\t-- Ime predmeta: ");
+	tempStr = readLine();
+	strcat(imePredmeta, tempStr);
+	fprintf(fa, "\n%d\t%s", tempIDpredmeta, imePredmeta);
+
+
+	printf("\n\t\t-- Predavac (profesor): ");
+	tempStr = readLine();
+	strcat(imeProfesora, tempStr);
+	rootPre
+
+	return SUCCESS;
+}
+
 
 PozicijaAVLPre nadiPoIDPre(int tempID, PozicijaAVLPre Root)
 {
@@ -14,7 +45,6 @@ PozicijaAVLPre nadiPoIDPre(int tempID, PozicijaAVLPre Root)
 	else if (tempID < Root->ID) nadiPoIDPre(tempID, Root->L);
 	else return Root;
 }
-
 
 StabloAVLPre DodajAVLPre(int ID, char* PI, StabloAVLPre S)
 {
@@ -31,25 +61,25 @@ StabloAVLPre DodajAVLPre(int ID, char* PI, StabloAVLPre S)
 	{
 		if (ID < S->ID){
 			S->L = DodajAVLPre(ID, PI, S->L);
-			n = Visina(S->L) - Visina(S->D);
+			n = VisinaPre(S->L) - VisinaPre(S->D);
 			if (n == 2){
-				if (ID < S->L->ID) S = JednostrukaRL(S);
-				else S = DvostrukaRL(S);
+				if (ID < S->L->ID) S = JednostrukaRLPre(S);
+				else S = DvostrukaRLPre(S);
 			}
 		}
 		else if (ID > S->ID)
 		{
 			S->D = DodajAVLPre(ID, PI, S->D);
-			n = Visina(S->D) - Visina(S->L);
+			n = VisinaPre(S->D) - VisinaPre(S->L);
 			if (n == 2)
 			{
-				if (ID > S->D->ID) S = JednostrukaRD(S);
-				else S = DvostrukaRD(S);
+				if (ID > S->D->ID) S = JednostrukaRDPre(S);
+				else S = DvostrukaRDPre(S);
 			}
 		}
 	}
 
-	S->visina = Max(Visina(S->L), Visina(S->D)) + 1;
+	S->visina = Max(VisinaPre(S->L), VisinaPre(S->D)) + 1;
 	return S;
 }
 
@@ -64,7 +94,7 @@ StabloAVLPre generirajAVL_Predmeti(StabloAVLPre P)
 	char* buff = NULL;
 	buff = (char*)malloc(sizeof(char)* BUFFER_LEN);
 
-	fp = OtvoriDatoteku("Predmeti.txt");
+	fp = OtvoriDatoteku('r', "Predmeti.txt");
 
 	if (!fp) return NULL;
 

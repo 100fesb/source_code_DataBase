@@ -13,6 +13,7 @@
 #define BUFFER_LEN 1024
 
 #define ERROR -1
+#define END -1
 #define SUCCESS 0
 
 #endif

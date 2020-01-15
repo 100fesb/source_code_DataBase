@@ -5,3 +5,4 @@ Studenti:
 --> nadiPoID
 --> nadiPoIDPre
 --> ispisSvihOcjenaStudenta
+--> unesiStudenta (unutar petlje takodjer - za upisivanje liste studenata)

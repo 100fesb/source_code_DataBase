@@ -24,6 +24,7 @@ struct cvorAVLPredmeti{	//1
 	//ovdje ide ID za ime predmeta
 	int ID;
 	char ImePre[NAME_LENGTH];
+	char ImePrezimeProfesora[NAME_LENGTH];
 	StabloAVLPre L; // lijevi predmet
 	StabloAVLPre D; // desni predmet
 	//PozicijaP NextP; // iduci predmet
@@ -32,6 +33,7 @@ struct cvorAVLPredmeti{	//1
 };
 
 PozicijaAVLPre nadiPoIDPre(int tempID, PozicijaAVLPre Root);
+int unesiPredmet(StabloAVLPre rootPre);
 
 
 #endif

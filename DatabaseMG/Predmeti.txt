@@ -1,4 +1,4 @@
-3045   Objektno orijentirano programiranje
+3045   OOP
 3046   Matematika
 3047   Fizika 1
 3048   Fizika 2

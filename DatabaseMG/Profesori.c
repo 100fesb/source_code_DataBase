@@ -64,7 +64,7 @@ StabloAVLPro generirajAVL_Profesori(StabloAVLPro P)
 	char* buff = NULL;
 	buff = (char*)malloc(sizeof(char)* BUFFER_LEN);
 
-	fp = OtvoriDatoteku("Profesori.txt");
+	fp = OtvoriDatoteku('r', "Profesori.txt");
 
 	if (!fp) return NULL;
 

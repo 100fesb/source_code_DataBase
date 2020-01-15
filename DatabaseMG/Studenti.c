@@ -10,80 +10,63 @@
 
 int unesiStudenta(StabloAVL rootS)
 {
-	FILE* fp = NULL;
+	FILE* fa = NULL;
+	FILE* fr = NULL;
 	int tempIDstud = 0;
 	char imePrezime[BUFFER_LENGTH] = "";
 	char tempStr[BUFFER_LENGTH] = "";
+	char tempImePredmeta[BUFFER_LENGTH] = "";
 	char ocjene[BUFFER_LENGTH] = "";
 	char izborImePredmeta[BUFFER_LENGTH] = "";
 	int IDeviPredmeta[BUFFER_LENGTH];
-	int brPredmeta = 0;
+	int brPredmetaStudenta = 0;
+	int brPredmetaDatoteke = 0;
 	int tempOcjena = 0;
-	int tempIDpredmet = 0;
+	int tempIDpredmeta = 0;
+	int i = 0;
+	int j = 0;
 
 	tempIDstud = generirajID(1000, 1999);
-	/*
-	imePrezime = (char*)malloc(sizeof(char)*NAME_LENGTH);
-	tempStr = (char*)malloc(sizeof(char)*NAME_LENGTH);
-	if (!imePrezime || !tempStr) return ERROR;
-
-	ocjene = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
-	if (!ocjene) return ERROR;
-	*/
 
 	printf("\n\tUnos podataka studenta:\n\t\t--  Ime:");
 	scanf("%s", imePrezime);
+	if (!strcmp(imePrezime, "kraj")) return END;
 	strcat(imePrezime, " ");
 	printf("\t\t-- Prezime:");
 	scanf("%s", tempStr);
 	strcat(imePrezime, tempStr);
 
-	// unos ocjena za predmete
-	
+	printf("\t~~~Unos ocjena studenta (0 ako nije upisana ocjena, 'kraj' za kraj unosa)~~~\n");
 
-	/*
-	// unos svih ocjena za sve predmete - glupo, bolje da korisnik sam unese koje predmete dodaje
 
-	fp = OtvoriDatoteku("Predmeti.txt");
-	while (!feof(fp))
-	{
-		fscanf(fp, "%d %[^\n]", &IDeviPredmeta[brPredmeta], tempStr);
-		brPredmeta++;
+	fr = OtvoriDatoteku('r', "Predmeti.txt");
 
-		do{
-			printf("\t\t\t--%s: ", tempStr);
-			scanf(" %d", &tempOcjena);
-		} while (tempOcjena > 5 || tempOcjena < -1);
-
-		
-		sprintf(tempStr, "%d", tempOcjena);
-		strcat(ocjene, tempStr);
-		strcat(ocjene, " ");
+	while (!feof(fr)){ 
+		fgets(tempStr, sizeof(tempStr), fr); 
+		brPredmetaDatoteke++; 
 	}
-	*/
 
-	printf("\t~~~Unos ocjena studenta (0 ako nije upisana ocjena, -1 za kraj unosa)~~~\n");
+	rewind(fr);
 
-	fp = OtvoriDatoteku("Predmeti.txt");
 	do{
-		printf("\t\t-- Ime predmeta: ");
+		printf("\t\t\t-- Ime predmeta: ");
 		fflush(stdin);
 		fgets(izborImePredmeta, sizeof(izborImePredmeta), stdin);
 		if (izborImePredmeta[strlen(izborImePredmeta) - 1] == '\n') izborImePredmeta[strlen(izborImePredmeta) - 1] = NULL;
-		//scanf("%1023[^\n]", izborImePredmeta);
 		if (!strcmp(izborImePredmeta, "kraj")) break;
 
-		tempIDpredmet = nadjiIdPoImenu(fp, izborImePredmeta);
-		if (tempIDpredmet == -1){
+		tempIDpredmeta = nadjiIdPoImenu(fr, izborImePredmeta);
+		if (tempIDpredmeta == -1){
 			printf("\t\tNe postoji taj predmet. \n\t\tPrvo unesite taj predmet u bazu podataka, pa pokusajte ponovno.\n");
+			rewind(fr);
 			continue;
 		}
 
-		IDeviPredmeta[brPredmeta] = tempIDpredmet;
-		brPredmeta++;
+		IDeviPredmeta[brPredmetaStudenta] = tempIDpredmeta;
+		brPredmetaStudenta++;
 
 		do{
-			printf("\t\tOcjena: ");
+			printf("\t\t\t>>Ocjena: ");
 			scanf(" %d", &tempOcjena);
 		} while (tempOcjena > 5 || tempOcjena < 0);
 
@@ -92,14 +75,42 @@ int unesiStudenta(StabloAVL rootS)
 		strcat(ocjene, " ");
 
 
-		rewind(fp);
+		rewind(fr);
 	} while (strcmp(izborImePredmeta, "kraj"));
 
-	
+	fclose(fr);
 
-	DodajAVL(tempIDstud, imePrezime, rootS, IDeviPredmeta, ocjene, brPredmeta);
+	DodajAVL(tempIDstud, imePrezime, rootS, IDeviPredmeta, ocjene, brPredmetaStudenta);
 
-	fclose(fp);
+	fa = OtvoriDatoteku('a', "Studenti.txt");
+	fprintf(fa, "\n%d\t%s", tempIDstud, imePrezime);
+
+	fclose(fa);
+
+	// pretpostavka je da su predmeti po redu u obe dateoteke - 'StudentiPotpTab' i 'Predmeti'
+	// jer uvijek predmete dodajemo na kraj
+	// ali u varijablama ove funkcije ne moraju biti po redu - ovisi o unosu korisnika
+	fa = OtvoriDatoteku('a', "StudentiPotpunaTablica.txt");
+	fprintf(fa, "\n%d\t\t\t%s", tempIDstud, imePrezime);
+
+	fr = OtvoriDatoteku('r', "Predmeti.txt");
+	while (!feof(fr))
+	{
+		fscanf(fr, "%d %[^\n]", &tempIDpredmeta, tempImePredmeta);
+		for (i = 0; i < brPredmetaStudenta; i++){
+			if (IDeviPredmeta[i] == tempIDpredmeta){
+				tempOcjena = getNthItemFromString(i, ocjene);
+				break;
+			}
+			else{
+				tempOcjena = -1; // nije upisana
+			}
+		}
+		fprintf(fa, "\t\t%d", tempOcjena);
+	}
+
+	fclose(fa);
+	fclose(fr);
 
 	return SUCCESS;
 }
@@ -228,7 +239,7 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	int tempID = 0;
 	int stringIsRead = 0; // 0 za ne, bilo sta drugo je da
 
-	fp = OtvoriDatoteku("StudentiPotpunaTablica.txt");
+	fp = OtvoriDatoteku('r', "StudentiPotpunaTablica.txt");
 
 	if (!fp) return NULL;
 

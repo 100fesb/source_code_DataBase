@@ -4,5 +4,7 @@ Kreiranje unosa za studente:
     - treba dodati studenta u datoteku 'Studenti.txt'
     - treba dodati studenta u datoteku 'StudentiPotpunaTablica.txt'
     
-    - kako srediti ID; kako proslijediti root AVL stabla
+
+--> funkcija generiranjaAVL_Studenti 
+    - treba provjeriti ako je ocjena -1 i preskociti stvaranje instance vezane liste
     

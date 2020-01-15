@@ -11,7 +11,23 @@
 #include "Predmeti.h"
 #include "Profesori.h"
 
-FILE* OtvoriDatoteku(char* fileName)
+int getNthItemFromString(int INDEX, char* STR)
+{
+	int i = 0;
+	int tempItem = -1;
+	int readBytes = 0;
+
+	while (i <= INDEX){
+		sscanf(STR, " %d %n", &tempItem, &readBytes);
+		STR += readBytes;
+		i++;
+	}
+
+	return tempItem;
+}
+
+
+FILE* OtvoriDatoteku(char mode, char* fileName)
 {
 	FILE *fp = NULL;
 
@@ -34,15 +50,29 @@ FILE* OtvoriDatoteku(char* fileName)
 	if (strchr(fileName, '.') == NULL)
 		strcat(fileName, ".txt");
 
-	fp = fopen(fileName, "r");
+	if (mode == 'r') fp = fopen(fileName, "r");
+	else if (mode == 'w') fp = fopen(fileName, "w");
+	else if (mode == 'a') fp = fopen(fileName, "a");
+
 	if (fp == NULL)
 	{
-		printf("\r\n\tError!\r\n\t%s Nije moguce citanje datoteke, molimo pokusajte ponovno.", fileName);
+		printf("\r\n\tError!\r\n\tNije moguce ucitavanje datoteke '%s', molimo pokusajte ponovno.", fileName);
 		return NULL;
 	}
 
 	return fp;
 }
+
+char* readLine()
+{
+	char placeholder[NAME_LENGTH] = "";
+	fflush(stdin);
+	fgets(placeholder, sizeof(placeholder), stdin);
+	if (placeholder[strlen(placeholder) - 1] == '\n') placeholder[strlen(placeholder) - 1] = NULL;
+
+	return placeholder;
+}
+
 
 int Max(int a, int b)
 {
@@ -110,21 +140,31 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 
 	do{
 
-		printf("\n\n\t1 - Unos %sa\n\t2 - Ispis %sa\n\t3 - Brisanje %sa\n\t0 - Nazad\n\t\Unos: ", TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER);
+		printf("\n\n\t1 - Unos jednog %sa\n\t2 - Unos liste %sa\n\t3 - Ispis %sa\n\t4 - Brisanje %sa\n\t0 - Nazad\n\t\Unos: ", TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER);
 		scanf("%d", &izbor2);
 
 		switch (izbor2)
 		{
 		case 1:
-			// unos
-			printf("\tunos");
+			// unos jednog
 			if (izbor == 1) unesiStudenta(rootS);
+			if (izbor == 2) unesiPredmet(rootPre);
+			//if (izbor == 3) unesiProfesora(rootPro);
 
 			break;
 		case 2:
-			printf("ispis");
+			// unos liste
+			printf("\n\t~~Unesite kraj za prekid~~");
+			if (izbor == 1){
+				while (unesiStudenta(rootS) != END){ /*system("cls || clear");*/ }
+			}
+
+
 			break;
 		case 3:
+			printf("ispis");
+			break;
+		case 4:
 			printf("brisanje");
 			break;
 		}
