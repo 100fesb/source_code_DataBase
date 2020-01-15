@@ -121,7 +121,7 @@ int IspisiSve() {
 	char Ime[NAME_LENGTH] = " ";
 	char Prezime[NAME_LENGTH] = " ";
 	int ID = 0;
-	char P1[NAME_LENGTH] = " ", P2[NAME_LENGTH] = " ", P3[NAME_LENGTH] = " ", P4[NAME_LENGTH] = " ";
+	char P1[NAME_LENGTH] = " ";
 
 	buffer = (char*)malloc(sizeof(char) * NAME_LENGTH);
 	
@@ -129,10 +129,7 @@ int IspisiSve() {
 	if (!fp)  return ERROR;
 
 	printf("\n\tMaticni br.        Ime i prezime                 Imena i ID predmeta");
-	fgets(buffer, NAME_LENGTH, fp);
-	fscanf(fp, " %s %s %s %s", P1, P2, P3, P4);
-	printf("\n\t %s %s %s %s", P1, P2, P3, P4);
-
+	
 	while (!feof(fp)) {
 		fgets(buffer, NAME_LENGTH, fp);
 		if (buffer[0] != '\n' && buffer[0] != '\0')
@@ -141,6 +138,7 @@ int IspisiSve() {
 			printf("\n\t %d\t\t %s %s", ID, Ime, Prezime);
 		}
 	}
+
 	fclose(fp);
 	free(buffer);
 
