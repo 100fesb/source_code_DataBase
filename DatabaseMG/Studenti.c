@@ -28,7 +28,7 @@ int unesiStudenta(StabloAVL rootS)
 
 	tempIDstud = generirajID(1000, 1999);
 
-	printf("\n\tUnos podataka studenta:\n\t\t--  Ime:");
+	printf("\tUnos podataka studenta:\n\t\t--  Ime:");
 	scanf("%s", imePrezime);
 	if (!strcmp(imePrezime, "kraj")) return END;
 	strcat(imePrezime, " ");

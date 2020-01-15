@@ -154,11 +154,13 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 			break;
 		case 2:
 			// unos liste
-			printf("\n\t~~Unesite kraj za prekid~~");
+			printf("\n\t~~Unesite kraj za prekid~~\n");
 			if (izbor == 1){
 				while (unesiStudenta(rootS) != END){ /*system("cls || clear");*/ }
 			}
-
+			if (izbor == 2){
+				while (unesiPredmet(rootPre) != END){ /*system("cls || clear");*/ }
+			}
 
 			break;
 		case 3:

@@ -9,12 +9,16 @@ int unesiPredmet(StabloAVLPre rootPre)
 {
 	FILE* fa = NULL;
 	FILE* fr = NULL;
+	FILE* fw = NULL;
 	int tempIDpredmeta = 0;
 	char imePredmeta[NAME_LENGTH] = "";
 	char imeProfesora[NAME_LENGTH] = "";
+	char tempLine[BUFFER_LENGTH] = "";
 	char* tempStr = NULL;
+	char* buff = NULL;
 
 	tempStr = (char*)malloc(sizeof(char)*NAME_LENGTH);
+	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
 
 
 	tempIDpredmeta = generirajID(3000, 3999);
@@ -22,16 +26,57 @@ int unesiPredmet(StabloAVLPre rootPre)
 
 	fa = OtvoriDatoteku('a', "Predmeti.txt");
 
-	printf("\n\t\t-- Ime predmeta: ");
-	tempStr = readLine();
+	printf("\t\t-- Ime predmeta: ");
+	tempStr = readLine();	
 	strcat(imePredmeta, tempStr);
+	if (!strcmp(imePredmeta, "kraj")) return END;
 	fprintf(fa, "\n%d\t%s", tempIDpredmeta, imePredmeta);
+	fclose(fa);
 
 
-	printf("\n\t\t-- Predavac (profesor): ");
+	fa = OtvoriDatoteku('a', "PredmetiProfesori.txt");
+
+	printf("\t\t-- Predavac (profesor): ");
 	tempStr = readLine();
 	strcat(imeProfesora, tempStr);
-	rootPre
+	fprintf(fa, "\n%d\t%s : %s", tempIDpredmeta, imePredmeta, imeProfesora);
+	fclose(fa);
+
+	fr = OtvoriDatoteku('r', "StudentiPotpunaTablica.txt");
+	fw = OtvoriDatoteku('w', "temp.txt");
+
+	// ispis zaglavlja
+
+	fgets(buff, BUFFER_LENGTH, fr);
+	sscanf(buff, "%[^\n]", tempLine);
+	//fscanf(fr, "%[^\n]", tempLine);
+	fprintf(fw, "%s\n", tempLine);
+
+	fgets(buff, BUFFER_LENGTH, fr);
+	sscanf(buff, "%[^\n]", tempLine);
+	strcat(tempLine, "\t\t");
+	sprintf(tempStr, "%d", tempIDpredmeta);
+	strcat(tempLine, tempStr);
+	strcat(tempLine, " ");
+	strcat(tempLine, imePredmeta);
+	fprintf(fw, "%s\n", tempLine);
+
+	//fgetc(fr); // uzima \n
+	while (!feof(fr))
+	{
+		//fscanf(fr, "%[^\n]", tempLine);
+		fgets(buff, BUFFER_LENGTH, fr);
+		sscanf(buff, "%[^\n]", tempLine);
+		strcat(tempLine, "\t\t-1");
+		fprintf(fw, "%s\n", tempLine);
+	}
+
+	fclose(fr);
+	fclose(fw);
+
+	remove("StudentiPotpunaTablica.txt");
+	rename("temp.txt", "StudentiPotpunaTablica.txt");
+
 
 	return SUCCESS;
 }
