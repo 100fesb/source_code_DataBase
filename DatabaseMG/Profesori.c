@@ -5,6 +5,32 @@
 #include "Constants.h"
 #include "Profesori.h"
 
+int IspisiSveProfesore() {
+
+	FILE* fp = NULL;		
+	char* buffer = NULL;		
+	char Ime[NAME_LENGTH] = " ";
+	char Prezime[NAME_LENGTH] = " ";
+	int ID = 0;
+
+	buffer = (char*)malloc(sizeof(char) * NAME_LENGTH);	
+
+	fp = fopen("Profesori.txt", "r");		
+	if (!fp)  return ERROR;
+
+	while (!feof(fp)) {		
+		fgets(buffer, NAME_LENGTH, fp);		 
+		if (buffer[0] != '\n' && buffer[0] != '\0')
+		{
+			fscanf(fp, " %d %s %s", &ID, Ime, Prezime);
+			printf("\n\tID profesora je %d a ime profesora je %s %s", ID, Ime, Prezime);
+		}
+	}
+	fclose(fp);		
+	free(buffer);		
+
+	return 0;
+};
 
 int unesiProfesora(StabloAVLPro P)
 {

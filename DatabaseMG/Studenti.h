@@ -20,6 +20,9 @@ PozicijaAVL DvostrukaRL(PozicijaAVL);
 PozicijaAVL JednostrukaRD(PozicijaAVL);
 PozicijaAVL DvostrukaRD(PozicijaAVL);
 
+//ispis
+int IspisiSveStudente();
+int IspisiSve();
 
 typedef struct Predmet* PozicijaP;
 

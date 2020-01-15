@@ -5,6 +5,32 @@
 #include "Constants.h"
 #include "Predmeti.h"
 
+int IspisiSvePredmete() {
+
+	FILE* fp = NULL;		
+	char* buffer = NULL;	
+	char Ime[NAME_LENGTH] = " ";
+	int ID = 0;
+
+	buffer = (char*)malloc(sizeof(char) * NAME_LENGTH);	
+
+	fp = fopen("Predmeti.txt", "r");		
+	if (!fp)  return ERROR;
+
+	while (!feof(fp)) {	
+		fgets(buffer, NAME_LENGTH, fp);		
+		if (buffer[0] != '\n' && buffer[0] != '\0')
+		{
+			fscanf(fp, " %d %s", &ID, Ime);
+			printf("\n\tID predmeta je %d a ime predmeta je %s", ID, Ime);
+		}
+	}
+	fclose(fp);	
+	free(buffer);		
+	
+	return 0;
+};
+
 int unesiPredmet(StabloAVLPre rootPre)
 {
 	FILE* fa = NULL;
