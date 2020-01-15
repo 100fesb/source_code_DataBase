@@ -140,7 +140,7 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 
 	do{
 
-		printf("\n\n\t1 - Unos jednog %sa\n\t2 - Unos liste %sa\n\t3 - Ispis %sa\n\t4 - Brisanje %sa\n\t0 - Nazad\n\t\Unos: ", TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER);
+		printf("\n\n\t1 - Unos jednog %sa\n\t2 - Unos liste %sa\n\t3 - Ispis %sa\n\t4 - Brisanje %sa\n\t5 - Ispis svega %sa\n\t0 - Nazad\n\t\Unos: ", TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER);
 		scanf("%d", &izbor2);
 
 		switch (izbor2)
@@ -163,12 +163,17 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 			}
 
 			break;
-		case 3:
-			printf("ispis");
+		case 3:		//ispis
+			if (izbor == 1) IspisiSveStudente();
+			if (izbor == 2) IspisiSvePredmete();
+			if (izbor == 3) IspisiSveProfesore();
+			if (izbor == 4) IspisiSve();
 			break;
 		case 4:
 			printf("brisanje");
 			break;
+		case 5:
+			IspisiSve();
 		}
 
 	} while (izbor2 != 0);

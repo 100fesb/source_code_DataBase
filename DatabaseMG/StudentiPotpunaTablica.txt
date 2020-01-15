@@ -1,9 +1,9 @@
 Maticni br.     Ime i prezime                   Imena i ID predmeta
-                                        3045   OOP      3046   Matematika     3047   Fizika 1    3048   Fizika 2     3049   DSS		3309   Mat1		3417   Prakt
-1047            Goran Trajanovic        4               5           0		-1		-1
-1045            Mario Marasovic         2               2           4		-1		-1
-1055            Luka Davidovic          3              -1           2		-1		-1
-1025            Ivan Mrsic              0               4          -1		-1		-1
-1011            Marko Skocic            -1              2           3		-1		-1
-1003            Ana Anic                3               4           2		-1		-1
-1003            Ana Anic                3               4           2		-1		-1
+                                       OOP    Matematika   Fizika 1   Fizika 2 
+1047            Goran Trajanovic        4         5          -1		     5
+1045            Mario Marasovic         2         2           4		     2
+1055            Luka Davidovic          3        -1           2		     3
+1025            Ivan Mrsic              0         4          -1		     4
+1011            Marko Skocic           -1         2           3		     5
+1003            Ana Anic                4         2	   		 -1          1
+1003            Ana Anic                4         2			 -1          2

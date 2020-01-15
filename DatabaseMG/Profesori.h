@@ -17,6 +17,8 @@ PozicijaAVLPro DvostrukaRLPro(PozicijaAVLPro);
 PozicijaAVLPro JednostrukaRDPro(PozicijaAVLPro);
 PozicijaAVLPro DvostrukaRDPro(PozicijaAVLPro);
 
+//ispis
+int IspisiSveProfesore();
 
 
 struct cvorAVLProfesori{	//1

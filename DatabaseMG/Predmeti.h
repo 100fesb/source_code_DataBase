@@ -17,6 +17,8 @@ PozicijaAVLPre DvostrukaRLPre(PozicijaAVLPre);
 PozicijaAVLPre JednostrukaRDPre(PozicijaAVLPre);
 PozicijaAVLPre DvostrukaRDPre(PozicijaAVLPre);
 
+//ispis
+int IspisiSvePredmete();
 
 
 struct cvorAVLPredmeti{	//1
