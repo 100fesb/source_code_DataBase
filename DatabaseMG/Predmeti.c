@@ -21,8 +21,7 @@ int unesiPredmet(StabloAVLPre rootPre)
 	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
 
 
-	tempIDpredmeta = generirajID(3000, 3999);
-	// dodati u 'Predmeti.txt', upit koji profesor predaje, dodati u studPotpTab taj novi stupac
+	tempIDpredmeta = generirajID(2000, 2999);
 
 	fa = OtvoriDatoteku('a', "Predmeti.txt");
 
@@ -33,7 +32,6 @@ int unesiPredmet(StabloAVLPre rootPre)
 	fprintf(fa, "\n%d\t%s", tempIDpredmeta, imePredmeta);
 	fclose(fa);
 
-
 	fa = OtvoriDatoteku('a', "PredmetiProfesori.txt");
 
 	printf("\t\t-- Predavac (profesor): ");
@@ -41,6 +39,8 @@ int unesiPredmet(StabloAVLPre rootPre)
 	strcat(imeProfesora, tempStr);
 	fprintf(fa, "\n%d\t%s : %s", tempIDpredmeta, imePredmeta, imeProfesora);
 	fclose(fa);
+
+	DodajAVLPre(tempIDpredmeta, imePredmeta, imeProfesora, rootPre);
 
 	fr = OtvoriDatoteku('r', "StudentiPotpunaTablica.txt");
 	fw = OtvoriDatoteku('w', "temp.txt");
@@ -91,21 +91,23 @@ PozicijaAVLPre nadiPoIDPre(int tempID, PozicijaAVLPre Root)
 	else return Root;
 }
 
-StabloAVLPre DodajAVLPre(int ID, char* PI, StabloAVLPre S)
+StabloAVLPre DodajAVLPre(int ID, char* imePre, char* imeProf, StabloAVLPre S)
 {
 	int n = 0;
+
 	if (NULL == S)
 	{
 		S = (StabloAVLPre)malloc(sizeof(CvorAVLPre));
 		S->ID = ID;
 		S->visina = 0;
-		strcpy(S->ImePre, PI);
+		strcpy(S->ImePre, imePre);
 		S->L = S->D = NULL;
+		strcpy(S->ImePrezimeProfesora, imeProf);
 	}
 	else
 	{
 		if (ID < S->ID){
-			S->L = DodajAVLPre(ID, PI, S->L);
+			S->L = DodajAVLPre(ID, imePre, imeProf, S->L);
 			n = VisinaPre(S->L) - VisinaPre(S->D);
 			if (n == 2){
 				if (ID < S->L->ID) S = JednostrukaRLPre(S);
@@ -114,7 +116,7 @@ StabloAVLPre DodajAVLPre(int ID, char* PI, StabloAVLPre S)
 		}
 		else if (ID > S->ID)
 		{
-			S->D = DodajAVLPre(ID, PI, S->D);
+			S->D = DodajAVLPre(ID, imePre, imeProf, S->D);
 			n = VisinaPre(S->D) - VisinaPre(S->L);
 			if (n == 2)
 			{
@@ -131,15 +133,16 @@ StabloAVLPre DodajAVLPre(int ID, char* PI, StabloAVLPre S)
 StabloAVLPre generirajAVL_Predmeti(StabloAVLPre P)
 {
 	FILE* fp = NULL;
-	char red[BUFFER_LENGTH];
-	int i = 0;
+	char tempStr[BUFFER_LENGTH] = "";
+	char tempChar = NULL;
 
 	int id = NULL;
-	char imePredmeta[NAME_LENGTH];
+	char imePredmeta[NAME_LENGTH] = "";
+	char imeProfesora[NAME_LENGTH] = "";
 	char* buff = NULL;
 	buff = (char*)malloc(sizeof(char)* BUFFER_LEN);
 
-	fp = OtvoriDatoteku('r', "Predmeti.txt");
+	fp = OtvoriDatoteku('r', "PredmetiProfesori.txt");
 
 	if (!fp) return NULL;
 
@@ -148,15 +151,18 @@ StabloAVLPre generirajAVL_Predmeti(StabloAVLPre P)
 
 
 		fgets(buff, BUFFER_LEN, fp);
-		sscanf(buff, "%d %[^\n]", &id, imePredmeta);
+		sscanf(buff, "%d %[^\n]", &id, tempStr);
 
-		P = DodajAVLPre(id, imePredmeta, P);
+		strcat(tempStr, "\n");
+		sscanf(tempStr, "%[^ :] %[^\n]", imePredmeta, imeProfesora);
+		memmove(imeProfesora, imeProfesora + 2, strlen(imeProfesora));
+
+		P = DodajAVLPre(id, imePredmeta, imeProfesora, P);
 	}
 
 
 	fclose(fp);
 
-	// treba vratiti root
 	return P;
 }
 

@@ -14,8 +14,8 @@
 int main()
 {
 	StabloAVL rootS = NULL, nadjeni = NULL;
-	StabloAVLPre rootP = NULL;		//predmet
-	StabloAVLPro rootPr = NULL;		//profesor 
+	StabloAVLPre rootPredmet = NULL;	
+	StabloAVLPro rootProfesor = NULL;		
 	int tempID = 0;
 	StabloAVL NadjeniS = NULL;
 	PozicijaAVLPre NadjeniPre = NULL;
@@ -27,12 +27,12 @@ int main()
 
 	// generirajAVLStabla
 	rootS = generirajAVL_Student(rootS);
-	rootP = generirajAVL_Predmeti(rootP);
-	rootPr = generirajAVL_Profesori(rootPr);
+	rootPredmet = generirajAVL_Predmeti(rootPredmet);
+	rootProfesor = generirajAVL_Profesori(rootProfesor);
 
-	ispisIzbornika(rootS, rootP, rootPr);
+	ispisIzbornika(rootS, rootPredmet, rootProfesor);
 	
-	print_t(rootS);
+	print_t(rootProfesor);
 
 	/*
 	printf("Unesite ID trazenog studenta:");

@@ -6,6 +6,64 @@
 #include "Profesori.h"
 
 
+int unesiProfesora(StabloAVLPro P)
+{
+	FILE* fa = NULL;
+	FILE* fr = NULL;
+	FILE* fw = NULL;
+	int tempIDprofesora = 0;
+	char predmeti[NAME_LENGTH][NAME_LENGTH];
+	char imePredmeta[NAME_LENGTH] = "";
+	char imeProfesora[NAME_LENGTH] = "";
+	char tempLine[BUFFER_LENGTH] = "";
+	char* tempStr = NULL;
+	char* buff = NULL;
+	int i = 0;
+	int brPredmeta = 0;
+
+	tempStr = (char*)malloc(sizeof(char)*NAME_LENGTH);
+	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+
+
+	tempIDprofesora = generirajID(3000, 3999);
+
+	fa = OtvoriDatoteku('a', "Profesori.txt");
+
+	printf("\t\t-- Ime profesora: ");
+	tempStr = readLine();
+	strcat(imeProfesora, tempStr);
+	if (!strcmp(imeProfesora, "kraj")) return END;
+	fprintf(fa, "\n%d\t%s", tempIDprofesora, imeProfesora);
+	fclose(fa);
+
+
+	printf("\t\t~~Unesite predmete koje predaje ('kraj' za izlazak)~~~\n");
+
+	do{
+		printf("\t\t\t-- Predmet: ");
+		tempStr = readLine();
+		strcpy(imePredmeta, tempStr);
+		if (!strcmp(imePredmeta, "kraj")) break;
+		strcpy(predmeti[i], imePredmeta);
+
+		i++;
+	} while (imePredmeta != "kraj");
+	brPredmeta = i;
+
+	DodajAVLPro(tempIDprofesora, imeProfesora, predmeti, P, brPredmeta);
+
+
+	fa = OtvoriDatoteku('a', "ProfesoriPredmeti.txt");
+	/*
+	fprintf(fa, "\n%d\t%s : %s", tempIDprofesora, imePredmeta, imeProfesora);
+	fclose(fa);
+	*/
+
+	fclose(fa);
+
+	return SUCCESS;
+}
+
 PozicijaAVLPro nadiPoIDPro(int tempID, PozicijaAVLPro Root)
 {
 	if (!Root) return NULL;
@@ -16,66 +74,97 @@ PozicijaAVLPro nadiPoIDPro(int tempID, PozicijaAVLPro Root)
 }
 
 
-StabloAVLPro DodajAVLPro(int ID, char* PI, StabloAVLPro S)
+StabloAVLPro DodajAVLPro(int ID, char* ImeProf, char predmeti[][NAME_LENGTH], StabloAVLPro S, int brojPredmeta)
 {
 	int n = 0;
+	int i = 0;
+
 	if (NULL == S)
 	{
 		S = (StabloAVLPro)malloc(sizeof(CvorAVLPro));
 		S->ID = ID;
 		S->visina = 0;
-		strcpy(S->ImePro, PI);
+		strcpy(S->ImePro, ImeProf);
 		S->L = S->D = NULL;
+
+		for (i = 0; i < brojPredmeta; i++){
+			strcpy(S->predmeti[i], predmeti[i]);
+		}
 	}
 	else
 	{
 		if (ID < S->ID) {
-			S->L = DodajAVLPro(ID, PI, S->L);
-			n = Visina(S->L) - Visina(S->D);
+			S->L = DodajAVLPro(ID, ImeProf, predmeti, S->L, brojPredmeta);
+			n = VisinaPro(S->L) - VisinaPro(S->D);
 			if (n == 2) {
-				if (ID < S->L->ID) S = JednostrukaRL(S);
-				else S = DvostrukaRL(S);
+				if (ID < S->L->ID) S = JednostrukaRLPro(S);
+				else S = DvostrukaRLPro(S);
 			}
 		}
 		else if (ID > S->ID)
 		{
-			S->D = DodajAVLPro(ID, PI, S->D);
-			n = Visina(S->D) - Visina(S->L);
+			S->D = DodajAVLPro(ID, ImeProf, predmeti, S->D, brojPredmeta);
+			n = VisinaPro(S->D) - VisinaPro(S->L);
 			if (n == 2)
 			{
-				if (ID > S->D->ID) S = JednostrukaRD(S);
-				else S = DvostrukaRD(S);
+				if (ID > S->D->ID) S = JednostrukaRDPro(S);
+				else S = DvostrukaRDPro(S);
 			}
 		}
 	}
 
-	S->visina = Max(Visina(S->L), Visina(S->D)) + 1;
+	S->visina = Max(VisinaPro(S->L), VisinaPro(S->D)) + 1;
 	return S;
 }
 
 StabloAVLPro generirajAVL_Profesori(StabloAVLPro P)
 {
 	FILE* fp = NULL;
-	char red[BUFFER_LENGTH];
+	StabloAVLPro A = NULL;
 	int i = 0;
+	int bytesRead = 0;
+	int len = 0;
 
 	int id = NULL;
+	int brojPredmeta = 0;
 	char imeProfesora[NAME_LENGTH];
+	char predmeti[NAME_LENGTH][NAME_LENGTH];
 	char* buff = NULL;
+	char* temp = NULL;
 	buff = (char*)malloc(sizeof(char)* BUFFER_LEN);
 
-	fp = OtvoriDatoteku('r', "Profesori.txt");
+	fp = OtvoriDatoteku('r', "ProfesoriPredmeti.txt");
 
 	if (!fp) return NULL;
 
 	while (!feof(fp))
 	{
 
-
 		fgets(buff, BUFFER_LEN, fp);
-		sscanf(buff, "%d %[^\n]", &id, imeProfesora);
+		sscanf(buff, "%d %[^:] %n", &id, imeProfesora, &bytesRead);
+		buff += bytesRead;
+		memmove(buff, buff + 2, strlen(buff));
 
-		P = DodajAVLPro(id, imeProfesora, P);
+		temp = buff;
+		for (i = 0; temp[i]; temp[i] == ',' ? i++ : *temp++);
+		brojPredmeta = i + 1;
+
+		for (i = 0; i < brojPredmeta; i++){
+			sscanf(buff, "%[^,] %n", predmeti[i], &bytesRead);
+			buff += bytesRead + 2;
+		}
+		/*
+		while (sscanf(buff, "%[^,] %n", predmeti[i], &bytesRead)) {
+			len = strlen(predmeti[i])-1;
+			if (predmeti[i][len] == '\n') break;
+			buff += bytesRead+2;
+			i++; 
+		}
+		*/
+		len = strlen(predmeti[i-1]) - 1;
+		if (predmeti[i-1][len] == '\n') predmeti[i-1][len] = NULL;
+
+		P = DodajAVLPro(id, imeProfesora, predmeti, P, brojPredmeta);
 	}
 
 

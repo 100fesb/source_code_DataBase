@@ -4,13 +4,12 @@
 #define PREDMETI
 
 //deklarirali pokazivace
-//typedef struct cvorAVLPredmeti* PozicijaS;					//pokazivac na sljedeceg studenta
 typedef struct cvorAVLPredmeti CvorAVLPre;
 typedef struct cvorAVLPredmeti* StabloAVLPre;
 typedef struct cvorAVLPredmeti* PozicijaAVLPre;
 
 int VisinaPre(StabloAVLPre);
-StabloAVLPre DodajAVLPre(int, char*, StabloAVLPre);
+StabloAVLPre DodajAVLPre(int, char*, char*, StabloAVLPre);
 int Max(int, int);
 PozicijaAVLPre JednostrukaRLPre(PozicijaAVLPre);
 PozicijaAVLPre DvostrukaRLPre(PozicijaAVLPre);
@@ -19,9 +18,8 @@ PozicijaAVLPre DvostrukaRDPre(PozicijaAVLPre);
 
 
 
-struct cvorAVLPredmeti{	//1
+struct cvorAVLPredmeti{
 
-	//ovdje ide ID za ime predmeta
 	int ID;
 	char ImePre[NAME_LENGTH];
 	char ImePrezimeProfesora[NAME_LENGTH];

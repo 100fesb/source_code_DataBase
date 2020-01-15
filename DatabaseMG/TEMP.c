@@ -1,10 +1,11 @@
 #include <string.h>
 #include "Studenti.h"
+#include "Profesori.h"
 
-int _print_t(StabloAVL tree, int is_left, int offset, int depth, char s[20][255]);
-void print_t(StabloAVL tree);
+int _print_t(StabloAVLPro tree, int is_left, int offset, int depth, char s[20][255]);
+void print_t(StabloAVLPro tree);
 
-int _print_t(StabloAVL tree, int is_left, int offset, int depth, char s[20][255])
+int _print_t(StabloAVLPro tree, int is_left, int offset, int depth, char s[20][255])
 {
 	char b[20];
 	int width = 5;
@@ -61,7 +62,7 @@ int _print_t(StabloAVL tree, int is_left, int offset, int depth, char s[20][255]
 	return left + width + right;
 }
 
-void print_t(StabloAVL tree)
+void print_t(StabloAVLPro tree)
 {
 	char s[20][255];
 	for (int i = 0; i < 20; i++)

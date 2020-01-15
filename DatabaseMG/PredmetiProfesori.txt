@@ -1,12 +1,14 @@
-
-3514	Matematika1 : Ivana Baric
-3779	Algoritmi : Sikora
-3844	Matematika 1 : Ivana Baric
-3029	Algoritmi : M Sikora
-3514	Matematika 1 : Ivana Baric
-3005	Algoritmi : M Sikora
-3968	Prakt : BS
-3158	Mat1 : IB
-3508	Alg : MS
-3309	Mat1 : Ivana B
-3417	Prakt : S B
+2014	Matematika1 : Ivana Baric
+2079	Algoritmi : Sikora
+2044	Matematika 1 : Ivana Baric
+2029	Algoritmi : M Sikora
+2014	Matematika 1 : Ivana Baric
+2005	Algoritmi : M Sikora
+2068	Prakt : BS
+2058	Mat1 : IB
+2008	Alg : MS
+2009	Mat1 : Ivana B
+2017	Prakt : S B
+2125	NoviI : PP
+2742	Mat 1 : IB
+2393	Mat 2 : IB

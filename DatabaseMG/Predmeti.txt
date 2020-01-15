@@ -1,21 +1,24 @@
-3045    OOP
-3046    Matematika
-3047    Fizika 1
-3048    Fizika 2
-3049    DSS
-3050    Praktikum
-3051    Engleski jezik 1
-3052    Strukture podataka
-3053    Komunikacijske vještine
-3054    Elektrotehnika
-3514	Matematika1
-3779	Algoritmi
-3844	Matematika 1
-3029	Algoritmi
-3514	Matematika 1
-3005	Algoritmi
-3968	Prakt
-3158	Mat1
-3508	Alg
-3309	Mat1
-3417	Prakt
+2045    OOP
+2046    Matematika
+2047    Fizika 1
+2048    Fizika 2
+2049    DSS
+2050    Praktikum
+2051    Engleski jezik 1
+2052    Strukture podataka
+2053    Komunikacijske vještine
+2054    Elektrotehnika
+2014	Matematika1
+2079	Algoritmi
+2044	Matematika 1
+2029	Algoritmi
+2014	Matematika 1
+2005	Algoritmi
+2068	Prakt
+2058	Mat1
+2008	Alg
+2009	Mat1
+2017	Prakt
+2125	NoviI
+2742	Mat 1
+2393	Mat 2

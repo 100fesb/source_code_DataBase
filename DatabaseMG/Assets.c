@@ -149,7 +149,7 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 			// unos jednog
 			if (izbor == 1) unesiStudenta(rootS);
 			if (izbor == 2) unesiPredmet(rootPre);
-			//if (izbor == 3) unesiProfesora(rootPro);
+			if (izbor == 3) unesiProfesora(rootPro);
 
 			break;
 		case 2:
@@ -158,9 +158,13 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 			if (izbor == 1){
 				while (unesiStudenta(rootS) != END){ /*system("cls || clear");*/ }
 			}
-			if (izbor == 2){
+			else if (izbor == 2){
 				while (unesiPredmet(rootPre) != END){ /*system("cls || clear");*/ }
 			}
+			else if (izbor == 3){
+				while (unesiProfesora(rootPro) != END){ /*system("cls || clear");*/ }
+			}
+
 
 			break;
 		case 3:
