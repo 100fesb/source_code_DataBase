@@ -140,7 +140,7 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 
 	do{
 
-		printf("\n\n\t1 - Unos jednog %sa\n\t2 - Unos liste %sa\n\t3 - Ispis %sa\n\t4 - Brisanje %sa\n\t5 - Ispis svega %sa\n\t0 - Nazad\n\t\Unos: ", TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER);
+		printf("\n\n\t1 - Unos jednog %sa\n\t2 - Unos liste %sa\n\t3 - Ispis %sa\n\t4 - Ispis svega %sa\n\t5 - Ispis AVL Stabla %sa\n\t6 - Brisanje %sa\n\t0 - Nazad\n\t\Unos: ", TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER);
 		scanf("%d", &izbor2);
 
 		switch (izbor2)
@@ -155,6 +155,16 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 		case 2:
 			// unos liste
 			printf("\n\t~~Unesite kraj za prekid~~\n");
+			//if (izbor == 1){
+			//	while (rootS = unesiStudenta(rootS) != END){ /*system("cls || clear");*/ }
+			//}
+			//else if (izbor == 2){
+			//	while (rootPre = unesiPredmet(rootPre) != END){ /*system("cls || clear");*/ }
+			//}
+			//else if (izbor == 3){
+			//	while (rootPro = unesiProfesora(rootPro) != END){ /*system("cls || clear");*/ }
+			//}
+
 			if (izbor == 1){
 				while (unesiStudenta(rootS) != END){ /*system("cls || clear");*/ }
 			}
@@ -169,15 +179,21 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 			break;
 		case 3:		//ispis
 			if (izbor == 1) IspisiSveStudente();
-			if (izbor == 2) IspisiSvePredmete();
-			if (izbor == 3) IspisiSveProfesore();
-			if (izbor == 4) IspisiSve();
+			else if (izbor == 2) IspisiSvePredmete();
+			else if (izbor == 3) IspisiSveProfesore();
+			//else if (izbor2 == 4) 
 			break;
 		case 4:
-			printf("brisanje");
+			IspisiSve();
 			break;
 		case 5:
-			IspisiSve();
+			if (izbor == 1) print_t(rootS);
+			else if (izbor == 2) print_t(rootPre);
+			else if (izbor == 3) print_t(rootPro);
+			break;
+		case 6:
+			printf("brisanje");
+			break;
 		}
 
 	} while (izbor2 != 0);

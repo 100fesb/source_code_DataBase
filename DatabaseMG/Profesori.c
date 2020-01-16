@@ -40,7 +40,7 @@ int unesiProfesora(StabloAVLPro P)
 	int tempIDprofesora = 0;
 	char predmeti[NAME_LENGTH][NAME_LENGTH];
 	char imePredmeta[NAME_LENGTH] = "";
-	char imeProfesora[NAME_LENGTH] = "";
+	char imePrezimeProfesora[NAME_LENGTH] = "";
 	char tempLine[BUFFER_LENGTH] = "";
 	char* tempStr = NULL;
 	char* buff = NULL;
@@ -55,11 +55,11 @@ int unesiProfesora(StabloAVLPro P)
 
 	fa = OtvoriDatoteku('a', "Profesori.txt");
 
-	printf("\t\t-- Ime profesora: ");
+	printf("\t\t-- Ime i prezime profesora: ");
 	tempStr = readLine();
-	strcat(imeProfesora, tempStr);
-	if (!strcmp(imeProfesora, "kraj")) return END;
-	fprintf(fa, "\n%d\t%s", tempIDprofesora, imeProfesora);
+	strcat(imePrezimeProfesora, tempStr);
+	if (!strcmp(imePrezimeProfesora, "kraj")) return END;
+	fprintf(fa, "\n%d\t%s", tempIDprofesora, imePrezimeProfesora);
 	fclose(fa);
 
 
@@ -76,7 +76,7 @@ int unesiProfesora(StabloAVLPro P)
 	} while (imePredmeta != "kraj");
 	brPredmeta = i;
 
-	DodajAVLPro(tempIDprofesora, imeProfesora, predmeti, P, brPredmeta);
+	P = DodajAVLPro(tempIDprofesora, imePrezimeProfesora, predmeti, P, brPredmeta);
 
 
 	fa = OtvoriDatoteku('a', "ProfesoriPredmeti.txt");
@@ -84,6 +84,13 @@ int unesiProfesora(StabloAVLPro P)
 	fprintf(fa, "\n%d\t%s : %s", tempIDprofesora, imePredmeta, imeProfesora);
 	fclose(fa);
 	*/
+
+	fprintf(fa, "\n%d %s : ", tempIDprofesora, imePrezimeProfesora);
+	for ( i = 0; i < brPredmeta; i++)
+	{
+		if (brPredmeta != (i+1)) fprintf(fa, "%s, ", predmeti[i]);
+		else fprintf(fa, "%s", predmeti[i]);
+	}
 
 	fclose(fa);
 
@@ -146,7 +153,6 @@ StabloAVLPro DodajAVLPro(int ID, char* ImeProf, char predmeti[][NAME_LENGTH], St
 StabloAVLPro generirajAVL_Profesori(StabloAVLPro P)
 {
 	FILE* fp = NULL;
-	StabloAVLPro A = NULL;
 	int i = 0;
 	int bytesRead = 0;
 	int len = 0;

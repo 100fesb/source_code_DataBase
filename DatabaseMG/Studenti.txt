@@ -35,3 +35,6 @@
 1970	Novi1 N
 1109	N2 N
 1581	Novi3 N
+1087	Novi T
+1323	Novi 2
+1175	Novi 3

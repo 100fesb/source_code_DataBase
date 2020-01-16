@@ -13,7 +13,7 @@
 
 int main()
 {
-	StabloAVL rootS = NULL, nadjeni = NULL;
+	StabloAVL rootStudent = NULL, nadjeni = NULL;
 	StabloAVLPre rootPredmet = NULL;	
 	StabloAVLPro rootProfesor = NULL;		
 	int tempID = 0;
@@ -26,13 +26,13 @@ int main()
 	srand(time(0));
 
 	// generirajAVLStabla
-	rootS = generirajAVL_Student(rootS);
+	rootStudent = generirajAVL_Student(rootStudent);
 	rootPredmet = generirajAVL_Predmeti(rootPredmet);
 	rootProfesor = generirajAVL_Profesori(rootProfesor);
 
-	ispisIzbornika(rootS, rootPredmet, rootProfesor);
+	ispisIzbornika(rootStudent, rootPredmet, rootProfesor);
 	
-	print_t(rootProfesor);
+	//print_t(rootProfesor);
 
 	/*
 	printf("Unesite ID trazenog studenta:");

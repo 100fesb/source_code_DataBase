@@ -10,7 +10,6 @@ typedef struct cvorAVLPredmeti* PozicijaAVLPre;
 
 int VisinaPre(StabloAVLPre);
 StabloAVLPre DodajAVLPre(int, char*, char*, StabloAVLPre);
-int Max(int, int);
 PozicijaAVLPre JednostrukaRLPre(PozicijaAVLPre);
 PozicijaAVLPre DvostrukaRLPre(PozicijaAVLPre);
 PozicijaAVLPre JednostrukaRDPre(PozicijaAVLPre);

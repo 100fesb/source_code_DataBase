@@ -10,13 +10,12 @@ typedef struct cvorAVLProfesori* PozicijaAVLPro;
 
 int VisinaPro(StabloAVLPro);
 StabloAVLPro DodajAVLPro(int, char*, char**, StabloAVLPro, int);
-int Max(int, int);
 PozicijaAVLPro JednostrukaRLPro(PozicijaAVLPro);
 PozicijaAVLPro DvostrukaRLPro(PozicijaAVLPro);
 PozicijaAVLPro JednostrukaRDPro(PozicijaAVLPro);
 PozicijaAVLPro DvostrukaRDPro(PozicijaAVLPro);
 
-
+int IspisiSveProfesore();
 
 struct cvorAVLProfesori{	
 

@@ -14,7 +14,6 @@ typedef struct cvorAVLStudenti* PozicijaAVL;
 
 int Visina(StabloAVL);
 StabloAVL DodajAVL(int, char*, StabloAVL, int[BUFFER_LENGTH], char*, int);
-int Max(int, int);
 PozicijaAVL JednostrukaRL(PozicijaAVL);
 PozicijaAVL DvostrukaRL(PozicijaAVL);
 PozicijaAVL JednostrukaRD(PozicijaAVL);
