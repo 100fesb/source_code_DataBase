@@ -140,7 +140,11 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 
 	do{
 
+<<<<<<< HEAD
 		printf("\n\n\t1 - Unos jednog %sa\n\t2 - Unos liste %sa\n\t3 - Ispis %sa\n\t4 - Ispis svega %sa\n\t5 - Ispis AVL Stabla %sa\n\t6 - Brisanje %sa\n\t0 - Nazad\n\t\Unos: ", TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER);
+=======
+		printf("\n\n\t1 - Unos jednog %sa\n\t2 - Unos liste %sa\n\t3 - Ispis %sa\n\t4 - Brisanje %sa\n\t5 - Ispis svega\n\t0 - Nazad\n\t\Unos: ", TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER);
+>>>>>>> 8d986531c11f1181296e3a23014c967854575aec
 		scanf("%d", &izbor2);
 
 		switch (izbor2)

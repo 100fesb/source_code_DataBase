@@ -1,4 +1,5 @@
 Maticni br.     Ime i prezime                   Imena i ID predmeta
+<<<<<<< HEAD
                                         3045   OOP      3046   Matematika     3047   Fizika 1    3048   Fizika 2     3049   DSS		3309   Mat1		3417   Prakt		2228 N1 N1		2801 N2 N2		2685 N2 N2		2248 N3 N3		2926 N4 N4		2207 N5 N5		2385 N6 N6		2653 N7 N7		2584 N1 N1		2946 N2 N2		2783 N3 N3		2052 N1 N1		2571 N3 N3		2832 N2 N2		2268 N2 N2		2636 N3 N3		2117 N2 N2		2111 N3 N3		2597 Najnoviji 1		2324 Najnoviji 2		2131 novi 1		2921 novi 2
 1047            Goran Trajanovic        4               5           0		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1
 1045            Mario Marasovic         2               2           4		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1
@@ -11,3 +12,25 @@ Maticni br.     Ime i prezime                   Imena i ID predmeta
 1175			Novi 3		-1		3		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1
 1175			Novi 3		-1		3		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1
 1175			Novi 3		-1		3		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1		-1
+=======
+<<<<<<< HEAD
+                                        2045   OOP      2046   Matematika     2047   Fizika 1    2048   Fizika 2     2049   DSS		2309   Mat1		2417   Prakt		2125 NoviI		2742 Mat 1		2393 Mat 2
+1047            Goran Trajanovic        4               5           0		-1		-1		-1		-1		-1
+1045            Mario Marasovic         2               2           4		-1		-1		-1		-1		-1
+1055            Luka Davidovic          3              -1           2		-1		-1		-1		-1		-1
+1025            Ivan Mrsic              0               4          -1		-1		-1		-1		-1		-1
+1011            Marko Skocic            -1              2           3		-1		-1		-1		-1		-1
+1003            Ana Anic                3               4           2		-1		-1		-1		-1		-1
+1003            Ana Anic                3               4           2		-1		-1		-1		-1		-1
+1003            Ana Anic                3               4           2		-1		-1		-1		-1		-1
+1003            Ana Anic                3               4           2		-1		-1		-1		-1		-1
+1003            Ana Anic                3               4           2		-1		-1		-1		-1		-1
+=======
+                                       OOP    Matematika   Fizika 1   Fizika 2 
+1047            Goran Trajanovic        4         5          -1		     5
+1045            Mario Marasovic         2         2           4		     2
+1055            Luka Davidovic          3        -1           2		     3
+1025            Ivan Mrsic              0         4          -1		     4
+1011            Marko Skocic           -1         2           3		     5
+>>>>>>> d0de5b8ab83e90e73ae22aa8e3ade7e1623cf11e
+>>>>>>> 8d986531c11f1181296e3a23014c967854575aec
