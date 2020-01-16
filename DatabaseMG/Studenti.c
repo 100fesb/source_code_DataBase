@@ -116,58 +116,45 @@ int unesiStudenta(StabloAVL rootS)
 }
 
 int IspisiSve() {
+
+	FILE* fp;
+	char str[SIZE_FOR_FULL_PRINT];
+
+	fp = fopen("StudentiPotpunaTablica.txt", "r");
+	if (fp == NULL) return ERROR;
+	while (!feof(fp)) {
+		if (fgets(str, SIZE_FOR_FULL_PRINT, fp) != NULL) {
+			puts(str);
+		}
+	}
+	fclose(fp);
+
+	return(0);
+};
+
+int IspisiSveStudente() {
+
 	FILE* fp = NULL;
 	char* buffer = NULL;
 	char Ime[NAME_LENGTH] = " ";
 	char Prezime[NAME_LENGTH] = " ";
 	int ID = 0;
-	char P1[NAME_LENGTH] = " ";
 
 	buffer = (char*)malloc(sizeof(char) * NAME_LENGTH);
-	
-	fp = fopen("StudentiPotpunaTablica.txt", "r");
+
+	fp = fopen("Studenti.txt", "r");
 	if (!fp)  return ERROR;
 
-	printf("\n\tMaticni br.        Ime i prezime                 Imena i ID predmeta");
-	
 	while (!feof(fp)) {
 		fgets(buffer, NAME_LENGTH, fp);
-		if (buffer[0] != '\n' && buffer[0] != '\0')
-		{
-			fscanf(fp, " %d %s %s", &ID, Ime, Prezime);
-			printf("\n\t %d\t\t %s %s", ID, Ime, Prezime);
-		}
-	}
-
-	fclose(fp);
-	free(buffer);
-
-	return 0;
-};
-
-int IspisiSveStudente() {
-
-	FILE* fp = NULL;		
-	char* buffer = NULL;		
-	char Ime[NAME_LENGTH] = " ";
-	char Prezime[NAME_LENGTH] = " ";
-	int ID = 0;
-
-	buffer = (char*)malloc(sizeof(char) * NAME_LENGTH);		
-
-	fp = fopen("Studenti.txt", "r");		
-	if (!fp)  return ERROR;
-
-	while (!feof(fp)) {		
-		fgets(buffer, NAME_LENGTH, fp);		
 		if (buffer[0] != '\n' && buffer[0] != '\0')
 		{
 			fscanf(fp, " %d %s %s", &ID, Ime, Prezime);
 			printf("\n\tID studenta je %d a ime studenta je %s %s", ID, Ime, Prezime);
 		}
 	}
-	fclose(fp);		
-	free(buffer);		
+	fclose(fp);
+	free(buffer);
 
 	return 0;
 };
