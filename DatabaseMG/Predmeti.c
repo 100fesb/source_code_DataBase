@@ -4,6 +4,157 @@
 
 #include "Constants.h"
 #include "Predmeti.h"
+#include "Assets.h"
+
+StabloAVLPre traziNajmanjiIDPre(StabloAVLPre P)
+{
+	if (P != NULL)
+	{
+		while (P->L != NULL)
+			P = P->L;
+	}
+	return P;
+}
+
+StabloAVLPre brisiAVLElementPre(StabloAVLPre S, int ID)
+{
+	StabloAVLPre tempPredmet = NULL;
+
+	if (S == NULL){
+		printf("\t\tNe postoji taj predmet u bazi podataka.\n");
+		return NULL;
+	}
+	else if (S->ID > ID)
+		S->L = brisiAVLElementPre(S->L, ID);
+	else if (S->ID < ID)
+		S->D = brisiAVLElementPre(S->D, ID);
+	else
+	{
+		if (S->L != NULL && S->D != NULL)
+		{
+			tempPredmet = traziNajmanjiIDPre(S->D);
+			S->ID = tempPredmet->ID;
+			S->D = brisiAVLElementPre(S->D, S->ID);
+		}
+		else {
+			tempPredmet = S;
+			if (S->L == NULL)
+				S = S->D;
+			else if (S->D == NULL)
+				S = S->L;
+			free(tempPredmet);
+		}
+
+	}
+
+	return S;
+}
+
+int brisiPoIDuPredmet(StabloAVLPre rootPre)
+{
+	StabloAVLPre nadjeniPredmet = NULL;
+	FILE* fr = NULL;
+	FILE* fw = NULL;
+	int trazeniID = 0;
+	int ucitaniID = 0;
+	int tempBroj = 0;
+	int readBytes = 0;
+	int i = 0;
+	int tempOC = 0;
+	int indentSpacing = 30;
+	int brPredmetaPrijeBrisanog = 0;
+	char nadjeniPredIme[NAME_LENGTH] = "";
+	char tempImePredmeta[NAME_LENGTH] = "";
+	char tempImeStudenta[NAME_LENGTH] = "";
+	char tempStr[NAME_LENGTH] = "";
+	char* buff = NULL;
+
+	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+
+	do{
+		printf("\t\t-- ID predmeta za brisanje (0 za kraj): ");
+		scanf(" %d", &trazeniID);
+		if (trazeniID == 0) break;
+
+
+		izbrisiLinijuPoID("Predmeti.txt", trazeniID);
+		izbrisiLinijuPoID("PredmetiProfesori.txt", trazeniID);
+
+
+		// brisanje stupca u datoteci 'StudentiPotpunaTablica.txt'
+		fr = OtvoriDatoteku('r', "StudentiPotpunaTablica.txt");
+		fw = OtvoriDatoteku('w', "test.txt");
+
+		fgets(buff, BUFFER_LENGTH, fr); // zaglavlje
+		fprintf(fw, "%s", buff);
+		fgets(buff, BUFFER_LENGTH, fr); // sadrzi sva imena i ID-eve predmeta (2. redak)
+		fprintf(fw, "%*s", indentSpacing, "");
+
+		while (sscanf(buff, " %d %s %d %n", &ucitaniID, tempImePredmeta, &tempBroj, &readBytes) > 0)
+		{
+
+			if (tempBroj > 0 && tempBroj < 9){ // nastavak predmeta npr. 'Fizika 2<---'
+				sprintf(tempStr, "%d", tempBroj);
+				strcat(tempImePredmeta, " ");
+				strcat(tempImePredmeta, tempStr);
+				memmove(buff, buff + readBytes, BUFFER_LENGTH);
+			}
+
+			else{
+				memmove(buff, buff + readBytes - BUFFER_DECREMENTER, BUFFER_LENGTH);
+			}
+			if (ucitaniID != trazeniID){
+				fprintf(fw, " \t%d %s", ucitaniID, tempImePredmeta);
+				brPredmetaPrijeBrisanog++;
+			}
+			else break;
+		}
+
+		//fprintf(fw, "\t\t%s\n", buff);
+		fputs("\t\t", fw);
+		fputs(buff, fw);
+		//fputs("\n", fw);
+
+		while (!feof(fr))
+		{
+			fgets(buff, BUFFER_LENGTH, fr);
+			sscanf(buff, " %d %s %s %n", &ucitaniID, tempImeStudenta, tempStr, &readBytes);
+			fprintf(fw, "%5d %10s %10s ", ucitaniID, tempImeStudenta, tempStr);
+			memmove(buff, buff + readBytes, BUFFER_LENGTH);
+
+			for (i = 0; i <= brPredmetaPrijeBrisanog; i++)
+			{
+				sscanf(buff, " %d %n", &tempOC, &readBytes);
+				memmove(buff, buff + readBytes, BUFFER_LENGTH);
+				if (i == brPredmetaPrijeBrisanog) break;
+				fprintf(fw, "\t\t\t%d", tempOC);
+			}
+			//fprintf(fw, "\t\t%s\n", buff);
+			fputs("\t\t", fw);
+			fputs(buff, fw);
+			//fputs("\n", fw);
+		}
+
+		fclose(fr);
+		fclose(fw);
+
+		remove("StudentiPotpunaTablica.txt");
+		rename("test.txt", "StudentiPotpunaTablica.txt");
+
+		
+		nadjeniPredmet = nadiPoIDPre(trazeniID, rootPre);
+		strcpy(nadjeniPredmet, nadjeniPredmet->ImePre);
+		rootPre = brisiAVLElementPre(rootPre, trazeniID);
+		if (nadjeniPredmet) printf("\t\tIzbrisan predmet %s.\n", nadjeniPredIme);
+		
+
+
+	} while (trazeniID != 0);
+
+	free(buff);
+
+	return SUCCESS;
+}
 
 int IspisiSvePredmete() {
 

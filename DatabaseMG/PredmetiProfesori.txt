@@ -1,5 +1,8 @@
-2014	Matematika1 : Ivana Baric
-2079	Algoritmi : Sikora
+2079	Algoritmi : Sikora M
 2044	Matematika 1 : Ivana Baric
-2131	novi 1 : p
-2921	novi 2 : p
+2046    Matematika 2 : Ivana Baric
+2047    Fizika 1 : Damir Lelas
+2048    Fizika 2 : Damir Lelas
+2049    DSS : Duje Coko
+2050    Praktikum : Spomenka Bovan
+2100    OOP : Marjan Sikora

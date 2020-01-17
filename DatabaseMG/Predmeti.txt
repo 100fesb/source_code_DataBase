@@ -1,45 +1,8 @@
-2045    OOP
-2046    Matematika
+2079	Algoritmi
+2044	Matematika 1
+2046    Matematika 2
 2047    Fizika 1
 2048    Fizika 2
 2049    DSS
 2050    Praktikum
-2051    Engleski jezik 1
-2052    Strukture podataka
-2053    Komunikacijske vještine
-2054    Elektrotehnika
-2014	Matematika1
-2079	Algoritmi
-2044	Matematika 1
-2029	Algoritmi
-2014	Matematika 1
-2005	Algoritmi
-2068	Prakt
-2058	Mat1
-2008	Alg
-2009	Mat1
-2228	N1 N1
-2801	N2 N2
-2685	N2 N2
-2248	N3 N3
-2926	N4 N4
-2207	N5 N5
-2385	N6 N6
-2653	N7 N7
-2584	N1 N1
-2946	N2 N2
-2783	N3 N3
-2239	N4 N4
-2052	N1 N1
-2571	N3 N3
-2934	N4 N4
-2832	N2 N2
-2847	N3 N3
-2268	N2 N2
-2636	N3 N3
-2117	N2 N2
-2111	N3 N3
-2597	Najnoviji 1
-2324	Najnoviji 2
-2131	novi 1
-2921	novi 2
+2100    OOP

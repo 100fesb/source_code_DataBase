@@ -33,6 +33,8 @@ struct cvorAVLPredmeti{
 
 PozicijaAVLPre nadiPoIDPre(int tempID, PozicijaAVLPre Root);
 int unesiPredmet(StabloAVLPre rootPre);
-
+int brisiPoIDuPredmet(StabloAVLPre rootPre);
+StabloAVLPre brisiAVLElementPre(StabloAVLPre P, int ID);
+StabloAVLPre traziNajmanjiIDPre(StabloAVLPre P);
 
 #endif

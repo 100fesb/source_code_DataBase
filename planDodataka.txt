@@ -4,7 +4,7 @@
 
 --> treba testirat kada korisnik unosi neke gluposti
 
---> za kraj svakako treba pocistit sve pokazivace 
+--> za kraj svakako treba pocistit sve pokazivace (pogotovo kod brisanja Studenata i Profesora) 
 i prekontrolirat da nam samo AVL stabla stoje u memoriji, 
 a ostalo da je takodjer pobrisano
 
