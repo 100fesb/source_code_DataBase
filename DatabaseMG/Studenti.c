@@ -18,59 +18,59 @@ StabloAVL traziNajmanjiID(StabloAVL P)
 	return P;
 }
 
-StabloAVL brisiAVLElement(StabloAVL nadjeniStudent, int* pID)
+StabloAVL brisiAVLElement(StabloAVL S, int ID)
 {
 	StabloAVL tempStudent = NULL;
 
-	if (nadjeniStudent == NULL){
-		printf("\t\tNe postoji taj ucenik u bazi podataka.\n");
+	if (S == NULL){
+		printf("\t\tNe postoji taj student u bazi podataka.\n");
 		return NULL;
 	}
-	else if (nadjeniStudent->ID > *pID)
-		nadjeniStudent->L = brisiAVLElement(nadjeniStudent->L, pID);
-	else if (nadjeniStudent->ID < *pID)
-		nadjeniStudent->D = brisiAVLElement(nadjeniStudent->D, pID);
+	else if (S->ID > ID)
+		S->L = brisiAVLElement(S->L, ID);
+	else if (S->ID < ID)
+		S->D = brisiAVLElement(S->D, ID);
 	else
 	{
-
-		if (nadjeniStudent->L != NULL && nadjeniStudent->D != NULL)
+		if (S->L != NULL && S->D != NULL)
 		{
-			tempStudent = traziNajmanjiID(nadjeniStudent->D);
-			nadjeniStudent->ID = tempStudent->ID;
-			nadjeniStudent->D = brisiAVLElement(nadjeniStudent->D, &nadjeniStudent->ID);
+			tempStudent = traziNajmanjiID(S->D);
+			S->ID = tempStudent->ID;
+			S->D = brisiAVLElement(S->D, S->ID);
 		}
 		else {
-			tempStudent = nadjeniStudent;
-			if (nadjeniStudent->L == NULL)
-				nadjeniStudent = nadjeniStudent->D;
-			else if (nadjeniStudent->D == NULL)
-				nadjeniStudent = nadjeniStudent->L;
+			tempStudent = S;
+			if (S->L == NULL)
+				S = S->D;
+			else if (S->D == NULL)
+				S = S->L;
 			free(tempStudent);
 		}
 
 	}
 
-	return nadjeniStudent;
+	return S;
 }
 
 int brisiPoIDuStudent(StabloAVL rootStudent)
 {
-	int trazeniID = 0;
 	StabloAVL nadjeniStudent = NULL;
+	int trazeniID = 0;
+	char nadjeniStudIme[NAME_LENGTH] = "";
 
 	do{
 		printf("\t\t-- ID studenta za brisanje (0 za kraj): ");
 		scanf(" %d", &trazeniID);
 		if (trazeniID == 0) break;
 
+
 		izbrisiLinijuPoID("Studenti.txt", trazeniID);
 		izbrisiLinijuPoID("StudentiPotpunaTablica.txt", trazeniID);
 
-		//nadjeniStudent = nadiPoID(trazeniID, rootStudent);
-
-		rootStudent = brisiAVLElement(rootStudent, &trazeniID);
-
-		
+		nadjeniStudent = nadiPoID(trazeniID, rootStudent);
+		strcpy(nadjeniStudIme, nadjeniStudent->PrezimeIme);
+		rootStudent = brisiAVLElement(rootStudent, trazeniID);
+		if (nadjeniStudent) printf("\t\tIzbrisan student %s.\n", nadjeniStudIme);
 
 
 	} while (trazeniID != 0);

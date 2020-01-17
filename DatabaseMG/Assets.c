@@ -16,7 +16,7 @@ int izbrisiLinijuPoID(char* datoteka, int trazeniID)
 	FILE* fr = NULL;
 	FILE* fw = NULL;
 	int procitaniID = 0;
-	int prosliID = 0;
+	int prosliID = -1;
 	char* tempStr = NULL;
 	char* tempStr2 = NULL;
 	char* buff = NULL;
@@ -31,26 +31,12 @@ int izbrisiLinijuPoID(char* datoteka, int trazeniID)
 
 	while (!feof(fr))
 	{
-		// dodajemo provjere da bi bilo vise genericki:
-
 		fgets(buff, BUFFER_LENGTH, fr);
-		if(!sscanf(buff, "%d %[^\n]", &procitaniID, tempStr)) continue;
+		sscanf(buff, "%d", &procitaniID);
 
-		if (procitaniID == trazeniID){
-
-			if(!sscanf(tempStr, "%[^:]", tempStr)) printf("\t\t~~Uspjesno izbrisan %s", tempStr);
-
-			else if (strlen(tempStr) < 20){
-				printf("\t\t~~Uspjesno izbrisan %s", tempStr);
-			}
-			else {
-				sscanf(tempStr, " %s %s", tempStr, tempStr2);
-				printf("\t\t~~Uspjesno izbrisan %s %s", tempStr, tempStr2);
-			}
-			continue;
-		}
+		if (procitaniID == trazeniID) continue;
 		if (procitaniID == prosliID) continue; // uvjet zbog \n na kraju datoteke
-		fprintf(fw, "%d %s\n", procitaniID, tempStr);
+		fprintf(fw, "%s", buff);
 		prosliID = procitaniID;
 	}
 	fclose(fr);
