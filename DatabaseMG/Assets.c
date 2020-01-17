@@ -11,6 +11,60 @@
 #include "Predmeti.h"
 #include "Profesori.h"
 
+int izbrisiLinijuPoID(char* datoteka, int trazeniID)
+{
+	FILE* fr = NULL;
+	FILE* fw = NULL;
+	int procitaniID = 0;
+	int prosliID = 0;
+	char* tempStr = NULL;
+	char* tempStr2 = NULL;
+	char* buff = NULL;
+
+	tempStr = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+	tempStr2 = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+	if (!tempStr || !tempStr2 || !buff) return ERROR;
+
+	fr = OtvoriDatoteku('r', datoteka);
+	fw = OtvoriDatoteku('w', "temp.txt");
+
+	while (!feof(fr))
+	{
+		// dodajemo provjere da bi bilo vise genericki:
+
+		fgets(buff, BUFFER_LENGTH, fr);
+		if(!sscanf(buff, "%d %[^\n]", &procitaniID, tempStr)) continue;
+
+		if (procitaniID == trazeniID){
+
+			if(!sscanf(tempStr, "%[^:]", tempStr)) printf("\t\t~~Uspjesno izbrisan %s", tempStr);
+
+			else if (strlen(tempStr) < 20){
+				printf("\t\t~~Uspjesno izbrisan %s", tempStr);
+			}
+			else {
+				sscanf(tempStr, " %s %s", tempStr, tempStr2);
+				printf("\t\t~~Uspjesno izbrisan %s %s", tempStr, tempStr2);
+			}
+			continue;
+		}
+		if (procitaniID == prosliID) continue; // uvjet zbog \n na kraju datoteke
+		fprintf(fw, "%d %s\n", procitaniID, tempStr);
+		prosliID = procitaniID;
+	}
+	fclose(fr);
+	fclose(fw);
+
+	remove(datoteka);
+	rename("temp.txt", datoteka);
+
+	free(tempStr);
+	free(tempStr2);
+	free(buff);
+	return SUCCESS;
+}
+
 int getNthItemFromString(int INDEX, char* STR)
 {
 	int i = 0;
@@ -139,12 +193,8 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 	int izbor2 = 0;
 
 	do{
-
-<<<<<<< HEAD
 		printf("\n\n\t1 - Unos jednog %sa\n\t2 - Unos liste %sa\n\t3 - Ispis %sa\n\t4 - Ispis svega %sa\n\t5 - Ispis AVL Stabla %sa\n\t6 - Brisanje %sa\n\t0 - Nazad\n\t\Unos: ", TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER);
-=======
-		printf("\n\n\t1 - Unos jednog %sa\n\t2 - Unos liste %sa\n\t3 - Ispis %sa\n\t4 - Brisanje %sa\n\t5 - Ispis svega\n\t0 - Nazad\n\t\Unos: ", TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER, TEMP_NAME_HOLDER);
->>>>>>> 8d986531c11f1181296e3a23014c967854575aec
+
 		scanf("%d", &izbor2);
 
 		switch (izbor2)
@@ -196,7 +246,7 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 			else if (izbor == 3) print_t(rootPro);
 			break;
 		case 6:
-			printf("brisanje");
+			if (izbor == 1) brisiPoIDuStudent(rootS);
 			break;
 		}
 

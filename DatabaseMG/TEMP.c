@@ -3,10 +3,10 @@
 #include "Predmeti.h"
 #include "Profesori.h"
 
-int _print_t(StabloAVLPre tree, int is_left, int offset, int depth, char s[20][255]);
-void print_t(StabloAVLPre tree);
+int _print_t(StabloAVL tree, int is_left, int offset, int depth, char s[20][255]);
+void print_t(StabloAVL tree);
 
-int _print_t(StabloAVLPre tree, int is_left, int offset, int depth, char s[20][255])
+int _print_t(StabloAVL tree, int is_left, int offset, int depth, char s[20][255])
 {
 	char b[20];
 	int width = 5;
@@ -63,7 +63,7 @@ int _print_t(StabloAVLPre tree, int is_left, int offset, int depth, char s[20][2
 	return left + width + right;
 }
 
-void print_t(StabloAVLPre tree)
+void print_t(StabloAVL tree)
 {
 	char s[20][255];
 	for (int i = 0; i < 20; i++)

@@ -8,6 +8,77 @@
 #include "Predmeti.h"
 #include "Assets.h"
 
+StabloAVL traziNajmanjiID(StabloAVL P)
+{
+	if (P != NULL)
+	{
+		while (P->L != NULL)
+			P = P->L;
+	}
+	return P;
+}
+
+StabloAVL brisiAVLElement(StabloAVL nadjeniStudent, int* pID)
+{
+	StabloAVL tempStudent = NULL;
+
+	if (nadjeniStudent == NULL){
+		printf("\t\tNe postoji taj ucenik u bazi podataka.\n");
+		return NULL;
+	}
+	else if (nadjeniStudent->ID > *pID)
+		nadjeniStudent->L = brisiAVLElement(nadjeniStudent->L, pID);
+	else if (nadjeniStudent->ID < *pID)
+		nadjeniStudent->D = brisiAVLElement(nadjeniStudent->D, pID);
+	else
+	{
+
+		if (nadjeniStudent->L != NULL && nadjeniStudent->D != NULL)
+		{
+			tempStudent = traziNajmanjiID(nadjeniStudent->D);
+			nadjeniStudent->ID = tempStudent->ID;
+			nadjeniStudent->D = brisiAVLElement(nadjeniStudent->D, &nadjeniStudent->ID);
+		}
+		else {
+			tempStudent = nadjeniStudent;
+			if (nadjeniStudent->L == NULL)
+				nadjeniStudent = nadjeniStudent->D;
+			else if (nadjeniStudent->D == NULL)
+				nadjeniStudent = nadjeniStudent->L;
+			free(tempStudent);
+		}
+
+	}
+
+	return nadjeniStudent;
+}
+
+int brisiPoIDuStudent(StabloAVL rootStudent)
+{
+	int trazeniID = 0;
+	StabloAVL nadjeniStudent = NULL;
+
+	do{
+		printf("\t\t-- ID studenta za brisanje (0 za kraj): ");
+		scanf(" %d", &trazeniID);
+		if (trazeniID == 0) break;
+
+		izbrisiLinijuPoID("Studenti.txt", trazeniID);
+		izbrisiLinijuPoID("StudentiPotpunaTablica.txt", trazeniID);
+
+		//nadjeniStudent = nadiPoID(trazeniID, rootStudent);
+
+		rootStudent = brisiAVLElement(rootStudent, &trazeniID);
+
+		
+
+
+	} while (trazeniID != 0);
+	
+	return SUCCESS;
+}
+
+
 int unesiStudenta(StabloAVL rootS)
 {
 	FILE* fa = NULL;
@@ -83,7 +154,7 @@ int unesiStudenta(StabloAVL rootS)
 	DodajAVL(tempIDstud, imePrezime, rootS, IDeviPredmeta, ocjene, brPredmetaStudenta);
 
 	fa = OtvoriDatoteku('a', "Studenti.txt");
-	fprintf(fa, "\n%d\t%s", tempIDstud, imePrezime);
+	fprintf(fa, "%d %s\n", tempIDstud, imePrezime);
 
 	fclose(fa);
 
@@ -91,9 +162,11 @@ int unesiStudenta(StabloAVL rootS)
 	// jer uvijek predmete dodajemo na kraj
 	// ali u varijablama ove funkcije ne moraju biti po redu - ovisi o unosu korisnika
 	fa = OtvoriDatoteku('a', "StudentiPotpunaTablica.txt");
+
 	fprintf(fa, "\n%d\t\t\t%s", tempIDstud, imePrezime);
 
 	fr = OtvoriDatoteku('r', "Predmeti.txt");
+
 	while (!feof(fr))
 	{
 		fscanf(fr, "%d %[^\n]", &tempIDpredmeta, tempImePredmeta);
@@ -280,6 +353,7 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	int tempNastavakPredmeta= 0;
 	char tempNastavakPredmetaC[sizeof(int)];
 	char tempNastavakPredmetaS[NAME_LENGTH];
+	char tempIDstr[NAME_LENGTH] = "";
 	int tempID = 0;
 	int stringIsRead = 0; // 0 za ne, bilo sta drugo je da
 
@@ -294,10 +368,12 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
 	ocjene = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
 
+	if (!buff || !ocjene) return ERROR;
+
 	fgets(buff, BUFFER_LENGTH, fp);
 
 	// mozda cemo koristit polje imenaPredmeta, mozda ne, ali smo ih spojili imena u polje
-	for (i = 0; sscanf(buff, "%d %s %d %n", &IDeviPredmeta[i], imenaPredmeta[i], &tempNastavakPredmeta, &readBytes) > 0; i++){
+	for (i = 0; sscanf(buff, " %d %s %d %n", &IDeviPredmeta[i], imenaPredmeta[i], &tempNastavakPredmeta, &readBytes) > 0; i++){
 		
 		// podrzavanje vise rijeci za ime predmeta
 		if (!readBytes)
@@ -331,7 +407,12 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 		else
 		{
 			buff += readBytes;
-			buff -= sizeof(tempNastavakPredmeta)+1;
+			buff -= BUFFER_DECREMENTER;
+			/*
+			sprintf(tempIDstr, "%d", tempNastavakPredmeta);
+			buff -= strlen(tempIDstr);
+			*/
+			//memmove(buff, buff - sizeof(tempNastavakPredmeta), strlen(buff));
 			brPredmeta++;
 			readBytes = 0;
 			continue;
@@ -352,8 +433,13 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 		P = DodajAVL(id, str1, P, IDeviPredmeta, ocjene, brPredmeta);
 	}
 	fclose(fp);
+
+	
+	//free(buff); s njim smo setali -  treba memmove umjesto buff += ...
+	free(ocjene);
 	return P;
 }
+
 
 
 int Visina(StabloAVL S)

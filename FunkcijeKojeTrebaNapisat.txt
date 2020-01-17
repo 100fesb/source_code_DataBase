@@ -16,7 +16,10 @@ Provjeri jeli postoji (po ID, i imenu/prezimenu) -> lagano
 Brisi po ID-u (treba brisati i u datoteci i u AVL stablu)
 Brisi sve u datoteci -> lagano
 
-ZA KRAJ, treba napraviti funkcije koje ciste, 
+~~~~~ sada su predmeti -1 -1 za studente u AVL stablu, to popravit
+
+ZA KRAJ, free(buff) i slicno, gdje god se koriste privremeni spremnici
+i treba napraviti funkcije koje ciste, 
 kao garbage collector svega sta smo generirali a ne treba,
 -> tu ne brisemo AVL stabla (cini mi se da tu brisemo samo AVL stabla za sam kraj programa,
     kada korisnik unese 'kraj' u izborniku, jer ostale varijable zavrsavaju s funkcijama)

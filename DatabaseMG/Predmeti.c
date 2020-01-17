@@ -103,6 +103,9 @@ int unesiPredmet(StabloAVLPre rootPre)
 	remove("StudentiPotpunaTablica.txt");
 	rename("temp.txt", "StudentiPotpunaTablica.txt");
 
+	free(tempStr);
+	free(buff);
+
 
 	return SUCCESS;
 }
@@ -166,7 +169,9 @@ StabloAVLPre generirajAVL_Predmeti(StabloAVLPre P)
 	char imePredmeta[NAME_LENGTH] = "";
 	char imeProfesora[NAME_LENGTH] = "";
 	char* buff = NULL;
+
 	buff = (char*)malloc(sizeof(char)* BUFFER_LEN);
+	if (!buff) return ERROR;
 
 	fp = OtvoriDatoteku('r', "PredmetiProfesori.txt");
 
@@ -188,6 +193,8 @@ StabloAVLPre generirajAVL_Predmeti(StabloAVLPre P)
 
 
 	fclose(fp);
+
+	free(buff);
 
 	return P;
 }

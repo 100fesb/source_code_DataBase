@@ -47,5 +47,9 @@ struct Predmet{
 PozicijaAVL nadiPoID(int tempID, PozicijaAVL Root);
 int ispisSvihOcjenaStudenta(PozicijaAVL RootS, PozicijaAVLPre RootPre);
 int unesiStudenta(StabloAVL rootS);
+int brisiPoIDuStudent(StabloAVL rootS);
+StabloAVL brisiAVLElement(StabloAVL P, int ID);
+StabloAVL traziNajmanjiID(StabloAVL P);
 
 #endif
+

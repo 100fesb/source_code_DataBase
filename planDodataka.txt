@@ -1,7 +1,10 @@
 --> povezati predmete i profesore
 
+~~~~~ sada su predmeti -1 -1 za studente u AVL stablu, to popravit
+
 --> treba testirat kada korisnik unosi neke gluposti
 
 --> za kraj svakako treba pocistit sve pokazivace 
 i prekontrolirat da nam samo AVL stabla stoje u memoriji, 
 a ostalo da je takodjer pobrisano
+

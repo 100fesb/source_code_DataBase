@@ -14,6 +14,7 @@ int IspisiSveProfesore() {
 	int ID = 0;
 
 	buffer = (char*)malloc(sizeof(char) * NAME_LENGTH);	
+	if (!buffer) return ERROR;
 
 	fp = fopen("Profesori.txt", "r");		
 	if (!fp)  return ERROR;
@@ -27,6 +28,7 @@ int IspisiSveProfesore() {
 		}
 	}
 	fclose(fp);		
+
 	free(buffer);		
 
 	return 0;
@@ -43,12 +45,11 @@ int unesiProfesora(StabloAVLPro P)
 	char imePrezimeProfesora[NAME_LENGTH] = "";
 	char tempLine[BUFFER_LENGTH] = "";
 	char* tempStr = NULL;
-	char* buff = NULL;
 	int i = 0;
 	int brPredmeta = 0;
 
 	tempStr = (char*)malloc(sizeof(char)*NAME_LENGTH);
-	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+	if (!tempStr) return ERROR;
 
 
 	tempIDprofesora = generirajID(3000, 3999);
@@ -93,6 +94,8 @@ int unesiProfesora(StabloAVLPro P)
 	}
 
 	fclose(fa);
+
+	free(tempStr);
 
 	return SUCCESS;
 }
@@ -201,6 +204,8 @@ StabloAVLPro generirajAVL_Profesori(StabloAVLPro P)
 
 
 	fclose(fp);
+
+	//free(buff);
 
 	// treba vratiti root
 	return P;

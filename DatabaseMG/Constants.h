@@ -12,6 +12,8 @@
 #define MAX_PREDMETA 999
 #define MAX_PROFESORA 999
 #define BUFFER_LEN 1024
+#define ID_LENGTH 4
+#define BUFFER_DECREMENTER ID_LENGTH + 3
 
 #define ERROR -1
 #define END -1
