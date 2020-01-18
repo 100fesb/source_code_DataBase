@@ -24,21 +24,18 @@
     <ClCompile Include="Studenti.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TEMP.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Predmeti.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Profesori.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Korisnik.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AVL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Studenti.h">
@@ -51,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Assets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Korisnik.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

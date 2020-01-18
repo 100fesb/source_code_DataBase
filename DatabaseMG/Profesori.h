@@ -3,7 +3,6 @@
 #ifndef PROFESORI
 #define PROFESORI
 
-//deklarirali pokazivace
 typedef struct cvorAVLProfesori CvorAVLPro;
 typedef struct cvorAVLProfesori* StabloAVLPro;
 typedef struct cvorAVLProfesori* PozicijaAVLPro;
@@ -13,18 +12,19 @@ StabloAVLPro DodajAVLPro(int, char*, char**, StabloAVLPro, int);
 PozicijaAVLPro JednostrukaRLPro(PozicijaAVLPro);
 PozicijaAVLPro DvostrukaRLPro(PozicijaAVLPro);
 PozicijaAVLPro JednostrukaRDPro(PozicijaAVLPro);
-PozicijaAVLPro DvostrukaRDPro(PozicijaAVLPro);
+PozicijaAVLPro DvostrukaRDPro(PozicijaAVLPro); 
+void printAVLprof(StabloAVLPro tree);
+int _printAVLprof(StabloAVLPro tree, int is_left, int offset, int depth, char s[20][255]);
 
 int IspisiSveProfesore();
 
-struct cvorAVLProfesori{	
+struct cvorAVLProfesori{
 
 	int ID;
 	char ImePro[NAME_LENGTH];
 	char predmeti[NAME_LENGTH][NAME_LENGTH];
 	StabloAVLPro L; // lijevi profesor
 	StabloAVLPro D; // desni profesor
-	//PozicijaAVLPro NextPre; // iduci predmet, ako bude potrebno
 
 	int visina;
 };

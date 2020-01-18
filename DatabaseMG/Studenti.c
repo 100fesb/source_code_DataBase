@@ -74,7 +74,7 @@ int brisiPoIDuStudent(StabloAVL rootStudent)
 
 
 	} while (trazeniID != 0);
-	
+
 	return SUCCESS;
 }
 
@@ -112,9 +112,9 @@ int unesiStudenta(StabloAVL rootS)
 
 	fr = OtvoriDatoteku('r', "Predmeti.txt");
 
-	while (!feof(fr)){ 
-		fgets(tempStr, sizeof(tempStr), fr); 
-		brPredmetaDatoteke++; 
+	while (!feof(fr)){
+		fgets(tempStr, sizeof(tempStr), fr);
+		brPredmetaDatoteke++;
 	}
 
 	rewind(fr);
@@ -213,7 +213,7 @@ int IspisiSveStudente() {
 	char Prezime[NAME_LENGTH] = " ";
 	int ID = 0;
 
-	buffer = (char*)malloc(sizeof(char) * NAME_LENGTH);
+	buffer = (char*)malloc(sizeof(char)* NAME_LENGTH);
 
 	fp = fopen("Studenti.txt", "r");
 	if (!fp)  return ERROR;
@@ -258,7 +258,7 @@ int ispisSvihOcjenaStudenta(PozicijaAVL RootS, PozicijaAVLPre RootPre)
 
 	while (NULL != Predmet){
 		NadjeniPre = nadiPoIDPre(Predmet->ID, RootPre);
-		
+
 		if (Predmet->OC > 0){
 			printf("\n\t%s: %d", NadjeniPre->ImePre, Predmet->OC);
 		}
@@ -282,7 +282,7 @@ StabloAVL DodajAVL(int ID, char* PI, StabloAVL S, int IDeviPredmeta[BUFFER_LENGT
 	int i = 0;
 	int readBytes = 0;
 	int tempOC = 0;
-	
+
 	if (NULL == S)
 	{
 		S = (StabloAVL)malloc(sizeof(CvorAVL));
@@ -334,6 +334,7 @@ StabloAVL DodajAVL(int ID, char* PI, StabloAVL S, int IDeviPredmeta[BUFFER_LENGT
 
 // AVL stablo za studenta - vraca pokazivac na prvi element (root), prima root (do upsisa ce bit NULL)
 // funkcije za AVL stabla moraju biti napisane posebno za svako AVLS jer moramo znati koji root vracamo (mogli smo sredit koji primamo preko druge funkcije)
+// alternativa je da vracaju void* sto je vrlo opasno (nema nekon template-a - C++ ili nesto slicno, polimorfno)
 StabloAVL generirajAVL_Student(StabloAVL P)
 {
 	FILE* fp = NULL;
@@ -345,12 +346,11 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	int id = NULL;
 	char str1[NAME_LENGTH / 2];
 	char str2[NAME_LENGTH / 2];
-	char prezimeIme[NAME_LENGTH];
 	char imenaPredmeta[LONG_BUFFER_LENGTH][NAME_LENGTH];
 	int IDeviPredmeta[BUFFER_LENGTH];
 	int brPredmeta = 0;
 	char* ocjene = NULL;
-	int tempNastavakPredmeta= 0;
+	int tempNastavakPredmeta = 0;
 	char tempNastavakPredmetaC[sizeof(int)];
 	char tempNastavakPredmetaS[NAME_LENGTH];
 	char tempIDstr[NAME_LENGTH] = "";
@@ -361,10 +361,9 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 
 	if (!fp) return NULL;
 
-	//while (fgets(red, BUFFER_LENGTH, fp) != NULL
 
 	fgets(red, BUFFER_LENGTH, fp); // preskocimo prvi red zaglavlja)
-	
+
 	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
 	ocjene = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
 
@@ -374,7 +373,7 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 
 	// mozda cemo koristit polje imenaPredmeta, mozda ne, ali smo ih spojili imena u polje
 	for (i = 0; sscanf(buff, " %d %s %d %n", &IDeviPredmeta[i], imenaPredmeta[i], &tempNastavakPredmeta, &readBytes) > 0; i++){
-		
+
 		// podrzavanje vise rijeci za ime predmeta
 		if (!readBytes)
 		{
@@ -401,23 +400,17 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 			sprintf(tempNastavakPredmetaC, "%d", tempNastavakPredmeta);
 			strcat(imenaPredmeta[i], " ");
 			strcat(imenaPredmeta[i], tempNastavakPredmetaC);
-			//printf("\nDoslo je do spajanja za: %s", imenaPredmeta[i]);
 			tempNastavakPredmeta = 0; // jer iz nekog razloga ako ne resetamo - on zapamti do kraja reda
 		}
 		else
 		{
 			buff += readBytes;
 			buff -= BUFFER_DECREMENTER;
-			/*
-			sprintf(tempIDstr, "%d", tempNastavakPredmeta);
-			buff -= strlen(tempIDstr);
-			*/
-			//memmove(buff, buff - sizeof(tempNastavakPredmeta), strlen(buff));
 			brPredmeta++;
 			readBytes = 0;
 			continue;
 		}
-		
+
 		buff += readBytes;
 		brPredmeta++;
 	}
@@ -425,7 +418,7 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	while (!feof(fp))
 	{
 		fgets(buff, BUFFER_LENGTH, fp);
-		
+
 		sscanf(buff, "%d %s %s %[^\n]", &id, str1, str2, ocjene);
 		strcat(str1, " ");
 		strcat(str1, str2);
@@ -434,7 +427,7 @@ StabloAVL generirajAVL_Student(StabloAVL P)
 	}
 	fclose(fp);
 
-	
+
 	//free(buff); s njim smo setali -  treba memmove umjesto buff += ...
 	free(ocjene);
 	return P;
@@ -455,7 +448,6 @@ int Visina(StabloAVL S)
 	else if (NULL == S->D){
 		return 1 + Visina(S->L);
 	}
-	// slucaj kada imamo dijete i slijeva i zdesna
 	else{
 		return Max(Visina(S->L), Visina(S->D)) + 1;
 	}
@@ -504,3 +496,72 @@ PozicijaAVL DvostrukaRD(PozicijaAVL K3)
 	return JednostrukaRD(K3);
 }
 
+
+int _printAVLstud(StabloAVL tree, int is_left, int offset, int depth, char s[20][255])
+{
+	char b[20];
+	int width = 5;
+
+	if (!tree) return 0;
+
+	sprintf(b, "(%03d)", tree->ID);
+
+	int left = _printAVLstud(tree->L, 1, offset, depth + 1, s);
+	int right = _printAVLstud(tree->D, 0, offset + left + width, depth + 1, s);
+
+#ifdef COMPACT
+	for (int i = 0; i < width; i++)
+		s[depth][offset + left + i] = b[i];
+
+	if (depth && is_left) {
+
+		for (int i = 0; i < width + right; i++)
+			s[depth - 1][offset + left + width / 2 + i] = '-';
+
+		s[depth - 1][offset + left + width / 2] = '.';
+
+	}
+	else if (depth && !is_left) {
+
+		for (int i = 0; i < left + width; i++)
+			s[depth - 1][offset - width / 2 + i] = '-';
+
+		s[depth - 1][offset + left + width / 2] = '.';
+	}
+#else
+	for (int i = 0; i < width; i++)
+		s[2 * depth][offset + left + i] = b[i];
+
+	if (depth && is_left) {
+
+		for (int i = 0; i < width + right; i++)
+			s[2 * depth - 1][offset + left + width / 2 + i] = '-';
+
+		s[2 * depth - 1][offset + left + width / 2] = '+';
+		s[2 * depth - 1][offset + left + width + right + width / 2] = '+';
+
+	}
+	else if (depth && !is_left) {
+
+		for (int i = 0; i < left + width; i++)
+			s[2 * depth - 1][offset - width / 2 + i] = '-';
+
+		s[2 * depth - 1][offset + left + width / 2] = '+';
+		s[2 * depth - 1][offset - width / 2 - 1] = '+';
+	}
+#endif
+
+	return left + width + right;
+}
+
+void printAVLstud(StabloAVL tree)
+{
+	char s[20][255];
+	for (int i = 0; i < 20; i++)
+		sprintf(s[i], "%80s", " ");
+
+	_printAVLstud(tree, 0, 0, 0, s);
+
+	for (int i = 0; i < 20; i++)
+		printf("%s\n", s[i]);
+}

@@ -3,7 +3,6 @@
 #ifndef PREDMETI
 #define PREDMETI
 
-//deklarirali pokazivace
 typedef struct cvorAVLPredmeti CvorAVLPre;
 typedef struct cvorAVLPredmeti* StabloAVLPre;
 typedef struct cvorAVLPredmeti* PozicijaAVLPre;
@@ -14,8 +13,9 @@ PozicijaAVLPre JednostrukaRLPre(PozicijaAVLPre);
 PozicijaAVLPre DvostrukaRLPre(PozicijaAVLPre);
 PozicijaAVLPre JednostrukaRDPre(PozicijaAVLPre);
 PozicijaAVLPre DvostrukaRDPre(PozicijaAVLPre);
+void printAVLpred(StabloAVLPre tree);
+int _printAVLpred(StabloAVLPre tree, int is_left, int offset, int depth, char s[20][255]);
 
-//ispis
 int IspisiSvePredmete();
 
 
@@ -26,7 +26,6 @@ struct cvorAVLPredmeti{
 	char ImePrezimeProfesora[NAME_LENGTH];
 	StabloAVLPre L; // lijevi predmet
 	StabloAVLPre D; // desni predmet
-	//PozicijaP NextP; // iduci predmet
 
 	int visina;
 };

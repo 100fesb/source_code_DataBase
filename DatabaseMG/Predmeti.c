@@ -34,6 +34,8 @@ StabloAVLPre brisiAVLElementPre(StabloAVLPre S, int ID)
 		{
 			tempPredmet = traziNajmanjiIDPre(S->D);
 			S->ID = tempPredmet->ID;
+			strcpy(S->ImePre, tempPredmet->ImePre);
+			strcpy(S->ImePrezimeProfesora, tempPredmet->ImePrezimeProfesora);
 			S->D = brisiAVLElementPre(S->D, S->ID);
 		}
 		else {
@@ -76,10 +78,12 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 		scanf(" %d", &trazeniID);
 		if (trazeniID == 0) break;
 
+		/*
 
 		izbrisiLinijuPoID("Predmeti.txt", trazeniID);
 		izbrisiLinijuPoID("PredmetiProfesori.txt", trazeniID);
 
+		*/
 
 		// brisanje stupca u datoteci 'StudentiPotpunaTablica.txt'
 		fr = OtvoriDatoteku('r', "StudentiPotpunaTablica.txt");
@@ -109,11 +113,8 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 			}
 			else break;
 		}
-
-		//fprintf(fw, "\t\t%s\n", buff);
 		fputs("\t\t", fw);
 		fputs(buff, fw);
-		//fputs("\n", fw);
 
 		while (!feof(fr))
 		{
@@ -129,10 +130,8 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 				if (i == brPredmetaPrijeBrisanog) break;
 				fprintf(fw, "\t\t\t%d", tempOC);
 			}
-			//fprintf(fw, "\t\t%s\n", buff);
 			fputs("\t\t", fw);
 			fputs(buff, fw);
-			//fputs("\n", fw);
 		}
 
 		fclose(fr);
@@ -141,12 +140,13 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 		remove("StudentiPotpunaTablica.txt");
 		rename("test.txt", "StudentiPotpunaTablica.txt");
 
-		
+
+
 		nadjeniPredmet = nadiPoIDPre(trazeniID, rootPre);
-		strcpy(nadjeniPredmet, nadjeniPredmet->ImePre);
+		strcpy(nadjeniPredIme, nadjeniPredmet->ImePre);
 		rootPre = brisiAVLElementPre(rootPre, trazeniID);
 		if (nadjeniPredmet) printf("\t\tIzbrisan predmet %s.\n", nadjeniPredIme);
-		
+
 
 
 	} while (trazeniID != 0);
@@ -158,27 +158,27 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 
 int IspisiSvePredmete() {
 
-	FILE* fp = NULL;		
-	char* buffer = NULL;	
+	FILE* fp = NULL;
+	char* buffer = NULL;
 	char Ime[NAME_LENGTH] = " ";
 	int ID = 0;
 
-	buffer = (char*)malloc(sizeof(char) * NAME_LENGTH);	
+	buffer = (char*)malloc(sizeof(char)* NAME_LENGTH);
 
-	fp = fopen("Predmeti.txt", "r");		
+	fp = fopen("Predmeti.txt", "r");
 	if (!fp)  return ERROR;
 
-	while (!feof(fp)) {	
-		fgets(buffer, NAME_LENGTH, fp);		
+	while (!feof(fp)) {
+		fgets(buffer, NAME_LENGTH, fp);
 		if (buffer[0] != '\n' && buffer[0] != '\0')
 		{
 			fscanf(fp, " %d %s", &ID, Ime);
 			printf("\n\tID predmeta je %d a ime predmeta je %s", ID, Ime);
 		}
 	}
-	fclose(fp);	
-	free(buffer);		
-	
+	fclose(fp);
+	free(buffer);
+
 	return 0;
 };
 
@@ -203,7 +203,7 @@ int unesiPredmet(StabloAVLPre rootPre)
 	fa = OtvoriDatoteku('a', "Predmeti.txt");
 
 	printf("\t\t-- Ime predmeta: ");
-	tempStr = readLine();	
+	tempStr = readLine();
 	strcat(imePredmeta, tempStr);
 	if (!strcmp(imePredmeta, "kraj")) return END;
 	fprintf(fa, "\n%d\t%s", tempIDpredmeta, imePredmeta);
@@ -226,7 +226,6 @@ int unesiPredmet(StabloAVLPre rootPre)
 
 	fgets(buff, BUFFER_LENGTH, fr);
 	sscanf(buff, "%[^\n]", tempLine);
-	//fscanf(fr, "%[^\n]", tempLine);
 	fprintf(fw, "%s\n", tempLine);
 
 	fgets(buff, BUFFER_LENGTH, fr);
@@ -238,10 +237,8 @@ int unesiPredmet(StabloAVLPre rootPre)
 	strcat(tempLine, imePredmeta);
 	fprintf(fw, "%s\n", tempLine);
 
-	//fgetc(fr); // uzima \n
 	while (!feof(fr))
 	{
-		//fscanf(fr, "%[^\n]", tempLine);
 		fgets(buff, BUFFER_LENGTH, fr);
 		sscanf(buff, "%[^\n]", tempLine);
 		strcat(tempLine, "\t\t-1");
@@ -363,7 +360,6 @@ int VisinaPre(StabloAVLPre S)
 	else if (NULL == S->D){
 		return 1 + VisinaPre(S->L);
 	}
-	// slucaj kada imamo dijete i slijeva i zdesna
 	else{
 		return Max(VisinaPre(S->L), VisinaPre(S->D)) + 1;
 	}
@@ -412,3 +408,72 @@ PozicijaAVLPre DvostrukaRDPre(PozicijaAVLPre K3)
 	return JednostrukaRDPre(K3);
 }
 
+
+int _printAVLpred(StabloAVLPre tree, int is_left, int offset, int depth, char s[20][255])
+{
+	char b[20];
+	int width = 5;
+
+	if (!tree) return 0;
+
+	sprintf(b, "(%03d)", tree->ID);
+
+	int left = _printAVLpred(tree->L, 1, offset, depth + 1, s);
+	int right = _printAVLpred(tree->D, 0, offset + left + width, depth + 1, s);
+
+#ifdef COMPACT
+	for (int i = 0; i < width; i++)
+		s[depth][offset + left + i] = b[i];
+
+	if (depth && is_left) {
+
+		for (int i = 0; i < width + right; i++)
+			s[depth - 1][offset + left + width / 2 + i] = '-';
+
+		s[depth - 1][offset + left + width / 2] = '.';
+
+	}
+	else if (depth && !is_left) {
+
+		for (int i = 0; i < left + width; i++)
+			s[depth - 1][offset - width / 2 + i] = '-';
+
+		s[depth - 1][offset + left + width / 2] = '.';
+	}
+#else
+	for (int i = 0; i < width; i++)
+		s[2 * depth][offset + left + i] = b[i];
+
+	if (depth && is_left) {
+
+		for (int i = 0; i < width + right; i++)
+			s[2 * depth - 1][offset + left + width / 2 + i] = '-';
+
+		s[2 * depth - 1][offset + left + width / 2] = '+';
+		s[2 * depth - 1][offset + left + width + right + width / 2] = '+';
+
+	}
+	else if (depth && !is_left) {
+
+		for (int i = 0; i < left + width; i++)
+			s[2 * depth - 1][offset - width / 2 + i] = '-';
+
+		s[2 * depth - 1][offset + left + width / 2] = '+';
+		s[2 * depth - 1][offset - width / 2 - 1] = '+';
+	}
+#endif
+
+	return left + width + right;
+}
+
+void printAVLpred(StabloAVLPre tree)
+{
+	char s[20][255];
+	for (int i = 0; i < 20; i++)
+		sprintf(s[i], "%80s", " ");
+
+	_printAVLpred(tree, 0, 0, 0, s);
+
+	for (int i = 0; i < 20; i++)
+		printf("%s\n", s[i]);
+}

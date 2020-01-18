@@ -4,32 +4,33 @@
 
 #include "Constants.h"
 #include "Profesori.h"
+#include "Assets.h"
 
 int IspisiSveProfesore() {
 
-	FILE* fp = NULL;		
-	char* buffer = NULL;		
+	FILE* fp = NULL;
+	char* buffer = NULL;
 	char Ime[NAME_LENGTH] = " ";
 	char Prezime[NAME_LENGTH] = " ";
 	int ID = 0;
 
-	buffer = (char*)malloc(sizeof(char) * NAME_LENGTH);	
+	buffer = (char*)malloc(sizeof(char)* NAME_LENGTH);
 	if (!buffer) return ERROR;
 
-	fp = fopen("Profesori.txt", "r");		
+	fp = fopen("Profesori.txt", "r");
 	if (!fp)  return ERROR;
 
-	while (!feof(fp)) {		
-		fgets(buffer, NAME_LENGTH, fp);		 
+	while (!feof(fp)) {
+		fgets(buffer, NAME_LENGTH, fp);
 		if (buffer[0] != '\n' && buffer[0] != '\0')
 		{
 			fscanf(fp, " %d %s %s", &ID, Ime, Prezime);
 			printf("\n\tID profesora je %d a ime profesora je %s %s", ID, Ime, Prezime);
 		}
 	}
-	fclose(fp);		
+	fclose(fp);
 
-	free(buffer);		
+	free(buffer);
 
 	return 0;
 };
@@ -81,15 +82,11 @@ int unesiProfesora(StabloAVLPro P)
 
 
 	fa = OtvoriDatoteku('a', "ProfesoriPredmeti.txt");
-	/*
-	fprintf(fa, "\n%d\t%s : %s", tempIDprofesora, imePredmeta, imeProfesora);
-	fclose(fa);
-	*/
 
 	fprintf(fa, "\n%d %s : ", tempIDprofesora, imePrezimeProfesora);
-	for ( i = 0; i < brPredmeta; i++)
+	for (i = 0; i < brPredmeta; i++)
 	{
-		if (brPredmeta != (i+1)) fprintf(fa, "%s, ", predmeti[i]);
+		if (brPredmeta != (i + 1)) fprintf(fa, "%s, ", predmeti[i]);
 		else fprintf(fa, "%s", predmeti[i]);
 	}
 
@@ -188,16 +185,9 @@ StabloAVLPro generirajAVL_Profesori(StabloAVLPro P)
 			sscanf(buff, "%[^,] %n", predmeti[i], &bytesRead);
 			buff += bytesRead + 2;
 		}
-		/*
-		while (sscanf(buff, "%[^,] %n", predmeti[i], &bytesRead)) {
-			len = strlen(predmeti[i])-1;
-			if (predmeti[i][len] == '\n') break;
-			buff += bytesRead+2;
-			i++; 
-		}
-		*/
-		len = strlen(predmeti[i-1]) - 1;
-		if (predmeti[i-1][len] == '\n') predmeti[i-1][len] = NULL;
+
+		len = strlen(predmeti[i - 1]) - 1;
+		if (predmeti[i - 1][len] == '\n') predmeti[i - 1][len] = NULL;
 
 		P = DodajAVLPro(id, imeProfesora, predmeti, P, brojPredmeta);
 	}
@@ -205,9 +195,6 @@ StabloAVLPro generirajAVL_Profesori(StabloAVLPro P)
 
 	fclose(fp);
 
-	//free(buff);
-
-	// treba vratiti root
 	return P;
 }
 
@@ -224,7 +211,6 @@ int VisinaPro(StabloAVLPro S)
 	else if (NULL == S->D) {
 		return 1 + VisinaPro(S->L);
 	}
-	// slucaj kada imamo dijete i slijeva i zdesna
 	else {
 		return Max(VisinaPro(S->L), VisinaPro(S->D)) + 1;
 	}
@@ -271,4 +257,73 @@ PozicijaAVLPro DvostrukaRDPro(PozicijaAVLPro K3)
 	K3->D = JednostrukaRLPro(K3->D);
 
 	return JednostrukaRDPro(K3);
+}
+
+int _printAVLprof(StabloAVLPro tree, int is_left, int offset, int depth, char s[20][255])
+{
+	char b[20];
+	int width = 5;
+
+	if (!tree) return 0;
+
+	sprintf(b, "(%03d)", tree->ID);
+
+	int left = _printAVLprof(tree->L, 1, offset, depth + 1, s);
+	int right = _printAVLprof(tree->D, 0, offset + left + width, depth + 1, s);
+
+#ifdef COMPACT
+	for (int i = 0; i < width; i++)
+		s[depth][offset + left + i] = b[i];
+
+	if (depth && is_left) {
+
+		for (int i = 0; i < width + right; i++)
+			s[depth - 1][offset + left + width / 2 + i] = '-';
+
+		s[depth - 1][offset + left + width / 2] = '.';
+
+	}
+	else if (depth && !is_left) {
+
+		for (int i = 0; i < left + width; i++)
+			s[depth - 1][offset - width / 2 + i] = '-';
+
+		s[depth - 1][offset + left + width / 2] = '.';
+	}
+#else
+	for (int i = 0; i < width; i++)
+		s[2 * depth][offset + left + i] = b[i];
+
+	if (depth && is_left) {
+
+		for (int i = 0; i < width + right; i++)
+			s[2 * depth - 1][offset + left + width / 2 + i] = '-';
+
+		s[2 * depth - 1][offset + left + width / 2] = '+';
+		s[2 * depth - 1][offset + left + width + right + width / 2] = '+';
+
+	}
+	else if (depth && !is_left) {
+
+		for (int i = 0; i < left + width; i++)
+			s[2 * depth - 1][offset - width / 2 + i] = '-';
+
+		s[2 * depth - 1][offset + left + width / 2] = '+';
+		s[2 * depth - 1][offset - width / 2 - 1] = '+';
+	}
+#endif
+
+	return left + width + right;
+}
+
+void printAVLprof(StabloAVLPro tree)
+{
+	char s[20][255];
+	for (int i = 0; i < 20; i++)
+		sprintf(s[i], "%80s", " ");
+
+	_printAVLprof(tree, 0, 0, 0, s);
+
+	for (int i = 0; i < 20; i++)
+		printf("%s\n", s[i]);
 }

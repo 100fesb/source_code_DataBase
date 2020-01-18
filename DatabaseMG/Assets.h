@@ -16,8 +16,6 @@ int generirajID(int MIN, int MAX);
 int nadjiIdPoImenu(char* buff, char* ime);
 int getNthItemFromString(int INDEX, char* STR);
 
-int ispisIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPro);
-int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPro, int izbor, char* TEMP_NAME_HOLDER);
 int izbrisiLinijuPoID(char* datoteka, int ID);
 
 

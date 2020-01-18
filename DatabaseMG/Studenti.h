@@ -6,8 +6,6 @@
 #define STUDENTI
 
 struct cvorAVLStudenti;
-//deklarirali pokazivace
-//typedef struct cvorAVLStudenti* PozicijaS;					//pokazivac na sljedeceg studenta
 typedef struct cvorAVLStudenti CvorAVL;
 typedef struct cvorAVLStudenti* StabloAVL;
 typedef struct cvorAVLStudenti* PozicijaAVL;
@@ -18,8 +16,9 @@ PozicijaAVL JednostrukaRL(PozicijaAVL);
 PozicijaAVL DvostrukaRL(PozicijaAVL);
 PozicijaAVL JednostrukaRD(PozicijaAVL);
 PozicijaAVL DvostrukaRD(PozicijaAVL);
+void printAVLstud(StabloAVL tree); 
+int _printAVLstud(StabloAVL tree, int is_left, int offset, int depth, char s[20][255]);
 
-//ispis
 int IspisiSveStudente();
 int IspisiSve();
 

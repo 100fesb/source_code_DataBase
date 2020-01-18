@@ -64,16 +64,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Assets.c" />
+    <ClCompile Include="Korisnik.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="Predmeti.c" />
     <ClCompile Include="Profesori.c" />
     <ClCompile Include="Studenti.c" />
-    <ClCompile Include="TEMP.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assets.h" />
-    <ClInclude Include="AVL.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Korisnik.h" />
     <ClInclude Include="Predmeti.h" />
     <ClInclude Include="Profesori.h" />
     <ClInclude Include="Studenti.h" />
