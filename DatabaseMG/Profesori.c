@@ -163,6 +163,7 @@ StabloAVLPro generirajAVL_Profesori(StabloAVLPro P)
 	char predmeti[NAME_LENGTH][NAME_LENGTH];
 	char* buff = NULL;
 	char* temp = NULL;
+
 	buff = (char*)malloc(sizeof(char)* BUFFER_LEN);
 
 	fp = OtvoriDatoteku('r', "ProfesoriPredmeti.txt");

@@ -63,13 +63,18 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 	int readBytes = 0;
 	int i = 0;
 	int tempOC = 0;
+	int tempID = 0;
 	int indentSpacing = 30;
 	int brPredmetaPrijeBrisanog = 0;
+	int tempBrPredmetaProfesora = 0;
 	char nadjeniPredIme[NAME_LENGTH] = "";
 	char tempImePredmeta[NAME_LENGTH] = "";
+	char tempImeProfesora[NAME_LENGTH] = "";
 	char tempImeStudenta[NAME_LENGTH] = "";
 	char tempStr[NAME_LENGTH] = "";
+	char tempFileLine[BUFFER_LENGTH] = "";
 	char* buff = NULL;
+	char* temp = NULL;
 
 	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
 
@@ -78,12 +83,9 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 		scanf(" %d", &trazeniID);
 		if (trazeniID == 0) break;
 
-		/*
-
 		izbrisiLinijuPoID("Predmeti.txt", trazeniID);
 		izbrisiLinijuPoID("PredmetiProfesori.txt", trazeniID);
 
-		*/
 
 		// brisanje stupca u datoteci 'StudentiPotpunaTablica.txt'
 		fr = OtvoriDatoteku('r', "StudentiPotpunaTablica.txt");
@@ -140,16 +142,72 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 		remove("StudentiPotpunaTablica.txt");
 		rename("test.txt", "StudentiPotpunaTablica.txt");
 
-
-
 		nadjeniPredmet = nadiPoIDPre(trazeniID, rootPre);
 		strcpy(nadjeniPredIme, nadjeniPredmet->ImePre);
+		
+		
+
+		fr = OtvoriDatoteku('r', "ProfesoriPredmeti.txt");
+		fw = OtvoriDatoteku('w', "test.txt");
+
+
+
+		while (!feof(fr)){
+			fgets(buff, BUFFER_LENGTH, fr);
+			temp = buff;
+
+
+			sscanf(buff, "%d %[^:] %n", &tempID, tempImeProfesora, &readBytes);
+			tempImeProfesora[strlen(tempImeProfesora) - 1] = NULL;
+			if (strcmp(tempImeProfesora, nadjeniPredmet->ImePrezimeProfesora)){
+				fprintf(fw, "%s", buff);
+				continue;
+			}
+			for (i = 0; temp[i]; temp[i] == ',' ? i++ : *temp++);
+			tempBrPredmetaProfesora = i + 1;
+
+			memmove(buff, buff + readBytes+2, BUFFER_LENGTH);
+			strcpy(tempFileLine, tempImeProfesora);
+			strcat(tempFileLine, " : ");
+			for (i = 0; i < tempBrPredmetaProfesora; i++)
+			{
+				sscanf(buff, "%[^,] %n", tempImePredmeta, &readBytes);
+				memmove(buff, buff + readBytes + 2, BUFFER_LENGTH);
+				if (tempImePredmeta[strlen(tempImePredmeta) - 1] == '\n') tempImePredmeta[strlen(tempImePredmeta) - 1] = NULL;
+				if (tempBrPredmetaProfesora == 1 && !strcmp(tempImePredmeta, nadjeniPredIme)){
+					printf("\t\tBrisete predmet %s, zadnji predmet profesora. \n\t\tZelite li dodati novi? ('ne' za prekid)\n", nadjeniPredIme);
+					strcpy(tempStr, unesiPredmet(rootPre));
+					if (!strcmp(tempStr, "ne") || !strcmp(tempStr, "kraj")) break;
+					strcat(tempFileLine, tempStr); 
+					strcat(tempFileLine, ", ");
+
+					break;
+				}
+				if (!strcmp(tempImePredmeta, nadjeniPredIme)) continue;
+				strcat(tempFileLine, tempImePredmeta);
+				strcat(tempFileLine, ", ");
+			}
+			tempFileLine[strlen(tempFileLine) - 1] = NULL;
+			tempFileLine[strlen(tempFileLine) - 1] = NULL;
+			strcat(tempFileLine, "\n");
+			if (strcmp(tempStr, "ne")){
+				fprintf(fw, "%d ", tempID);
+				fprintf(fw, "%s", tempFileLine);
+			}
+		}
+
 		rootPre = brisiAVLElementPre(rootPre, trazeniID);
 		if (nadjeniPredmet) printf("\t\tIzbrisan predmet %s.\n", nadjeniPredIme);
+		fclose(fr);
+		fclose(fw);
 
-
+		remove("ProfesoriPredmeti.txt");
+		rename("test.txt", "ProfesoriPredmeti.txt");
 
 	} while (trazeniID != 0);
+
+
+
 
 	free(buff);
 
@@ -182,7 +240,7 @@ int IspisiSvePredmete() {
 	return 0;
 };
 
-int unesiPredmet(StabloAVLPre rootPre)
+char* unesiPredmet(StabloAVLPre rootPre)
 {
 	FILE* fa = NULL;
 	FILE* fr = NULL;
@@ -205,7 +263,7 @@ int unesiPredmet(StabloAVLPre rootPre)
 	printf("\t\t-- Ime predmeta: ");
 	tempStr = readLine();
 	strcat(imePredmeta, tempStr);
-	if (!strcmp(imePredmeta, "kraj")) return END;
+	if (!strcmp(imePredmeta, "kraj") || !strcmp(imePredmeta, "ne")) return "kraj";
 	fprintf(fa, "\n%d\t%s", tempIDpredmeta, imePredmeta);
 	fclose(fa);
 
@@ -216,6 +274,7 @@ int unesiPredmet(StabloAVLPre rootPre)
 	strcat(imeProfesora, tempStr);
 	fprintf(fa, "\n%d\t%s : %s", tempIDpredmeta, imePredmeta, imeProfesora);
 	fclose(fa);
+
 
 	DodajAVLPre(tempIDpredmeta, imePredmeta, imeProfesora, rootPre);
 
@@ -254,8 +313,7 @@ int unesiPredmet(StabloAVLPre rootPre)
 	free(tempStr);
 	free(buff);
 
-
-	return SUCCESS;
+	return imePredmeta;
 }
 
 

@@ -5,4 +5,6 @@
 2048    Fizika 2 : Damir Lelas
 2049    DSS : Duje Coko
 2050    Praktikum : Spomenka Bovan
+2202    Elektronika : Duje Coko
 2100    OOP : Marjan Sikora
+2190	ele : Duje Coko
