@@ -95,6 +95,7 @@ int ispisPodIzbornika(StabloAVL rootS, StabloAVLPre rootPre, StabloAVLPro rootPr
 		case 6:
 			if (izbor == 1) brisiPoIDuStudent(rootS);
 			else if (izbor == 2) brisiPoIDuPredmet(rootPre);
+			else if (izbor == 3) brisiPoIDuProfesor(rootPro);
 			break;
 		}
 

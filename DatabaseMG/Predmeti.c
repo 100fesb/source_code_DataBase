@@ -89,7 +89,7 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 
 		// brisanje stupca u datoteci 'StudentiPotpunaTablica.txt'
 		fr = OtvoriDatoteku('r', "StudentiPotpunaTablica.txt");
-		fw = OtvoriDatoteku('w', "test.txt");
+		fw = OtvoriDatoteku('w', "temp.txt");
 
 		fgets(buff, BUFFER_LENGTH, fr); // zaglavlje
 		fprintf(fw, "%s", buff);
@@ -140,7 +140,7 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 		fclose(fw);
 
 		remove("StudentiPotpunaTablica.txt");
-		rename("test.txt", "StudentiPotpunaTablica.txt");
+		rename("temp.txt", "StudentiPotpunaTablica.txt");
 
 		nadjeniPredmet = nadiPoIDPre(trazeniID, rootPre);
 		strcpy(nadjeniPredIme, nadjeniPredmet->ImePre);
@@ -148,7 +148,7 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 		
 
 		fr = OtvoriDatoteku('r', "ProfesoriPredmeti.txt");
-		fw = OtvoriDatoteku('w', "test.txt");
+		fw = OtvoriDatoteku('w', "temp.txt");
 
 
 
@@ -202,7 +202,7 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 		fclose(fw);
 
 		remove("ProfesoriPredmeti.txt");
-		rename("test.txt", "ProfesoriPredmeti.txt");
+		rename("temp.txt", "ProfesoriPredmeti.txt");
 
 	} while (trazeniID != 0);
 

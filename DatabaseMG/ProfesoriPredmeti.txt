@@ -1,3 +1,3 @@
 3021 Ivana Baric : Matematika 1, Matematika 2, Diskretna matematika
-3011 Duje Coko : Elektronika
+3011 Duje Coko : Elektronika, DSS
 3001 Marjan Sikora : OOP, Algoritmi

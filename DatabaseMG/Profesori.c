@@ -6,6 +6,83 @@
 #include "Profesori.h"
 #include "Assets.h"
 
+int brisiPoIDuProfesor(StabloAVLPro rootPro)
+{
+	StabloAVLPre nadjeniPredmet = NULL;
+	FILE* fr = NULL;
+	FILE* fw = NULL;
+	int trazeniID = 0;
+	int ucitaniID = 0;
+	int tempBroj = 0;
+	int readBytes = 0;
+	int i = 0;
+	int tempOC = 0;
+	int tempID = 0;
+	int indentSpacing = 30;
+	int brPredmetaPrijeBrisanog = 0;
+	int tempBrPredmetaProfesora = 0;
+	char nadjeniPredIme[NAME_LENGTH] = "";
+	char tempImePredmeta[NAME_LENGTH] = "";
+	char tempImeProfesora[NAME_LENGTH] = "";
+	char tempImeStudenta[NAME_LENGTH] = "";
+	char tempStr[NAME_LENGTH] = "";
+	char tempFileLine[BUFFER_LENGTH] = "";
+	char* buff = NULL;
+	char* temp = NULL;
+
+	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+
+	do{
+		printf("\t\t-- ID profesora za brisanje (0 za kraj): ");
+		scanf(" %d", &trazeniID);
+		if (trazeniID == 0) break;
+
+		izbrisiLinijuPoID("Profesori.txt", trazeniID);
+
+		fr = OtvoriDatoteku('r', "ProfesoriPredmeti.txt");
+		fw = OtvoriDatoteku('w', "tempPro.txt");
+
+		while (!feof(fr))
+		{
+			fgets(buff, BUFFER_LENGTH, fr);
+			sscanf(buff, "%d %[^:] %n", &tempID, tempImeProfesora, &readBytes);
+			if (tempID != trazeniID){
+				fprintf(fw, "%s", buff);
+			}
+			else{
+				memmove(buff, buff + readBytes + 1, BUFFER_LENGTH);
+				if (buff[strlen(buff) - 1] == '\n') buff[strlen(buff) - 1] = NULL;
+
+				temp = buff;
+				for (i = 0; temp[i]; temp[i] == ',' ? i++ : *temp++);
+				tempBrPredmetaProfesora = i + 1;
+
+				for (i = 0; i < tempBrPredmetaProfesora; i++)
+				{
+					sscanf(buff, "%[^,] %n", tempImePredmeta, &readBytes);
+					memmove(buff, buff + readBytes + 1, BUFFER_LENGTH);
+					memmove(tempImePredmeta, tempImePredmeta + 1, NAME_LENGTH);
+					izbrisiLinijuPoImenu("PredmetiProfesori.txt", tempImePredmeta);
+					izbrisiLinijuPoImenu("Predmeti.txt", tempImePredmeta);
+				}
+			}
+		}
+		
+		fclose(fr);
+		fclose(fw);
+
+		remove("ProfesoriPredmeti.txt");
+		rename("tempPro.txt", "ProfesoriPredmeti.txt");
+
+	} while (trazeniID != 0);
+
+
+
+	free(buff);
+
+	return SUCCESS;
+}
+
 int IspisiSveProfesore() {
 
 	FILE* fp = NULL;

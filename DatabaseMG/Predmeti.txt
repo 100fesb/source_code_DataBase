@@ -4,7 +4,7 @@
 2047    Fizika 1
 2048    Fizika 2
 2049    DSS
-2202    Elektronika
 2050    Praktikum
 2100    OOP
+2202    Elektronika
 2190	ele

@@ -31,5 +31,6 @@ struct cvorAVLProfesori{
 
 PozicijaAVLPro nadiPoIDPro(int tempID, PozicijaAVLPro Root);
 int unesiProfesora(StabloAVLPro rootPro);
+int brisiPoIDuProfesor(StabloAVLPro rootPro);
 
 #endif 

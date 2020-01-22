@@ -17,6 +17,7 @@ int nadjiIdPoImenu(char* buff, char* ime);
 int getNthItemFromString(int INDEX, char* STR);
 
 int izbrisiLinijuPoID(char* datoteka, int ID);
+int izbrisiLinijuPoImenu(char* datoteka, char* trazenoIme);
 
 
 

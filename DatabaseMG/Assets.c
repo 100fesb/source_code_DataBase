@@ -11,6 +11,53 @@
 #include "Predmeti.h"
 #include "Profesori.h"
 
+int izbrisiLinijuPoImenu(char* datoteka, char* trazenoIme)
+{
+	FILE* fr = NULL;
+	FILE* fw = NULL;
+	int i = 0;
+	int tempID = 0;
+	int readBytes = 0;
+	char tempIme[NAME_LENGTH] = "";
+	char* buff = NULL;
+	char* temp = NULL;
+
+	buff = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+	temp = (char*)malloc(sizeof(char)*BUFFER_LENGTH);
+	if (!buff || !temp) return ERROR;
+
+	fr = OtvoriDatoteku('r', datoteka);
+	fw = OtvoriDatoteku('w', "temp.txt");
+
+	while (!feof(fr))
+	{
+		fgets(buff, BUFFER_LENGTH, fr);
+		temp = buff;
+		for (i = 0; temp[i]; temp[i] == ':' ? i++ : *temp++);
+		if (i == 0){
+			sscanf(buff, "%d %[^\n]", &tempID, tempIme);
+			if (!strcmp(tempIme, trazenoIme)) continue;
+			else fprintf(fw, "%s", buff);
+		}
+		else {
+			sscanf(buff, "%d %[^ :]", &tempID, tempIme);
+			if (!strcmp(tempIme, trazenoIme)) continue;
+			else fprintf(fw, "%s", buff);
+		}
+	}
+
+
+	fclose(fr);
+	fclose(fw);
+	
+	remove(datoteka);
+	rename("temp.txt", datoteka);
+	
+	free(buff);
+
+	return SUCCESS;
+}
+
 int izbrisiLinijuPoID(char* datoteka, int trazeniID)
 {
 	FILE* fr = NULL;

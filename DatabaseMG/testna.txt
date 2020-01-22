@@ -1,0 +1,3 @@
+3000 Zvonka : OOP
+1234 Zivko : KKP
+2000 Bonko 
