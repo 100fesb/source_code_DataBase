@@ -1,3 +1,5 @@
-3021 Ivana Baric : Matematika 1, Matematika 2, Diskretna matematika
+3021 Ivana Baric : Matematika 1, Matematika 2
 3011 Duje Coko : Elektronika, DSS
 3001 Marjan Sikora : OOP, Algoritmi
+3099 Spomenka Bovan : Praktikum
+3100 Damir Lelas : Fizika 1, Fizika 2

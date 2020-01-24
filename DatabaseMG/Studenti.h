@@ -19,7 +19,7 @@ PozicijaAVL DvostrukaRD(PozicijaAVL);
 void printAVLstud(StabloAVL tree); 
 int _printAVLstud(StabloAVL tree, int is_left, int offset, int depth, char s[20][255]);
 
-int IspisiSveStudente();
+int IspisiStudenta(PozicijaAVL rootS, StabloAVLPre rootPre);
 int IspisiSve();
 
 typedef struct Predmet* PozicijaP;

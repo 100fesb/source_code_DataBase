@@ -1,10 +1,6 @@
 2079	Algoritmi : Sikora M
-2044	Matematika 1 : Ivana Baric
-2046    Matematika 2 : Ivana Baric
+2044	Matematika 1 : Josipa Baric
+2046    Matematika 2 : Josipa Baric
 2047    Fizika 1 : Damir Lelas
 2048    Fizika 2 : Damir Lelas
 2049    DSS : Duje Coko
-2050    Praktikum : Spomenka Bovan
-2202    Elektronika : Duje Coko
-2100    OOP : Marjan Sikora
-2190	ele : Duje Coko

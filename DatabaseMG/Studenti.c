@@ -163,7 +163,7 @@ int unesiStudenta(StabloAVL rootS)
 	// ali u varijablama ove funkcije ne moraju biti po redu - ovisi o unosu korisnika
 	fa = OtvoriDatoteku('a', "StudentiPotpunaTablica.txt");
 
-	fprintf(fa, "\n%d\t\t\t%s", tempIDstud, imePrezime);
+	fprintf(fa, "\n%d %s", tempIDstud, imePrezime);
 
 	fr = OtvoriDatoteku('r', "Predmeti.txt");
 
@@ -179,7 +179,7 @@ int unesiStudenta(StabloAVL rootS)
 				tempOcjena = -1; // nije upisana
 			}
 		}
-		fprintf(fa, "\t\t%d", tempOcjena);
+		fprintf(fa, "\t\t\t%d", tempOcjena);
 	}
 
 	fclose(fa);
@@ -205,31 +205,36 @@ int IspisiSve() {
 	return(0);
 };
 
-int IspisiSveStudente() {
-
+int IspisiStudenta(PozicijaAVL rootS, StabloAVLPre rootPre) {
+	PozicijaP tempPredStudenta = NULL;
+	StabloAVLPre tempPredmet = NULL;
+	StabloAVL tempStudent = NULL;
 	FILE* fp = NULL;
 	char* buffer = NULL;
 	char Ime[NAME_LENGTH] = " ";
 	char Prezime[NAME_LENGTH] = " ";
 	int ID = 0;
 
-	buffer = (char*)malloc(sizeof(char)* NAME_LENGTH);
+	printf("\n\t\t~~~Ispis studenata, unesite 0 za kraj.~~~");
+	do{
+		printf("\n\n\t\t-- ID studenta: ");
+		scanf(" %d", &ID);
 
-	fp = fopen("Studenti.txt", "r");
-	if (!fp)  return ERROR;
+		tempStudent = nadiPoID(ID, rootS);
+		if (!tempStudent) continue;
 
-	while (!feof(fp)) {
-		fgets(buffer, NAME_LENGTH, fp);
-		if (buffer[0] != '\n' && buffer[0] != '\0')
-		{
-			fscanf(fp, " %d %s %s", &ID, Ime, Prezime);
-			printf("\n\tID studenta je %d a ime studenta je %s %s", ID, Ime, Prezime);
+		printf("\t\tTrazeni student s ocjenama: %s ", tempStudent->PrezimeIme);
+
+		tempPredStudenta = tempStudent->NextP;
+		while (tempPredStudenta != NULL){
+			tempPredmet = nadiPoIDPre(tempPredStudenta->ID, rootPre);
+			printf("\n\t\t\t>> %s: %d", tempPredmet->ImePre, tempPredStudenta->OC);
+			tempPredStudenta = tempPredStudenta->NextP;
 		}
-	}
-	fclose(fp);
-	free(buffer);
 
-	return 0;
+	} while (ID != 0);
+
+	return SUCCESS;
 };
 
 PozicijaAVL nadiPoID(int tempID, PozicijaAVL Root)
@@ -299,9 +304,11 @@ StabloAVL DodajAVL(int ID, char* PI, StabloAVL S, int IDeviPredmeta[BUFFER_LENGT
 			NextPredmet->ID = IDeviPredmeta[i];
 			sscanf(ocjene, "%d %n", &tempOC, &readBytes);
 			ocjene += readBytes;
-			NextPredmet->OC = tempOC;
-			NextPredmet->NextP = S->NextP;
-			S->NextP = NextPredmet;
+			if (tempOC != -1){
+				NextPredmet->OC = tempOC;
+				NextPredmet->NextP = S->NextP;
+				S->NextP = NextPredmet;
+			}
 		}
 	}
 	else

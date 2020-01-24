@@ -214,24 +214,32 @@ int brisiPoIDuPredmet(StabloAVLPre rootPre)
 	return SUCCESS;
 }
 
+int ispisiPredmet() {
+
+}
+
 int IspisiSvePredmete() {
 
 	FILE* fp = NULL;
 	char* buffer = NULL;
-	char Ime[NAME_LENGTH] = " ";
+	char imePredmeta[NAME_LENGTH] = "";
+	char imeProfesora[NAME_LENGTH] = "";
 	int ID = 0;
 
 	buffer = (char*)malloc(sizeof(char)* NAME_LENGTH);
 
-	fp = fopen("Predmeti.txt", "r");
+	fp = fopen("PredmetiProfesori.txt", "r");
 	if (!fp)  return ERROR;
 
 	while (!feof(fp)) {
 		fgets(buffer, NAME_LENGTH, fp);
 		if (buffer[0] != '\n' && buffer[0] != '\0')
 		{
-			fscanf(fp, " %d %s", &ID, Ime);
-			printf("\n\tID predmeta je %d a ime predmeta je %s", ID, Ime);
+			sscanf(buffer, "%d %[^:] %[^\n]", &ID, imePredmeta, imeProfesora);
+			imePredmeta[strlen(imePredmeta) - 1] = NULL;
+			memmove(imeProfesora, imeProfesora + 2, NAME_LENGTH);
+			if (imeProfesora[strlen(imeProfesora) - 1] == '\n') imeProfesora[strlen(imeProfesora) - 1] = NULL;;
+			printf("\n\tID: %d %s predaje %s", ID, imePredmeta, imeProfesora);
 		}
 	}
 	fclose(fp);
@@ -391,7 +399,8 @@ StabloAVLPre generirajAVL_Predmeti(StabloAVLPre P)
 		sscanf(buff, "%d %[^\n]", &id, tempStr);
 
 		strcat(tempStr, "\n");
-		sscanf(tempStr, "%[^ :] %[^\n]", imePredmeta, imeProfesora);
+		sscanf(tempStr, "%[^:] %[^\n]", imePredmeta, imeProfesora);
+		imePredmeta[strlen(imePredmeta) - 1] = NULL;
 		memmove(imeProfesora, imeProfesora + 2, strlen(imeProfesora));
 
 		P = DodajAVLPre(id, imePredmeta, imeProfesora, P);
