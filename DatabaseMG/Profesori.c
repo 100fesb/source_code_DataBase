@@ -8,25 +8,16 @@
 
 int brisiPoIDuProfesor(StabloAVLPro rootPro)
 {
-	StabloAVLPre nadjeniPredmet = NULL;
 	FILE* fr = NULL;
 	FILE* fw = NULL;
 	int trazeniID = 0;
-	int ucitaniID = 0;
-	int tempBroj = 0;
 	int readBytes = 0;
 	int i = 0;
-	int tempOC = 0;
 	int tempID = 0;
-	int indentSpacing = 30;
-	int brPredmetaPrijeBrisanog = 0;
 	int tempBrPredmetaProfesora = 0;
-	char nadjeniPredIme[NAME_LENGTH] = "";
 	char tempImePredmeta[NAME_LENGTH] = "";
 	char tempImeProfesora[NAME_LENGTH] = "";
-	char tempImeStudenta[NAME_LENGTH] = "";
 	char tempStr[NAME_LENGTH] = "";
-	char tempFileLine[BUFFER_LENGTH] = "";
 	char* buff = NULL;
 	char* temp = NULL;
 
