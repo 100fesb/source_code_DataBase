@@ -1,9 +1,241 @@
-﻿Build started 1/24/2020 4:31:45 PM.
-     1>Project "C:\Users\UserPC\Documents\Faks - 2. god\Strukture Podataka\Database - Seminarski Rad\source_code_DataBase\DatabaseMG\DatabaseMG.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         DatabaseMG.vcxproj -> C:\Users\UserPC\Documents\Faks - 2. god\Strukture Podataka\Database - Seminarski Rad\source_code_DataBase\Debug\DatabaseMG.exe
-     1>Done Building Project "C:\Users\UserPC\Documents\Faks - 2. god\Strukture Podataka\Database - Seminarski Rad\source_code_DataBase\DatabaseMG\DatabaseMG.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.07
+﻿  Assets.c
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(38,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(43,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(82,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(108,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(123,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(128,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(130,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(131,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(132,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(148,95): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(166,1): warning C4028: formal parameter 1 different from declaration
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(172,1): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1197): message : see declaration of 'fscanf'
+  Korisnik.c
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Korisnik.c(24,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Korisnik.c(73,40): warning C4047: '!=': 'char *' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Korisnik.c(54,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+  Main.c
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Main.c(20,15): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Main.c(22,36): warning C4013: 'generirajAVL_Student' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Main.c(22,49): warning C4047: '=': 'StabloAVL' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Main.c(23,37): warning C4013: 'generirajAVL_Predmeti' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Main.c(23,50): warning C4047: '=': 'StabloAVLPre' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Main.c(24,39): warning C4013: 'generirajAVL_Profesori' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Main.c(24,53): warning C4047: '=': 'StabloAVLPro' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Main.c(26,16): warning C4013: 'ispisIzbornika' undefined; assuming extern returning int
+  Predmeti.c
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(37,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(38,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(161,57): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(176,114): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(190,49): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(191,49): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(83,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(99,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(103,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(104,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(105,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(124,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(130,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(146,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(160,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(170,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(171,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(174,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(179,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(181,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(182,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(187,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(188,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(192,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(239,47): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(241,101): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(231,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(238,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(272,20): warning C4013: 'readLine' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(272,22): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(281,22): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(273,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(282,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(295,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(299,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(300,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(301,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(302,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(303,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(304,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(310,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(311,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(346,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(348,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(388,25): warning C4047: 'return': 'StabloAVLPre' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(403,46): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(380,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(382,1): warning C4047: 'initializing': 'int' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(399,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(401,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(402,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(486,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(540,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+  Profesori.c
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(45,70): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(28,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(39,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(53,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(88,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(95,1): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1197): message : see declaration of 'fscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(129,20): warning C4013: 'readLine' undefined; assuming extern returning int
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(129,22): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(140,23): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(149,64): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [64][64]'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(149,64): warning C4024: 'DodajAVLPro': different types for formal and actual parameter 3
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(130,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(141,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(143,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(179,1): warning C4028: formal parameter 3 different from declaration
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(188,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(192,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(259,64): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(228,1): warning C4047: 'initializing': 'int' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(245,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(254,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(338,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(392,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+  Studenti.c
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(63,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(71,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(126,116): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(129,37): warning C4133: 'function': incompatible types - from 'FILE *' to 'char *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(103,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(105,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(107,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(108,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(141,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(144,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(145,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(146,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(172,1): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1197): message : see declaration of 'fscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(196,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(221,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(258,1): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1274): message : see declaration of 'scanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(296,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(305,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(377,36): warning C4047: 'return': 'StabloAVL' differs in levels of indirection from 'int'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(353,1): warning C4047: 'initializing': 'int' differs in levels of indirection from 'void *'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(382,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(387,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(394,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(395,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(396,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(407,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(408,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(409,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(429,1): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(2263): message : see declaration of 'sscanf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(430,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(431,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): message : see declaration of 'strcat'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(514,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(568,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+  Generating Code...
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Studenti.c(247): warning C4715: 'nadiPoID': not all control paths return a value
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Profesori.c(175): warning C4715: 'nadiPoIDPro': not all control paths return a value
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(219): warning C4716: 'ispisiPredmet': must return a value
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(335): warning C4715: 'nadiPoIDPre': not all control paths return a value
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Predmeti.c(324): warning C4172: returning address of local variable or temporary: imePredmeta
+C:\Users\Korisnik\Desktop\source_code_DataBase\DatabaseMG\Assets.c(150): warning C4172: returning address of local variable or temporary: placeholder
+  DatabaseMG.vcxproj -> C:\Users\Korisnik\Desktop\source_code_DataBase\Debug\DatabaseMG.exe
